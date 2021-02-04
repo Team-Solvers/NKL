@@ -23,6 +23,28 @@ export function addSomeUsers(){
             full_name : user.fullName,
             age : user.age
         },user.userName)
-    })    
+    }) 
+    
+    let credentials = [
+        {
+            userName : "kidcore",
+            password : "12345"
+        },
+        {
+            userName : "natyman12",
+            password : "123123"
+        },
+        {
+            userName : "lingeman69",
+            password : "12345"
+        }
+    ];
+
+    credentials.forEach(cred => {
+        db.collection('credentials').add({                        
+            password : cred.password
+        },cred.userName)
+    })
 }
+
 

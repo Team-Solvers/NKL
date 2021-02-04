@@ -39,7 +39,7 @@
             <div class="grid-col2 ">
                 <div class="top-right">
 
-                   Do not have an account?
+                    Do not have an account?
                     <a href="#" data-toggle="modal" data-target="#signUpModal" class="btn-link sign-up">Sign
                         Up</a>
                     <!-- Modal -->
@@ -59,7 +59,7 @@
                                             For the purpose of industry regulation, your details are required.
                                         </p>
                                     </div>
-                                    <form action="">
+                                    <form class="sign-in-form" action="">
                                         <div class="input-container">
                                             <i class="fas fa-user form-icon"></i>
                                             <input class="sign__form-firstName" type="text" placeholder="First Name">
@@ -90,31 +90,38 @@
                     </div>
 
                 </div>
-
-                <div class="login__form">
-                    <div class="login__form-head">
-                        <h2>Complete Your Profile!</h2>
-                        <p class="login__form-info">
-                            For the purpose of industry regulation, your details are required.
-                        </p>
-                    </div>
-                    <input class="login__form-email mt-5" type="text" placeholder="Email or Phone number">
-                    <input class="login__form-password mb-5" type="text" placeholder="Password">
-                    <a href="" class="mt-5 btn btn-block btn-primary">Sign in</a>
+                <div>
+                    <form class="login__form">
+                        <div class="login__form-head">
+                            <h2>Complete Your Profile!</h2>
+                            <p class="login__form-info">
+                                For the purpose of industry regulation, your details are required.
+                            </p>
+                        </div>
+                        <input class="login__form-email mt-5" type="text" placeholder="Email or Phone number">
+                        <input class="login__form-password mb-5" type="text" placeholder="Password">
+                        <div class="validation__feedback"></div>
+                        <button type="submit" href="" class="mt-5 btn btn-block btn-primary">Sign in</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
 
-
+    <!-- min-version -->
+    <!-- <script src="https://unpkg.com/localbase/dist/localbase.min.js"></script>  -->
+    <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+
+    <script type="module" src="./assets/js/eventListeners/home_page_form.js"></script>
     <script src="./assets/js/home.js"></script>
 
 </body>

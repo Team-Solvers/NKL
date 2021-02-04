@@ -152,3 +152,9 @@ body {
     top: 14px;
     left: 10px;
 }
+
+
+/* validation feedback */
+.validation__feedback{
+    color: green;    
+}
