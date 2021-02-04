@@ -39,9 +39,55 @@
             <div class="grid-col2 ">
                 <div class="top-right">
 
-                    Already have an account?
-                    <a href="#" data-toggle="modal"class="btn-link sign-up">Sign
-                        In</a>
+                   Do not have an account?
+                    <a href="#" data-toggle="modal" data-target="#exampleModalCenter" class="btn-link sign-up">Sign
+                        Up</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="login__form-head">
+                                        <p class="login__form-info">
+                                            For the purpose of industry regulation, your details are required.
+                                        </p>
+                                    </div>
+                                    <form action="">
+                                        <div class="input-container">
+                                            <i class="fas fa-user form-icon"></i>
+                                            <input class="sign__form-firstName" type="text" placeholder="First Name">
+                                        </div>
+                                        <div class="input-container">
+                                            <i class="fas fa-user form-icon"></i>
+                                            <input class="sign__form-lastName" type="text" placeholder="Last Name">
+                                        </div>
+                                        <div class="input-container">
+                                            <i class="fas fa-envelope-open-text form-icon"></i>
+                                            <input class="sign__form-email" type="email" placeholder="Email">
+                                        </div>
+                                        <div class="input-container">
+                                            <i class="fas fa-key form-icon"></i>
+                                            <input class="sign__form-signPassword " type="password"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="input-container">
+                                            <i class="fas fa-key form-icon"></i>
+                                            <input class="sign__form-confirmPassword " type="password"
+                                                placeholder="confirm password">
+                                        </div>
+                                        <a href="" type="submit" class="mt-5 btn btn-block btn-dark">Sign up</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
