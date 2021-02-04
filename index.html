@@ -1,14 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/css/home.css">
+
     <!-- do not forget the favicon -->
-    
+
 </head>
+
 <body>
-    
+
+
+    <div class="wrapper">
+
+        <div class="grid-container">
+            <div class="grid-col1">
+                <div class="quote">
+                    <div class="before"></div>
+                    <p>
+                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
+                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
+                        software.
+                    </p>
+                    <div class="after"></div>
+                </div>
+            </div>
+            <div class="grid-col2 ">
+                <div class="top-right">
+
+                   Do not have an account?
+                    <a href="#" data-toggle="modal" data-target="#exampleModalCenter" class="btn-link sign-up">Sign
+                        Up</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="login__form-head">
+                                        <p class="login__form-info">
+                                            For the purpose of industry regulation, your details are required.
+                                        </p>
+                                    </div>
+                                    <form action="">
+                                        <div class="input-container">
+                                            <i class="fas fa-user form-icon"></i>
+                                            <input class="sign__form-firstName" type="text" placeholder="First Name">
+                                        </div>
+                                        <div class="input-container">
+                                            <i class="fas fa-user form-icon"></i>
+                                            <input class="sign__form-lastName" type="text" placeholder="Last Name">
+                                        </div>
+                                        <div class="input-container">
+                                            <i class="fas fa-envelope-open-text form-icon"></i>
+                                            <input class="sign__form-email" type="email" placeholder="Email">
+                                        </div>
+                                        <div class="input-container">
+                                            <i class="fas fa-key form-icon"></i>
+                                            <input class="sign__form-signPassword " type="password"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="input-container">
+                                            <i class="fas fa-key form-icon"></i>
+                                            <input class="sign__form-confirmPassword " type="password"
+                                                placeholder="confirm password">
+                                        </div>
+                                        <a href="" type="submit" class="mt-5 btn btn-block btn-dark">Sign up</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="login__form">
+                    <div class="login__form-head">
+                        <h2>Complete Your Profile!</h2>
+                        <p class="login__form-info">
+                            For the purpose of industry regulation, your details are required.
+                        </p>
+                    </div>
+                    <input class="login__form-email mt-5" type="text" placeholder="Email or Phone number">
+                    <input class="login__form-password mb-5" type="text" placeholder="Password">
+                    <a href="" class="mt-5 btn btn-block btn-primary">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/home.js"></script>
+
 </body>
+
 </html>
