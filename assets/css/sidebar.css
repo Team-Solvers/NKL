@@ -1,0 +1,85 @@
+.sidebar-content {
+    list-style-type: none;
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.sidebar-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    list-style-type: none;
+}
+
+.sidebar-link-icon {
+    color: rgb(132, 133, 132);
+    font-size: 1.5rem;
+}
+
+.sidebar-content li {
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.shrink {
+    color: rgb(132, 133, 132);
+    font-size: 1.5rem;
+}
+.story-avatar {
+    width: fit-content;
+}
+
+.story-avatar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.story-avatar img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.add-story {
+    border-radius: 50%;
+    align-items: center;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: pointer;
+    color: white;
+
+}
+
+.top {
+    position: absolute;
+    top: 50%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(187.16deg, rgba(121, 82, 234, 0.53) 19.59%, rgba(196, 196, 196, 0) 94.42%);
+    border-radius: 50%;
+
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: pointer;
+}
+.add-story i {
+    transition: all .3s;
+
+}
+.add-story i:hover {
+    transform: rotate(360deg);
+    transition: all .3s;
+}
