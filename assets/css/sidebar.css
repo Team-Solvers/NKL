@@ -1,85 +1,107 @@
+.sidebar {
+  /* padding-top: 100px; */
+  border-right: solid 1px blue;
+  height: 100vh;
+  width: 57px;
+  overflow: hidden;
+  text-overflow: clip;
+  background-color: #f3f2fa;
+  white-space: nowrap;
+  transition: width 0.2s;
+  z-index: 3;
+  position: fixed;
+  /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25); */
+}
+
+.asd {
+  transform: rotate(180deg);
+  transition: all 0.2s;
+}
+
 .sidebar-content {
-    list-style-type: none;
-    font-size: 1.2rem;
-    padding: 0;
+  list-style-type: none;
+  font-size: 1.2rem;
+  padding: 0;
 }
 
 .sidebar-wrapper {
-    position: relative;
-    height: 100%;
-    width: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .sidebar-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    list-style-type: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  list-style-type: none;
 }
 
 .sidebar-link-icon {
-    color: rgb(132, 133, 132);
-    font-size: 1.5rem;
+  color: rgb(132, 133, 132);
+  font-size: 1.5rem;
 }
 
 .sidebar-content li {
-    padding: 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 300;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .shrink {
-    color: rgb(132, 133, 132);
-    font-size: 1.5rem;
+  color: rgb(132, 133, 132);
+  font-size: 1.5rem;
 }
 .story-avatar {
-    width: fit-content;
+  width: fit-content;
 }
 
 .story-avatar {
-    display: flex;
-    align-items: center;
-    position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .story-avatar img {
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .add-story {
-    border-radius: 50%;
-    align-items: center;
-    font-size: 2rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    cursor: pointer;
-    color: white;
-
+  border-radius: 50%;
+  align-items: center;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  cursor: pointer;
+  color: white;
 }
 
 .top {
-    position: absolute;
-    top: 50%;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(187.16deg, rgba(121, 82, 234, 0.53) 19.59%, rgba(196, 196, 196, 0) 94.42%);
-    border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    187.16deg,
+    rgba(121, 82, 234, 0.53) 19.59%,
+    rgba(196, 196, 196, 0) 94.42%
+  );
+  border-radius: 50%;
 
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    cursor: pointer;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  cursor: pointer;
 }
 .add-story i {
-    transition: all .3s;
-
+  transition: all 0.3s;
 }
 .add-story i:hover {
-    transform: rotate(360deg);
-    transition: all .3s;
+  transform: rotate(360deg);
+  transition: all 0.3s;
 }
