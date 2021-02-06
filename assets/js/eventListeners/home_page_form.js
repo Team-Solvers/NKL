@@ -8,9 +8,7 @@ const validationFeedbackText = document.querySelector(".validation__feedback");
 logInForm.addEventListener('submit',authenticateUser);
 
 async function authenticateUser(e){
-    e.preventDefault();
-    // console.log(`Email - ${logInFormEmailInput.value}`);
-    // console.log(`Password - ${logInFormPasswordInput.value}`);
+    e.preventDefault();    
     let invalidValidationText = "Invalid username or password";
     let validationFeedback = await logIn(logInFormEmailInput.value,logInFormPasswordInput.value);
 

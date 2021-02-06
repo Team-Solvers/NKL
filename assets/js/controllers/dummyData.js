@@ -4,39 +4,41 @@ export function addSomeUsers(){
         {
             userName : "kidcore",
             fullName: 'Kidus Yoseph',
-            age : 21
+            email : "se.kidus.yoseph@gmail.com",            
         },
         {
             userName : "natyman12",
             fullName: 'Natnael Abay',
-            age : 21
+            email : "se.natnael.abay@gmail.com"
         },
         {
             userName : "lingeman69",
             fullName: 'Lingerew Man',
-            age : 21
+            email : "se.lingerew.man@gmail.com"
         }
     ];
 
     usersList.forEach((user) => {        
         db.collection('users').add({            
-            full_name : user.fullName,
-            age : user.age
+            full_name : user.fullName,      
+            email : user.email
         },user.userName)
     }) 
     
     let credentials = [
         {
             userName : "kidcore",
-            password : "12345"
+            password : "12345"            
         },
         {
             userName : "natyman12",
-            password : "123123"
+            password : "123123",
+            email : "se.natnael.abay@gmail.com"
         },
         {
             userName : "lingeman69",
-            password : "12345"
+            password : "12345",
+            email : "se.lingerew.man@gmail.com"
         }
     ];
 

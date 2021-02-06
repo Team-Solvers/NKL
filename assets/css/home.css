@@ -124,7 +124,7 @@ body {
     cursor: pointer;
 }
 
-.sign__form-firstName, .sign__form-lastName, .sign__form-email, .sign__form-signPassword, .sign__form-confirmPassword {
+.sign__form-firstName,.sign__form-userName, .sign__form-lastName, .sign__form-email, .sign__form-signPassword, .sign__form-confirmPassword {
     padding: 10px;
     margin: 0 auto;
     margin-bottom: 1rem;
@@ -153,8 +153,11 @@ body {
     left: 10px;
 }
 
-
 /* validation feedback */
 .validation__feedback{
     color: green;    
+}
+
+.validation__firstName, .validation__password{
+    color: red;
 }
