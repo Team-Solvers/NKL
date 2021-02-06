@@ -1,6 +1,9 @@
 import {addUserToDB} from "../controllers/signUp.js";
 
-const email = document.querySelector(".sign__form-userName");
+const userNameInput = document.querySelector(".sign__form-userName");
+const userNameValidation = document.querySelector(".validation__firstName");
+
+const emailInput = document.querySelector(".sign__form-email")
 
 const fullName = document.querySelector(".sign__form-firstName");
 const fullNameValidationFeedbackText = document.querySelector(".validation__firstName");
@@ -11,8 +14,7 @@ const passwordValidationFeedbackText = document.querySelector(".validation__pass
 
 signUpButton.addEventListener("click",addUser);
 
-async function addUser(e){
-    console.log("user add!");
+async function addUser(e){    
     if(fullName.value.length === 0 || password.value.length === 0){
         if(fullName.value.length === 0){
             fullNameValidationFeedbackText.innerText = "Name can't be empty";
@@ -30,9 +32,16 @@ async function addUser(e){
         return;
     }
     else{
-        await addUserToDB(email.innerText,fullNameValidationFeedbackText.innerText,passwordValidationFeedbackText.innerText);
-        fullNameValidationFeedbackText.innerText = "";
-        passwordValidationFeedbackText.innerText = "";        
+        let userAddCheck = await addUserToDB(userNameInput.value,fullName.value,emailInput.value,password.value);
+        let userNameTakenError = "username taken";
+        if(userAddCheck === userNameTakenError){
+            userNameValidation.innerText = "username taken";
+        }
+        else{
+            //user added to database push to next page
+            fullNameValidationFeedbackText.innerText = "";
+            passwordValidationFeedbackText.innerText = "";        
+        }        
     }    
 }
 

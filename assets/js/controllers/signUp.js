@@ -1,13 +1,18 @@
-export async function addUserToDB(etUserName){
+export async function addUserToDB(etUserName,fullName,email,password){
     let db = new Localbase('Poetry');
-    console.log(etUserName + "username/")
-    // let userStore = await db.collection('users');
-    // let userNameCheck = await db.collection('users').doc(`${etUserName}`).get();
-    // console.log(userNameCheck);    
-    // db.collection('users').doc(`kidcorb`).get().then(document => {
-    //     console.log(document)
-    //   }) 
-    
-    
+    let validUser = await db.collection('users').doc(etUserName).get();
+    if(validUser !== null){
+        return "username taken";
+    }    
 
+    await db.collection('users').add({                    
+        full_name : fullName,      
+        email : email
+    },etUserName);
+
+    await db.collection('credentials').add({                            
+        password : password
+    },etUserName);
+
+    return "user added";
 }

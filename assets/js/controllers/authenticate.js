@@ -1,6 +1,5 @@
 export async function logIn(username,password){
-    let db = new Localbase('Poetry');
-    console.log(username,password);
+    let db = new Localbase('Poetry');    
     let validUser = await db.collection('credentials').doc(username).get();
     let validUserPassword = undefined;
     let invalidValidationText = "Invalid username or password";

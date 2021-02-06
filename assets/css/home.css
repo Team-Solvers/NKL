@@ -158,6 +158,6 @@ body {
     color: green;    
 }
 
-.validation__firstName, .validation__password{
+.validation__firstName, .validation__password, .validation__userName{
     color: red;
 }
