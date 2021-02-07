@@ -3,6 +3,9 @@
 // 'user strict'
 import {addSomeUsers} from "./controllers/dummyData.js";
 import {loadDB} from "./controllers/loadDatabase.js";
+import {getPost} from "./controllers/getPost.js";
 
 loadDB();
-// addSomeUsers();
+getPost();
+addSomeUsers();
+

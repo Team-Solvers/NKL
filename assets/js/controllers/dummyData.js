@@ -47,6 +47,38 @@ export function addSomeUsers(){
             password : cred.password
         },cred.userName)
     })
+
+    //add title to posts next time
+    let posts = [
+        {
+            content: "Post 1",
+            user_id: "kidcore",
+            post_time: Date.now()
+        },
+        {
+            content: "Post 2",
+            user_id: "kidcore",
+            post_time: Date.now()
+        },
+        {
+            content: "Post 3",
+            user_id: "kidcore",
+            post_time: Date.now()
+        },
+        {
+            content: "Post 4",
+            user_id: "natyman12",
+            post_time: Date.now()
+        }
+    ];
+
+    // posts.forEach(post => {        
+    //     db.collection('posts').add({                        
+    //         content : post.content,
+    //         user_id : post.user_id,
+    //         post_time : post.post_time
+    //     });
+    // });
 }
 
 
