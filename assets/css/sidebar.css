@@ -5,16 +5,17 @@
   width: 57px;
   overflow: hidden;
   text-overflow: clip;
-  background-color: #f3f2fa;
+  /* background-color: #f3f2fa; */
   white-space: nowrap;
   transition: width 0.2s;
   z-index: 3;
   position: fixed;
+  background-color: #FFFFFA;
   /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25); */
 }
 .right-sidebar {
     height: 100vh;
-    width: 450px;
+    width: 30vh;
     position: fixed;
     top: 0;
     
@@ -114,4 +115,8 @@
 .add-story i:hover {
   transform: rotate(360deg);
   transition: all 0.3s;
+}
+.page-wrapper {
+  /* margin-right: 450px; */
+  transition: .3s all ease ;
 }

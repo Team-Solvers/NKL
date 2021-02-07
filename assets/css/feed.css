@@ -11,7 +11,7 @@ body {
     height: 6rem;
     margin: 0 auto;
     margin-left: 57px;
-    width: calc(100% - 57px - 250px);
+    width: calc(100% - 57px - 25vh);
     border-bottom: solid 1px blue;
     background-color: #FFFFFA;
     /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25); */
@@ -24,6 +24,7 @@ body {
     width: 100%;
     border-radius: 5px;
 }
+
 .add-post .top-section {
     height: 40px;
     width: 100%;
@@ -32,6 +33,7 @@ body {
     position: relative;
     background-color: #EFE6E6;
 }
+
 .post {
     height: calc(100% - 40px);
     width: 100%;
@@ -46,10 +48,12 @@ body {
     border-bottom: 1px solid black;
     transition: all .2s;
 }
- .post:focus{
+
+.post:focus {
     height: 400px;
     transition: .2s all;
 }
+
 .add-post-text {
     font-size: 2rem;
     position: absolute;
@@ -61,18 +65,127 @@ body {
     border-radius: 50%;
     transition: .3s;
     cursor: pointer;
-
-    
 }
+
 .add-post-text:hover {
     /* background-color: red; */
     font-size: 2.3rem;
     transition: all .2s;
 }
-.post-heading{
+
+.post-heading {
     font-size: 1.2rem;
     margin: 0 auto;
     margin-left: 1rem;
     margin-top: .51rem;
     font-weight: 400;
 }
+
+.main-content {
+    margin-right: 30vh;
+}
+
+.post-card {
+    height: 10rem;
+    width: 100%;
+    margin-top: 3rem;
+    background-color: red;
+}
+
+.feed-avatar {
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 50%;
+}
+
+.sidebar-avatar-name {
+    font-size: 0;
+    margin-top: 1rem;
+} 
+
+.posts-wrapper {}
+
+.suggestion-header {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.suggestion-avatar {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
+
+.suggestion-card {
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2.4rem;
+    display: flex;
+    /* border-top: 1    px solid black; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.123);
+    justify-content: space-between;
+}
+
+.suggestion-name {
+    font-size: .9rem;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+.suggestion-btn a {
+    font-size: .8rem;
+    padding: .5rem;
+    background-color: rgb(84, 84, 212);
+    color: white;
+    text-decoration: none;
+    /* outline: none; */
+    transition: .2s all;
+    /* text-decoration: none; */
+}
+
+.suggestion-btn a:hover {
+    background-color: rgba(0, 0, 255, 0.692);
+    transition: .2s all;
+}
+
+.suggestion-card:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all.2s;
+}
+.suggestion-card-below {
+    margin: 0;
+    transition: all.2s;
+    border-top: 0;
+}
+
+
+.catagorey-section
+{
+    margin-top: 3rem;
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: left;
+}
+
+.filter-content {
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    
+}
+.filter-item {
+    width: 100%;
+    padding: 1rem;
+    color:black;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.filter-item:hover {
+    color: rgb(146, 98, 98) ;
+    text-decoration: none;
+    outline: none;
+    transition: .3s all;
+}
+
