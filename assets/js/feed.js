@@ -1,4 +1,4 @@
-AOS.init();
+// AOS.init();
 const sidebar = document.querySelector('.sidebar')
 let _sidebarEnlarged = true
 const sidebarLink = document.querySelectorAll('.sidebar-links')
