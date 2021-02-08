@@ -15,7 +15,7 @@ loadDB();
 // addSomeUsers();
 // followOtherUser('natyman12','lingeman69');
 // likePost("11eb6a2f2c1da6c08d823ffa44a56a76","kidcore");
-getFollowFeed("natyman12");
+// getFollowFeed("natyman12");
 
 
 
