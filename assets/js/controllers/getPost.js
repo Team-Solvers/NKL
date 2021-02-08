@@ -3,10 +3,10 @@ export async function getPost(){
 
     //to be changed to following from db
     //create a user that follows everyone to add every post not seen on
-    let friends = ['natyman12']
+    let friends = ['kidcore']
 
     let allPostsDict = new Map();
-    let allPosts = []
+    let allPosts = [];
     let feed = [];
     
 
@@ -29,6 +29,12 @@ export async function getPost(){
             friendPosts.forEach(friendPost => {
                 feed.push(friendPost);
             })
+        }
+    })
+
+    allPosts.forEach(post => {
+        if(allPosts.indexOf(post) == -1){
+            feed.push(post);
         }
     })
 

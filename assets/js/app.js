@@ -8,7 +8,7 @@ import {followOtherUser} from "./controllers/follow.js";
 
 
 loadDB();
-// getPost();
+getPost();
 // addSomeUsers();
-followOtherUser('natyman12','lingeman69');
+// followOtherUser('natyman12','lingeman69');
 
