@@ -14,5 +14,9 @@ export async function addUserToDB(etUserName,fullName,email,password){
         password : password
     },etUserName);
 
+    db.collection('following').add({                        
+        follows : []
+    },etUserName);
+
     return "user added";
 }

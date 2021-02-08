@@ -1,38 +1,38 @@
-const FeedCard = document.createElement("div")
-const FeedAvatar = document.createElement("div")
-const FeedProfileInfo = document.createElement("div")
-const FeedProfileName = document.createElement("p")
-const FeedProfileDate = document.createElement("p")
-const FeedContentContainer = document.createElement("div")
-const FeedTittle = document.createElement("p")
-const FeedContent = document.createElement("p")
-const FeedCardBottom = document.createElement("div")
-const FeedBottomLeft = document.createElement("div")
-const FeedDate = document.createElement("p")
-const FeedLikeLabel = document.createElement("label")
-const FeedAvatarImage = document.createElement("img")
-const FeedBottomRight = document.createElement("div")
-const feedLikeCount = document.createElement("p")
-const LikeCheckBox = document.createElement("input")
-LikeCheckBox.setAttribute("type", "Checkbox")
 // LikeCheckBox.setAttribute("id", "like")
 
-/**
- * 
- * @param {image URl} imgUrl 
- * @param {User's Name} name 
- * @param {Date of Post} Postdate 
- * @param {postTitle} postTitle 
- * @param {postContent} postContent 
- * @param {likeCount} likeCount 
- */
-function getPostCard(imgUrl, name, Postdate, postTitle, postContent, likeCount) {
+// /**
+//  * 
+//  * @param {image URl} imgUrl 
+//  * @param {User's Name} name 
+//  * @param {Date of Post} Postdate 
+//  * @param {postTitle} postTitle 
+//  * @param {postContent} postContent 
+//  * @param {likeCount} likeCount 
+//  */
+function getPostCard(imgUrl, name, Postdate, postTitle, postContent, likeCount){
+    const FeedCard = document.createElement("div")
+    const FeedAvatar = document.createElement("div")
+    const FeedProfileInfo = document.createElement("div")
+    const FeedProfileName = document.createElement("p")
+    const FeedProfileDate = document.createElement("p")
+    const FeedContentContainer = document.createElement("div")
+    const FeedTittle = document.createElement("p")
+    const FeedContent = document.createElement("p")
+    const FeedCardBottom = document.createElement("div")
+    const FeedBottomLeft = document.createElement("div")
+    const FeedDate = document.createElement("p")
+    const FeedLikeLabel = document.createElement("label")
+    const FeedAvatarImage = document.createElement("img")
+    const FeedBottomRight = document.createElement("div")
+    const feedLikeCount = document.createElement("p")
+    const LikeCheckBox = document.createElement("input")
+    LikeCheckBox.setAttribute("type", "Checkbox")
+
     const userName = document.createTextNode(name)
     const date = document.createTextNode(Postdate)
     const title = document.createTextNode(postTitle)
     const content = document.createTextNode(postContent)
     const like = document.createTextNode(likeCount)
-
 
 
     FeedAvatarImage.src = imgUrl
@@ -86,5 +86,4 @@ function getPostCard(imgUrl, name, Postdate, postTitle, postContent, likeCount) 
     console.log(FeedCard);
 
     return FeedCard
-
 }

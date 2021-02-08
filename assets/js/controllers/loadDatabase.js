@@ -15,6 +15,7 @@ export function loadDB(){
     //user logging in first time
     db.onupgradeneeded = function(e){    
         let database =  e.target.result;
+        // await addSomeUsers();
         // let userObjectStore = database.createObjectStore("users", { keyPath : "user_name"}); 
         // let passwordObjectStore = database.createObjectStore("credentials");//, { keyPath : "user_id"});
         // database.close();  

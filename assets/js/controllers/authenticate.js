@@ -11,7 +11,8 @@ export async function logIn(username,password){
     if(validUserPassword === password){
         let validUserInfo = await db.collection('users').doc(username).get();
         return `Welcome ${validUserInfo.full_name}`
-    }
+    }    
+
     else{
         return invalidValidationText;
     }                   
