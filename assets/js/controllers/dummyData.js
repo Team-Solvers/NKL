@@ -53,38 +53,32 @@ export function addSomeUsers(){
         {
             content: "Post 1",
             user_id: "kidcore",
-            post_time: Date.now(),
-            like_count : 0
+            post_time: Date.now(),            
         },
         {
-            content: "Post 2",
+            content: " Post 3",
             user_id: "kidcore",
-            post_time: Date.now(),
-            like_count : 0
+            post_time: Date.now(),            
         },
         {
             content: "Post 3",
             user_id: "kidcore",
-            post_time: Date.now(),
-            like_count : 0
+            post_time: Date.now(),            
         },
         {
             content: "Post 7",
             user_id: "lingeman69",
-            post_time: Date.now(),
-            like_count : 0
+            post_time: Date.now(),            
         },
         {
             content: "Post 4",
             user_id: "natyman12",
-            post_time: Date.now(),
-            like_count : 0
+            post_time: Date.now(),            
         },
         {
             content: "Post 5",
             user_id: "lingeman69",
-            post_time: Date.now(),
-            like_count : 0
+            post_time: Date.now(),            
         }
     ];
 
@@ -108,7 +102,7 @@ export function addSomeUsers(){
         db.collection('following').add({                        
             follows : user.follows
         },user.user_name)
-    })
+    })    
 
 }
 

@@ -39,4 +39,5 @@ export async function getPost(){
     })
 
     console.log(feed);
+    return feed
 }
