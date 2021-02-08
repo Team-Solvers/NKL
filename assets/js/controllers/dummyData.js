@@ -82,14 +82,14 @@ export function addSomeUsers(){
         }
     ];
 
-    // posts.forEach(post => {        
-    //     db.collection('posts').add({                        
-    //         content : post.content,
-    //         user_id : post.user_id,
-    //         post_time : post.post_time,
-    //         like_count : post.like_count
-    //     });
-    // });
+    posts.forEach(post => {        
+        db.collection('posts').add({                        
+            content : post.content,
+            user_id : post.user_id,
+            post_time : post.post_time,
+            like_count : post.like_count
+        });
+    });
 
     let followsArr = [
         {

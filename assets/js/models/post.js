@@ -1,5 +1,5 @@
-function Post(post_id,content,author,date,like_count){
-    this.post_id = post_id;
+function Post(title,content,author,date,like_count){
+    this.post_title = title    
     this.content = content;
     this.author = author;
     this.date = date;
