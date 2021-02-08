@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -20,94 +17,48 @@
 </head>
 
 <body>
+    <div class="blur-background"></div>
 
-
-    <div class="wrapper">
-
-        <div class="grid-container">
-            <div class="grid-col1">
-                <div class="quote">
-                    <div class="before"></div>
-                    <p>
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software.
-                    </p>
-                    <div class="after"></div>
-                </div>
-            </div>
-            <div class="grid-col2 ">
-                <div class="top-right">
-
-                   Do not have an account?
-                    <a href="#" data-toggle="modal" data-target="#exampleModalCenter" class="btn-link sign-up">Sign
-                        Up</a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+    <div class="wrapper-top pt-5  d-block">
+        <h2 class="text-left ">Poet</h2>
+    </div>
+    <div class="container-fluid ">
+        <div class="wrapper">
+            <div class="left-side">
+                <div class="login-wrapper w-75">
+                    <!-- <h3 class="heading">ሰንኝ</h3> -->
+                    <div class="col-lg-12 login-form">
+                        <p class="login-text text-center">Login</p>
+                        <div class="col-lg-12 login-form">
+                            <form>
+                                <div class="form-wrapper">
+                                    <!-- <label class="form-control-label">USERNAME</label> -->
+                                    <i class="fa fa-user icon"></i>
+                                    <input type="email" class="form-control" placeholder="Email">
                                 </div>
-                                <div class="modal-body">
-                                    <div class="login__form-head">
-                                        <p class="login__form-info">
-                                            For the purpose of industry regulation, your details are required.
-                                        </p>
-                                    </div>
-                                    <form action="">
-                                        <div class="input-container">
-                                            <i class="fas fa-user form-icon"></i>
-                                            <input class="sign__form-firstName" type="text" placeholder="First Name">
-                                        </div>
-                                        <div class="input-container">
-                                            <i class="fas fa-user form-icon"></i>
-                                            <input class="sign__form-lastName" type="text" placeholder="Last Name">
-                                        </div>
-                                        <div class="input-container">
-                                            <i class="fas fa-envelope-open-text form-icon"></i>
-                                            <input class="sign__form-email" type="email" placeholder="Email">
-                                        </div>
-                                        <div class="input-container">
-                                            <i class="fas fa-key form-icon"></i>
-                                            <input class="sign__form-signPassword " type="password"
-                                                placeholder="Password">
-                                        </div>
-                                        <div class="input-container">
-                                            <i class="fas fa-key form-icon"></i>
-                                            <input class="sign__form-confirmPassword " type="password"
-                                                placeholder="confirm password">
-                                        </div>
-                                        <a href="" type="submit" class="mt-5 btn btn-block btn-dark">Sign up</a>
-                                    </form>
+                                <div class="form-wrapper mt-4">
+                                    <!-- <label class="form-control-label">PASSWORD</label> -->
+                                    <i class="fa fa-lock icon"></i>
+                                    <input type="password" class="form-control" placeholder="Password">
                                 </div>
-                            </div>
+
+                                <div class="mt-5 text-center">
+                                    <a href="#" class="login-btn">Login</a>
+                                </div>
+                                <div class="mt-5 text-center sign-up">
+                                    Don't have an account?<a data-toggle="modal" data-target="#signUpModal"
+                                        href="#">Sign up</a>
+                                </div>
+
+                            </form>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="login__form">
-                    <div class="login__form-head">
-                        <h2>Complete Your Profile!</h2>
-                        <p class="login__form-info">
-                            For the purpose of industry regulation, your details are required.
-                        </p>
-                    </div>
-                    <input class="login__form-email mt-5" type="text" placeholder="Email or Phone number">
-                    <input class="login__form-password mb-5" type="text" placeholder="Password">
-                    <a href="" class="mt-5 btn btn-block btn-primary">Sign in</a>
-                </div>
             </div>
+            
         </div>
     </div>
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
