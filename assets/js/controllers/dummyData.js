@@ -53,22 +53,38 @@ export function addSomeUsers(){
         {
             content: "Post 1",
             user_id: "kidcore",
-            post_time: Date.now()
+            post_time: Date.now(),
+            like_count : 0
         },
         {
             content: "Post 2",
             user_id: "kidcore",
-            post_time: Date.now()
+            post_time: Date.now(),
+            like_count : 0
         },
         {
             content: "Post 3",
             user_id: "kidcore",
-            post_time: Date.now()
+            post_time: Date.now(),
+            like_count : 0
+        },
+        {
+            content: "Post 7",
+            user_id: "lingeman69",
+            post_time: Date.now(),
+            like_count : 0
         },
         {
             content: "Post 4",
             user_id: "natyman12",
-            post_time: Date.now()
+            post_time: Date.now(),
+            like_count : 0
+        },
+        {
+            content: "Post 5",
+            user_id: "lingeman69",
+            post_time: Date.now(),
+            like_count : 0
         }
     ];
 
@@ -76,9 +92,24 @@ export function addSomeUsers(){
     //     db.collection('posts').add({                        
     //         content : post.content,
     //         user_id : post.user_id,
-    //         post_time : post.post_time
+    //         post_time : post.post_time,
+    //         like_count : post.like_count
     //     });
     // });
+
+    let followsArr = [
+        {
+            user_name : "kidcore",
+            follows : ["natyman12"]
+        }
+    ]
+
+    followsArr.forEach(user => {
+        db.collection('following').add({                        
+            follows : user.follows
+        },user.user_name)
+    })
+
 }
 
 

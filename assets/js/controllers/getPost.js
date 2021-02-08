@@ -5,7 +5,6 @@ export async function getPost(){
     //create a user that follows everyone to add every post not seen on
     let friends = ['natyman12']
 
-
     let allPostsDict = new Map();
     let allPosts = []
     let feed = [];
