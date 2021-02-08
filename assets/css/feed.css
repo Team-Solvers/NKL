@@ -89,7 +89,6 @@ body {
     height: 10rem;
     width: 100%;
     margin-top: 3rem;
-    background-color: red;
 }
 
 .feed-avatar {
@@ -101,7 +100,7 @@ body {
 .sidebar-avatar-name {
     font-size: 0;
     margin-top: 1rem;
-} 
+}
 
 .posts-wrapper {}
 
@@ -154,15 +153,14 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: all.2s;
 }
+
 .suggestion-card-below {
     margin: 0;
     transition: all.2s;
     border-top: 0;
 }
 
-
-.catagorey-section
-{
+.catagorey-section {
     margin-top: 3rem;
     width: 100%;
     font-size: 1.4rem;
@@ -173,19 +171,184 @@ body {
     width: 100%;
     height: fit-content;
     margin: 0;
-    
 }
+
 .filter-item {
     width: 100%;
     padding: 1rem;
-    color:black;
+    color: black;
     font-size: 1rem;
     text-decoration: none;
 }
+
 .filter-item:hover {
-    color: rgb(146, 98, 98) ;
+    color: rgb(146, 98, 98);
     text-decoration: none;
     outline: none;
     transition: .3s all;
 }
 
+.feed-card {
+    margin-top: 50px;
+    background: #FFFFFA;
+    border: 1px solid #2200ff67;
+    box-sizing: border-box;
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    position: relative;
+    padding: 1rem 3.2rem 3rem 3.2rem;
+    border-radius: 20px;
+}
+
+.feed-profile-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feed-tittle {
+    font-weight: 500;
+    font-size: 1.6rem;
+    width: fit-content;
+    padding-right: 10px;
+    border-bottom: 2px solid rgba(177, 177, 177, 0.55);
+    line-height: 156.9%;
+}
+
+.feed-date {
+    color: #929292;
+    font-size: .8rem;
+}
+
+.feed-content {
+    font-family: "Montserrat";
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.feed-profile-name {
+    width: fit-content;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.feed-card-bottom {
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+.feed-bottom-left {
+    margin-right: .5rem;
+    height: fit-content;
+    width: fit-content;
+}
+
+.feed-bottom-right {
+    height: fit-content;
+    width: fit-content;
+}
+
+.feed-bottom-right .feed-date {
+    margin-top: 10px;
+    color: black;
+    font-weight: bold;
+    /* font-style: ; */
+    display: inline;
+    margin-bottom: auto;
+    vertical-align: middle;
+}
+
+img {
+    /* height: 100px; */
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.feed-avatar {
+    width: fit-content;
+    position: absolute;
+    left: -5%;
+    top: -8%;
+}
+
+/* like button */
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    position: relative;
+    cursor: pointer;
+}
+
+label svg {
+    width: 35px;
+}
+
+input[type="checkbox"]+label svg {
+    fill: #b4b4b4;
+    z-index: 12;
+    transition: all .3s;
+}
+
+input[type="checkbox"]:checked+label svg {
+    z-index: 12;
+    fill: #ff0000;
+    animation: like .8s ease-out;
+    transition: all .3s;
+}
+
+.detail-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(212, 215, 243, 0.76);
+    background-color: rgba(139, 189, 255, 0.4);
+}
+
+/* Modal Content */
+
+.detail-modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    background-color: #FFFFFA;
+    width: 40%;
+    border: 1px solid blue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
