@@ -83,7 +83,7 @@ function getPostCard(imgUrl, name, Postdate, postTitle, postContent, likeCount){
     FeedBottomRight.classList.add("feed-bottom-right")
 
 
-    console.log(FeedCard);
+    // console.log(FeedCard);
 
     return FeedCard
 }

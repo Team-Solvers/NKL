@@ -1,3 +1,5 @@
+import { followOtherUser } from "./follow.js";
+
 export async function getPost(){
     let db = new Localbase('Poetry');
 
@@ -39,5 +41,8 @@ export async function getPost(){
     })
 
     // console.log(feed);
+    feed.sort(function(a,b){
+        return a.data.post_time > b.data.post_time ? -1 : 1;
+    })
     return feed
 }
