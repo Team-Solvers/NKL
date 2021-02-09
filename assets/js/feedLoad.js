@@ -21,7 +21,7 @@ async function addCards(){
     let postsFromDB = await getPost();
     postsFromDB.forEach(post => {
         let postTime = new Date(post.data.post_time * 1000);
-        let postCardFromDB = getPostCard(imgLink,post.data.user_id,postTime,"No title",post.data.content,0);
+        let postCardFromDB = getPostCard(imgLink,post.data.user_id,moment(postTime).format("dd hA "),"No title",post.data.content,0);
         postMainDiv.appendChild(postCardFromDB);
     })
 }

@@ -273,6 +273,13 @@ img {
     top: -8%;
 }
 
+
+.sidebar-avatar {
+    top: 50%;
+    left: 50%;
+    height: 1.8rem;
+    width: 1.8rem;
+}
 /* like button */
 
 input[type="checkbox"] {

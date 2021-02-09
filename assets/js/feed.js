@@ -9,7 +9,7 @@ const pageWrapper = document.querySelector(".page-wrapper")
 const post = document.querySelector(".post")
 const postsWrapper = document.querySelector(".posts-wrapper")
 const sidebarAvatarName = document.querySelector(".sidebar-avatar-name")
-const sideBarAvatar = document.querySelector(".feed-avatar")
+const sideBarAvatar = document.querySelector(".sidebar-avatar")
 post.addEventListener("focus", function (e) {
 
     postsWrapper.style.marginTop = "300px"
