@@ -199,6 +199,11 @@ body {
     border-radius: 20px;
 }
 
+.feed-profile-postid {
+    /* display: none; */
+    /* color: white; */
+}
+
 .feed-profile-info {
     display: flex;
     justify-content: space-between;
