@@ -1,81 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Montserrat:wght@100;200;300&display=swap');
 *, *:before, *:after {
     box-sizing: border-box;
 }
 
 body {
-    background-color: rgba(245, 239, 239, 0.753);
-    font-family: 'Poppins', sans-serif;
-    z-index: -1;
-    font-weight: 400;
+    font-family: "Montserrat";
+    margin: 0;
+    padding: 0;
+    background: url(../images/svg/body_background.svg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }
 
-.container-fluid {
-    position: relative;
-    width: 80%;
-    height: 80vh;
+.background {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
-.wrapper {
+
+.login-card {
+    background: #FFFFFF;
+    border: 1px solid #C5C5C5;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(141, 141, 141, 0.25);
+    /* border-radius: 39px; */
+    width: 385px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
+    height: 474px;
 }
 
-.left-side {
-    width: 40%;
-    /* height: 100%; */
-    z-index: 1;
-    /* background-color: red; */
-}
-
-.right-side {
-    width: 50%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.landing-img {
-    height: 50%;
-    display: block;
-}
-
-.login-wrapper {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    vertical-align: middle;
-    position: relative;
-}
-
-.user-icon {
-    position: absolute;
-    left: 0;
-    top: 0.2rem;
-    /* top: 5px; */
-}
-
-/* login section */
-
-.login-box {
-    height: auto;
-    text-align: center;
-}
-
-.login-form {
-    margin-top: 25px;
-    text-align: left;
-}
-
-input[type=email] {
+.email {
     border: none;
     border-top: 0px;
     border-radius: 0px;
@@ -84,68 +48,45 @@ input[type=email] {
     background-color: transparent;
     padding-left: 0px;
     border-bottom: 1px solid rgb(141, 141, 153);
-    padding-left: 2rem;
-    font-family: 'Poppins', sans-serif;
+    padding-left: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 }
 
-input[type=password] {
+.password {
     background-color: transparent;
     border: none;
     border-top: 0px;
     border-radius: 0px;
     font-weight: bold;
     outline: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     border-bottom: 1px solid rgb(169, 169, 189);
     padding-left: 0px;
-    padding-left: 2rem;
+    padding-left: 1.2rem;
 }
 
-.form-control:focus {
+.email:focus, .password:focus {
     background-color: transparent;
     border-color: inherit;
     /* width: 50%; */
     box-shadow: none;
     border-bottom: 1px solid #b7e7f1;
     outline: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 }
 
-input:focus {
+.email:focus, .password:focus {
     outline: none;
     box-shadow: 0 0 0;
 }
 
-label {
-    margin-bottom: 0px;
-}
-
-.btn-outline-primary {
-    border-color: #0DB8DE;
-    color: #0DB8DE;
-    border-radius: 0px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.btn-outline-primary:hover {
-    background-color: #0DB8DE;
-    right: 0px;
-}
-
-.login-text {
-    text-align: left;
-    padding-left: 0px;
-    color: #A2A4A4;
-}
-
 .form-wrapper {
     position: relative;
-    color:  rgb(169, 169, 189);;
+    color: rgb(169, 169, 189);
+    ;
 }
 
 .icon {
@@ -153,100 +94,11 @@ label {
     /* margin-top: 3%; */
     /* margin-right: 5%; */
     left: 0;
-    top: .4rem;
+    bottom: .8rem;
 }
 
-/* end of login section   */
-
-.heading {
-    font-size: 3rem;
-    color: rgba(111, 238, 111, 0.61);
-}
-
-.light-text {
-    font-size: 1rem;
-}
-
-.login-btn {
-    padding: 1rem 3rem;
-    border-radius: 85px;
-    color: white;
-    background-color: rgb(142, 184, 142);
-}
-
-.left-side {
-
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.login-text {
-    color: rgb(124, 120, 120);
-    font-size: 3rem;
-    font-family: 'Pangolin', cursive;
-}
-
-
-.login-btn:hover {
-    background-color: rgb(73, 73, 73);
-    color: white;
-    transition: .3s all;
-    text-decoration: none;
-}
-
-.wrapper-top h2 {
-    padding-left: 8rem;
-    font-size: 4rem;
-    font-weight: 100;
+.email::placeholder, .password::placeholder {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: .9rem;
 }
-.wrapper-top, .wrapper-bottom {
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
-}
-.sign-up {
-    font-weight: 200; 
-    font-family: 'Montserrat', sans-serif;
-
-}
-
-.footer-distributed {
-    background-color: #292c2f;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-    box-sizing: border-box;
-    width: 100%;
-    text-align: left;
-    font: normal 16px sans-serif;
-    padding: 45px 50px;
-  }
-  
-  .footer-distributed .footer-left p {
-    color: #8f9296;
-    font-size: 14px;
-    margin: 0;
-  }
-  /* Footer links */
-  
- 
-  
-  .footer-distributed .footer-right {
-    float: right;
-    margin-top: 6px;
-    max-width: 180px;
-  }
-  
-  
-  @media (max-width: 600px) {
-    .footer-distributed .footer-left, .footer-distributed .footer-right {
-      text-align: center;
-    }
-    .footer-distributed .footer-right {
-      float: none;
-      margin: 0 auto 20px;
-    }
-    .footer-distributed .footer-left p.footer-links {
-      line-height: 1.8;
-    }
-  }
