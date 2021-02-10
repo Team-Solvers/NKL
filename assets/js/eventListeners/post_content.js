@@ -40,7 +40,7 @@ function likePostTODB(e){
     if(nodeType == "like-click-PATH"){
         let parentDiv = e.target.parentElement.parentElement.parentElement
     }
-    let username = 'lingeman69';
+    let username = 'kidcore';
     likePost(postId,username);
 
 }

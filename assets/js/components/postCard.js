@@ -24,10 +24,7 @@ function getPostCard(imgUrl, name, postdate, postTitle, postContent, likeCount,p
         </p>
     </div>
     <div class="feed-content-container">
-        <p class="feed-tittle">${postTitle}</p>
-        <p class="feed-profile-postid">
-            ${postID}
-        </p>
+        <p class="feed-tittle">${postTitle}</p>        
         <p class="feed-content mt-3">${postContent}</p>
 
     </div>

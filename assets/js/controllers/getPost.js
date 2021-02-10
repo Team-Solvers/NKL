@@ -7,40 +7,36 @@ export async function getPost(){
     //create a user that follows everyone to add every post not seen on
     let friends = ['kidcore','natyman12']
 
-    let allPostsDict = new Map();
+    let allPostsDict = new Set();
+    allPostsDict.add('kidcore');
+    // allPostsDict.add('natyman12');
     let allPosts = [];
     let feed = [];
     
 
-    await db.collection('posts').get({ keys: true }).then(post => {
-        allPosts = post;
+    await db.collection('posts').get({ keys: true }).then(allPostsFromDB => {
+        allPosts = allPostsFromDB;
       })
     
     allPosts.forEach(post => {             
-        if(allPostsDict.has(post.data.user_id)){
-            allPostsDict.get(post.data.user_id).push(post);
-        }
-        else{
-            allPostsDict.set(post.data.user_id,[post]);
-        }
-    })
-    
-    friends.forEach(friend => {
-        if(allPostsDict.has(friend)){
-            let friendPosts = allPostsDict.get(friend);
-            friendPosts.forEach(friendPost => {
-                feed.push(friendPost);
-            })
-        }
-    })
+        // if(allPostsDict.has(post.data.user_id)){            
+        //     feed.push(post);
+        // }    
+        feed.push(post);    
+    })        
 
-    allPosts.forEach(post => {
-        if(allPosts.indexOf(post) == -1){
-            feed.push(post);
+    for(let i = 0; i < feed.length; i++){
+        let currPostToAddLike = feed[i];
+        let firstLike = await db.collection('likeActivity').doc(currPostToAddLike.key + "").get();
+        let likeCount = 0;            
+        if(firstLike != null){
+            likeCount = firstLike.usersWhoLiked.size;            
         }
-    })
+        feed[i].data.like_count = likeCount;
+    }    
 
     // console.log(feed);
+    
     feed.sort(function(a,b){
         return a.data.post_time > b.data.post_time ? -1 : 1;
     })
