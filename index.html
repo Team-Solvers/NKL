@@ -9,7 +9,6 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-
     <link rel="stylesheet" href="./assets/css/home.css">
 
     <!-- do not forget the favicon -->
@@ -46,6 +45,27 @@
         </div>
 
     </div>
+
+
+    <div class="overlay d-none" id="overlay"></div>
+    <div class="modal-card d-none">
+        <p class="text-center w-100 sign-up-text">Sign Up</p>
+        <form class="d-flex d-flex flex-column h-100 w-100 form-signup">
+            <p class="sign-up-info-text w-100">
+                Please fill out this form to create an account
+            </p>
+            <!-- <form action="" class="w-100"> -->
+            <input type="text" class="form-control name" placeholder="Name">
+            <input type="text" class="form-control name" placeholder="Username">
+            <input type="text" class="form-control name" placeholder="Email">
+            <input type="text" class="form-control name" placeholder="Password">
+            <input type="text" class="form-control name" placeholder="confirm password">
+            <a href="#" class="btn btn-block btn-dark sign-up-btn p-2" id="done-sign-up">Done</a>
+            <!-- </form> -->
+        </form>
+
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
