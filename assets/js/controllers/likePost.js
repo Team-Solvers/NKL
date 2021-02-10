@@ -1,9 +1,9 @@
 export async function likePost(postId, userId) {
     let db = new Localbase('Poetry');
-    let firstLike = await db.collection('users').doc(postId).get();
-    let usersWhoLiked;
+    let firstLike = await db.collection('likeActivity').doc(postId).get();
+    let usersWhoLiked;    
     if(firstLike != null){
-        usersWhoLiked = firstLike;
+        usersWhoLiked = firstLike.usersWhoLiked;
         if(!usersWhoLiked.has(userId)){
             usersWhoLiked.add(userId);
         }
