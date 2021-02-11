@@ -8,13 +8,54 @@ body {
 
 .top-navigation {
     z-index: 1;
-    height: 6rem;
-    margin: 0 auto;
+    height: 5rem;
     margin-left: 57px;
-    width: calc(100% - 57px - 25vh);
+    width: calc(100% - 57px - 30vh);
     border-bottom: solid 1px blue;
     background-color: #FFFFFA;
-    /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25); */
+    margin-right: 30vh;
+}
+
+.posts-wrapper {
+    margin: 0;
+    transition: all .2s;
+}
+
+.search-box-wrapper {
+    position: relative;
+}
+
+.Search-input {
+    padding: .5rem;
+    background-color: rgb(233, 233, 233);
+    width: 20rem;
+    padding-left: 3rem;
+    transition: .2s all;
+    border: 1px solid rgb(179, 179, 179);
+}
+
+.Search-input:focus {
+    border: 1px solid rgb(179, 179, 179);
+    /* border: none; */
+    background-color: rgb(247, 241, 241);
+    outline: none;
+    padding: .5rem;
+    padding-left: 3rem;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+    font-size: 1.2rem;
+    /* background-color: red; */
+}
+
+
+.Search-input:hover {
+    background-color: rgb(247, 241, 241);
+    transition: all .2s;
 }
 
 .add-post {
@@ -23,6 +64,7 @@ body {
     height: 150px;
     width: 100%;
     border-radius: 5px;
+    margin-bottom: 5rem;
 }
 
 .add-post .top-section {
@@ -47,6 +89,17 @@ body {
     border-bottom-right-radius: 5px;
     border-bottom: 1px solid black;
     transition: all .2s;
+}
+.add-post-title {
+    width: 100%;
+    padding: 1rem;
+    /* border: none; */
+    /* padding-left: rem; */
+}
+
+.add-post-title:focus{
+    /* border: none; */
+    outline: none;
 }
 
 .post:focus {
@@ -84,6 +137,9 @@ body {
 .main-content {
     margin-right: 30vh;
 }
+.page-wrapper {
+    margin-left: 57px;
+}
 
 .post-card {
     height: 10rem;
@@ -112,17 +168,16 @@ body {
     width: 3rem;
     border-radius: 50%;
 }
-
+/* 
 .suggestion-card {
     height: auto;
     width: 100%;
     padding: 1rem;
     margin-top: 2.4rem;
     display: flex;
-    /* border-top: 1    px solid black; */
     border-bottom: 1px solid rgba(0, 0, 0, 0.123);
     justify-content: space-between;
-}
+} */
 
 .suggestion-name {
     font-size: .9rem;
@@ -147,7 +202,7 @@ body {
     transition: .2s all;
 }
 
-.suggestion-card:hover {
+/* .suggestion-card:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: all.2s;
 }
@@ -156,7 +211,7 @@ body {
     margin: 0;
     transition: all.2s;
     border-top: 0;
-}
+} */
 
 .catagorey-section {
     margin-top: 3rem;
@@ -271,13 +326,50 @@ img {
     top: -8%;
 }
 
-
 .sidebar-avatar {
     top: 50%;
     left: 50%;
     height: 1.8rem;
     width: 1.8rem;
 }
+
+/* suggestion -box -area */
+
+.suggestion-img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-size: cover;
+    object-fit: contain;
+    background-image: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+}
+
+.suggestion-card {
+    padding: 1rem;
+    /* width: 20rem; */
+    /* background: red; */
+}
+
+
+
+.d-flex {
+    display: flex;
+    /* background: orange; */
+    /* width: 20rem; */
+    align-items: center;
+    vertical-align: middle;
+}
+
+.suggestion-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+/* end suggestion */
+
 /* like button */
 
 input[type="checkbox"] {
@@ -333,6 +425,65 @@ input[type="checkbox"]:checked+label svg {
     animation-name: animatetop;
     animation-duration: 0.4s
 }
+
+/*  post card-section */
+
+.content-card {
+    border-radius: 1rem;
+    /* height: 20rem; */
+    background-color: white;
+    border: 1px solid rgb(188, 188, 255);
+    box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.25);
+}
+
+.avatar_post img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
+
+.card-favorites {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    /* height: 100%; */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.post-content-section {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.content_body {
+    font-size: 1rem;
+}
+
+.like-count-section i, .card-favorites {
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.follow-btn {
+    padding: .5rem 1.2rem;
+    background-color: rgb(155, 69, 235);
+    text-decoration: none;
+    color: white;
+    font-size: .8rem;
+    border-radius: .3rem;
+    transition: .2s all;
+    border: 1px solid transparent;
+}
+.follow-btn:hover {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(107, 141, 255);
+}
+.follow-btn:focus {
+    border: 1px solid rgb(185, 185, 185);
+
+}
+/* search - bar  */
 
 /* Add Animation */
 
