@@ -102,8 +102,6 @@ body {
     margin-top: 1rem;
 }
 
-.posts-wrapper {}
-
 .suggestion-header {
     font-size: 1.4rem;
     font-weight: 300;
@@ -197,11 +195,6 @@ body {
     position: relative;
     padding: 1rem 3.2rem 3rem 3.2rem;
     border-radius: 20px;
-}
-
-.feed-profile-postid {
-    /* display: none; */
-    /* color: white; */
 }
 
 .feed-profile-info {
