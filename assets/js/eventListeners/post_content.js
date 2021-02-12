@@ -4,6 +4,7 @@ import {
 import { likePost } from "../controllers/likePost.js";
 import {addCards} from "../feedLoad.js";
 import {getUserSpecificPost} from "../controllers/userSpecificPost.js" //remove this as not gonna be used here
+import {getTrendingAuthors} from "../controllers/tredingAuthors.js"  //remove this as not gonna be used here
 
 const postIcon = document.querySelector('.fa-paper-plane');
 const postContent = document.querySelector('.content_textarea');
@@ -32,7 +33,7 @@ async function addPostTODB() {
     let postTitleValue = postTitle.value;
     
     if (postContentValue.length > 7) {
-        await addPost("kidcore", postContentValue,postTitleValue);
+        await addPost("natyman12", postContentValue,postTitleValue);
     }
 }
 
@@ -55,8 +56,15 @@ function likePostTODB(e){
 }
 
 
-async function customTest(){
+async function customGetPostsTest(){
     let userPosts = await getUserSpecificPost();
     console.log(userPosts);
 }
+
+async function getTrendingAuthorsTest(){
+    let trendingAuthors = await getTrendingAuthors();
+    console.log(trendingAuthors);
+}
+
+getTrendingAuthors();
 
