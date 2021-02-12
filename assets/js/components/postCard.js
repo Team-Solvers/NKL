@@ -9,6 +9,13 @@
 //  * @param {postContent} postContent 
 //  * @param {likeCount} likeCount 
 //  */
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    html = html.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+
 function getPostCard(imgUrl, name, postdate, postTitle, postContent, likeCount,postID) {
     let newCard = `<div class="feed-card">
     <div class="feed-avatar">
@@ -46,3 +53,4 @@ function getPostCard(imgUrl, name, postdate, postTitle, postContent, likeCount,p
 </div>`
     return newCard;
 }
+
