@@ -508,3 +508,11 @@ input[type="checkbox"]:checked+label svg {
         opacity: 1
     }
 }
+
+.fa-heart{
+    color: silver;
+}
+
+.post_liked{
+    color: red;
+}

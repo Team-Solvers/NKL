@@ -18,9 +18,9 @@ const StoryAvatars = document.querySelectorAll('.story-avatar-img')
 const addStoryGradient = document.querySelectorAll(".top")
 const storyName = document.querySelectorAll(".name")
 window.onresize = (e) => {
-    console.log("window.innerWidth");
+    // console.log("window.innerWidth");
     if (window.innerWidth <= 1575) {
-        console.log("yearherlhjljdhajl fpl;dsahf ");
+        // console.log("yearherlhjljdhajl fpl;dsahf ");
         rightSidebar.style.display = "none"
         topNavigation.style.marginRight = "0"
         topNavigation.style.width = "calc(100% - 27px)"

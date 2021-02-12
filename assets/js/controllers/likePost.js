@@ -7,6 +7,10 @@ export async function likePost(postId, userId) {
         if(!usersWhoLiked.has(userId)){
             usersWhoLiked.add(userId);
         }
+        else{
+            // console.log("already liked");
+            return "alreadyLiked";
+        }
         db.collection('likeActivity').doc(postId).update({usersWhoLiked : usersWhoLiked});
     }
     else{
@@ -16,4 +20,5 @@ export async function likePost(postId, userId) {
             usersWhoLiked : usersWhoLiked
         },postId);
     }       
+    return "firstLike"
 }
