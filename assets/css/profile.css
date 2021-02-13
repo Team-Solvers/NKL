@@ -1,0 +1,24 @@
+.profile-profile{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+}
+.content_avatar_name_propic{
+    font-size: 2rem;
+
+}
+.followers{
+    position: relative;
+    top: 3rem;
+    left: -14rem;
+}
+#followers{
+    position: relative;
+    top: 1.5rem;
+    font-size: 0.8rem;
+    left: -6.5rem;
+
+}
+#tab-2{
+    align-items: center;
+}
