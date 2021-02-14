@@ -1,14 +1,15 @@
 import {logIn} from "../controllers/authenticate.js";
 
-const logInForm = document.querySelector(".login__form");
-const logInFormEmailInput = document.querySelector(".login__form-email");
-const logInFormPasswordInput = document.querySelector(".login__form-password");
-const validationFeedbackText = document.querySelector(".validation__feedback");
+const logInForm = document.querySelector(".login-form");
+const logInFormEmailInput = document.querySelector(".login-form-email");
+const logInFormPasswordInput = document.querySelector(".login-form-password");
+const signInBtn = document.querySelector(".sign-in-button");
+const validationFeedbackText = document.querySelector(".login-form-validation-feedback");
 
-logInForm.addEventListener('submit',authenticateUser);
+signInBtn.addEventListener('click',authenticateUser);
 
 async function authenticateUser(e){
-    e.preventDefault();    
+    e.preventDefault();        
     let invalidValidationText = "Invalid username or password";
     let validationFeedback = await logIn(logInFormEmailInput.value,logInFormPasswordInput.value);
 
@@ -21,4 +22,6 @@ async function authenticateUser(e){
         validationFeedbackText.innerText = validationFeedback;
     }
 }
+
+
 

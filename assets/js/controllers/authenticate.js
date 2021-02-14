@@ -4,6 +4,8 @@ export async function logIn(username,password){
     let validUserPassword = undefined;
     let invalidValidationText = "Invalid username or password";
 
+    console.log(validUser);
+
     if(validUser){
         validUserPassword = validUser.password;
     }

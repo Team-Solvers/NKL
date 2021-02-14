@@ -191,8 +191,9 @@ input {
 }
 
 /* validation feedback */
-.validation__feedback{
-    color: green;    
+.login-form-validation-feedback{
+    color: red;
+    /* display: none;    */
 }
 
 .validation__firstName, .validation__password, .validation__userName{
