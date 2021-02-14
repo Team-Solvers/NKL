@@ -1,0 +1,15 @@
+@media screen and (max-width: 1490px){
+    .right-sidebar{
+       width: 4.2rem;
+    }
+    .suggestion-header{
+        font-size: 0;
+    }
+    .main-content {
+        width: 100%;
+    }
+    .top-navigation{
+        width:90%;
+    }
+  } 
+  
