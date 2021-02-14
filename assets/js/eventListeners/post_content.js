@@ -1,8 +1,10 @@
 import {
     addPost
 } from "../controllers/addPost.js";
-import { likePost } from "../controllers/likePost.js";
 import {addCards} from "../feedLoad.js";
+import { likePost } from "../controllers/likePost.js";
+import { addtoFavourites } from "../controllers/saveFavourites.js";
+import { getFavouritePosts } from "../controllers/getFavourites.js";
 import {getUserSpecificPost} from "../controllers/userSpecificPost.js" //remove this as not gonna be used here
 import {getTrendingAuthors} from "../controllers/tredingAuthors.js"  //remove this as not gonna be used here
 
@@ -42,7 +44,7 @@ function likePostTODB(e){
     if(e.target.classList.contains("fa-heart")){
         let nodeType = e.target.classList[0];
         let postId = e.target.classList[2];    
-        let username = 'natyman12';          
+        let username = 'sima';          
         likePost(postId,username)
         .then(function(likeResult) {            
             if(likeResult == "firstLike"){
@@ -66,5 +68,16 @@ async function getTrendingAuthorsTest(){
     console.log(trendingAuthors);
 }
 
-getTrendingAuthors();
+async function AddtoFavouritesTest(){
+    addtoFavourites("kidcore","11eb6a569c8892e092174b98892e7e4f");
+    addtoFavourites("kidcore","11eb6a582f07aab091d60958a7319f81");
+}
+
+async function getFavouritePostsTest(){
+    getFavouritePosts("natyman12");
+}
+
+// getTrendingAuthors();
+// AddtoFavouritesTest();
+getFavouritePostsTest();
 

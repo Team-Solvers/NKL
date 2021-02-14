@@ -9,7 +9,7 @@ export async function likePost(postId, userId) {
             usersWhoLiked.add(userId);
         }
         else{
-            // console.log("already liked");
+            // console.log("already liked",userId);
             return "alreadyLiked";
         }
         db.collection('likeActivity').doc(postId).update({usersWhoLiked : usersWhoLiked});
