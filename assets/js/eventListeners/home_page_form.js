@@ -1,5 +1,8 @@
 import {logIn} from "../controllers/authenticate.js";
 import {addUserToDB} from "../controllers/signUp.js";
+import {encrypter} from "../controllers/encryptString.js";
+import {decrypter} from "../controllers/decryptString.js";
+
 
 const logInForm = document.querySelector(".login-form");
 const logInFormUserNameInput = document.querySelector(".login-form-email");
@@ -27,7 +30,8 @@ signUpFormSubmitBtn.addEventListener('click',addNewUserToDB);
 async function authenticateUser(e){
     e.preventDefault();        
     let invalidValidationText = "Invalid username or password";
-    let validationFeedback = await logIn(logInFormUserNameInput.value,logInFormPasswordInput.value);
+    let encryptedPassword = encrypter(logInFormPasswordInput.value);
+    let validationFeedback = await logIn(logInFormUserNameInput.value,encryptedPassword);
 
     if(validationFeedback === invalidValidationText){
         validationFeedbackText.style.color = 'red';
@@ -41,10 +45,9 @@ async function authenticateUser(e){
 
 
 
-//check if username is taken - handled by db
-//make sure fullname is not empty
-//email check
+//add user to db uncomment
 //change password input type to password
+//write hash function
 
 async function addNewUserToDB(e){    
     let fullName = signUpFullName.value;
@@ -53,26 +56,27 @@ async function addNewUserToDB(e){
     let password = signUpPassword.value;
     let confirmPassword = signUpConfirmPassword.value;
     
-    
     let pc = passwordLength();
     let cc = isConfirmPasswordSame();
     let fc = isFullnameValid();
     let ec = isEmailValid();
     
     if(pc && cc && fc && ec){        
-        let usernameTaken = await addUserToDB(username,fullName,userEmail,password);
+        let encryptedPassword = encrypter(password);
+        let usernameTaken = await addUserToDB(username,fullName,userEmail,encryptedPassword);
         if(usernameTaken === "username taken"){
             usernameValidation.innerHTML = usernameTaken;
         }
         else{
-            usernameValidation.innerHTML = "";
+            usernameValidation.innerHTML = "";                
+            //pass to feed page with usernameParam here; 
         }
     }
 }
 
 function passwordLength(){
     let length = 3;
-    let password = signUpPassword.value;
+    let password = signUpPassword.value;    
     let passwordLengthValidationText = `Password length should be greater than ${length}`;
 
     if(password.length < length){
@@ -100,6 +104,7 @@ function isConfirmPasswordSame(){
 }
 
 
+
 function isFullnameValid(){
     let fullname = signUpFullName.value;
     let fullnameValidationText = "Name can't be empty";
@@ -121,3 +126,4 @@ function isEmailValid(){
     emailValidation.innerHTML = "";
     return true;
 }
+
