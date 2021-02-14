@@ -1,14 +1,3 @@
-// LikeCheckBox.setAttribute("id", "like")
-
-// /**
-//  * 
-//  * @param {image URl} imgUrl 
-//  * @param {User's Name} name 
-//  * @param {Date of Post} Postdate 
-//  * @param {postTitle} postTitle 
-//  * @param {postContent} postContent 
-//  * @param {likeCount} likeCount 
-//  */
 function getPostCard(imgUrl, name, postdate, postTitle, postContent, likeCount,postID) {
     let newCard = `<div class="feed-card">
     <div class="feed-avatar">
