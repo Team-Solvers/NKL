@@ -17,40 +17,67 @@ const mainContent = document.querySelector(".main-content")
 const StoryAvatars = document.querySelectorAll('.story-avatar-img')
 const addStoryGradient = document.querySelectorAll(".top")
 const storyName = document.querySelectorAll(".name")
-window.onresize = (e) => {
-    // console.log("window.innerWidth");
-    if (window.innerWidth <= 1575) {
-        // console.log("yearherlhjljdhajl fpl;dsahf ");
-        rightSidebar.style.display = "none"
-        topNavigation.style.marginRight = "0"
-        topNavigation.style.width = "calc(100% - 27px)"
-        mainContent.style.marginRight = "0"
-        mainContent.style.marginLeft = "27px"
+
+const suggestionImage = document.querySelector(".suggestion-img")
+const followButtons = document.querySelectorAll(".btn-follow")
+const suggestionHeader = document.querySelector(".suggestion-header")
+let Right_sidebarEnlarged = true
+
+
+const suggestionArrowCollapse = document.querySelector(".arrow-collapse-suggestion")
+
+suggestionArrowCollapse.addEventListener("click", function (e) {
+    if(Right_sidebarEnlarged) {
+        rightSidebar.style.width = "4.2rem"
+        rightSidebar.style.overflow = "hidden"
+        // suggestionImage.style.width = "2rem"
+        // suggestionImage.style.height = "2rem"
+        Right_sidebarEnlarged = false
+        suggestionHeader.style.fontSize = "0"
+        suggestionHeader.style.transition = ".2s all"
+
     }
-
-    if(window.innerWidth <= 1000) {
-        StoryAvatars.forEach((e,i) => {
-            e.style.width = "2rem"
-            e.style.height = "2rem"
-            addStoryGradient[i].style.width = "2rem"
-            addStoryGradient[i].style.height = "2rem"
-            storyName[i].style.fontSize = ".7rem"
-        })
-    }
-}
-
-window.addEventListener("DOMContentLoaded", (e) => {
-    console.log("loaded");
-    if (window.innerWidth <= 1561) {
-        rightSidebar.style.display = "none"
-        mainContent.style.marginRight = "0"
-        mainContent.style.marginLeft = "27px"
-
-        topNavigation.style.marginRight = "0"
-        topNavigation.style.width = "calc(100% - 27px)"
-        sidebar.style.zIndex = "23"
+    else  {
+        suggestionHeader.style.fontSize = "1.3rem"
+        rightSidebar.style.width = "30vh"
+        rightSidebar.style.overflow = "hidden"
+        Right_sidebarEnlarged = true
     }
 })
+// window.onresize = (e) => {
+//     // console.log("window.innerWidth");
+//     if (window.innerWidth <= 1575) {
+//         // console.log("yearherlhjljdhajl fpl;dsahf ");
+//         rightSidebar.style.display = "none"
+//         topNavigation.style.marginRight = "0"
+//         topNavigation.style.width = "calc(100% - 27px)"
+//         mainContent.style.marginRight = "0"
+//         mainContent.style.marginLeft = "27px"
+//     }
+
+//     if(window.innerWidth <= 1000) {
+//         StoryAvatars.forEach((e,i) => {
+//             e.style.width = "2rem"
+//             e.style.height = "2rem"
+//             addStoryGradient[i].style.width = "2rem"
+//             addStoryGradient[i].style.height = "2rem"
+//             storyName[i].style.fontSize = ".7rem"
+//         })
+//     }
+// }
+
+// window.addEventListener("DOMContentLoaded", (e) => {
+//     console.log("loaded");
+//     if (window.innerWidth <= 1561) {
+//         rightSidebar.style.display = "none"
+//         mainContent.style.marginRight = "0"
+//         mainContent.style.marginLeft = "27px"
+
+//         topNavigation.style.marginRight = "0"
+//         topNavigation.style.width = "calc(100% - 27px)"
+//         sidebar.style.zIndex = "23"
+//     }
+// })
 post.addEventListener("focus", function (e) {
 
     // postsWrapper.style.marginTop = "300px"
@@ -88,10 +115,10 @@ arrowCollapse.addEventListener("click", () => {
 
         sidebar.style["transition"] = "all .3s"
         _sidebarEnlarged = true
-        
+
         if (window.innerWidth < 1400) {
             topNavigation.style.marginLeft = "57px"
-            topNavigation.style.width = "calc(100%  - 27px)"    
+            topNavigation.style.width = "calc(100%  - 27px)"
         } else {
             topNavigation.style.marginLeft = "57px"
             topNavigation.style.width = "calc(100%  - 30vh - 57px)"
