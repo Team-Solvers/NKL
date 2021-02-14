@@ -19,9 +19,9 @@ let imgLink = "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?ixid
 
 export async function addCards(){
     let postsFromDB = await getPost();
-    postsFromDB.forEach(post => {        
-        let postTime = new Date(post.data.post_time * 1000);        
-        let postCardFromDB = getPostCard(imgLink,post.data.user_id,'moment(postTime).format("dd hA ")',"No title",post.data.content,post.data.like_count,post.key);        
+    postsFromDB.forEach(post => {                
+        let postTime = new Date(post.data.post_time * 1000);            
+        let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked);        
         postMainDiv.innerHTML += postCardFromDB;
     })
     return postsFromDB;

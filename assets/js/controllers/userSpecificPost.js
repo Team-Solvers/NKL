@@ -1,33 +1,29 @@
 import { followOtherUser } from "./follow.js";
 
-export async function getPost(){
+//TODO: accept user id 
+export async function getUserSpecificPost(){
     let db = new Localbase('Poetry');
-    let user_id = 'natyman12';
+    let user_id = 'kidcore';
 
     //to be changed to following from db
-    //create a user that follows everyone to add every post not seen on
-    let friends = ['kidcore','natyman12']
+    //create a user that follows everyone to add every post not seen on    
 
-    let usersBeingFollowed = new Set();
-    usersBeingFollowed.add('kidcore');
-    usersBeingFollowed.add('natyman12');
-
-    let allPosts = [];
-    let feed = [];    
+    let allUserPosts = [];
+    let userFeed = [];    
 
     await db.collection('posts').get({ keys: true }).then(allPostsFromDB => {
-        allPosts = allPostsFromDB;
+        allUserPosts = allPostsFromDB;
       })
     
-    allPosts.forEach(post => {                      
-        feed.push(post);    
+      allUserPosts.forEach(post => {                      
+        userFeed.push(post);    
     })        
 
-    for(let i = 0; i < feed.length; i++){
-        let currPostToAddLike = feed[i];
+    for(let i = 0; i < userFeed.length; i++){
+        let currPostToAddLike = userFeed[i];
         let firstLike = await db.collection('likeActivity').doc(currPostToAddLike.key + "").get();
         let likeCount = 0;            
-        let isLiked = false;        
+        let isLiked = false;
         if(firstLike != null){
             likeCount = firstLike.usersWhoLiked.size;            
             let usersWhoLikedAtFeed = firstLike.usersWhoLiked;
@@ -35,12 +31,12 @@ export async function getPost(){
                 isLiked = true;
             }
         }
-        feed[i].data.like_count = likeCount;
-        feed[i].isLiked = isLiked;
+        userFeed[i].data.like_count = likeCount;
+        userFeed[i].isLiked = isLiked;
     }    
     
-    feed.sort(function(a,b){
+    userFeed.sort(function(a,b){
         return a.data.post_time > b.data.post_time ? -1 : 1;
     })
-    return feed
+    return userFeed
 }

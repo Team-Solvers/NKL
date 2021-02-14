@@ -5,14 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-
     <link rel="stylesheet" href="./assets/css/home.css">
 
     <!-- do not forget the favicon -->
@@ -21,106 +17,55 @@
 
 <body>
 
-
-    <div class="wrapper">
-
-        <div class="grid-container">
-            <div class="grid-col1">
-                <div class="quote">
-                    <div class="before"></div>
-                    <p>
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their
-                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
-                        software.
-                    </p>
-                    <div class="after"></div>
-                </div>
-            </div>
-            <div class="grid-col2 ">
-                <div class="top-right">
-
-                    Do not have an account?
-                    <a href="#" data-toggle="modal" data-target="#signUpModal" class="btn-link sign-up">Sign
-                        Up</a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog"
-                        aria-labelledby="signUpModalTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Sign Up</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="login__form-head">
-                                        <p class="login__form-info">
-                                            For the purpose of industry regulation, your details are required.
-                                        </p>
-                                    </div>
-                                    <form class="sign-in-form" action="">
-                                        <div class="input-container">
-                                            <i class="fas fa-user form-icon"></i>
-                                            <input class="sign__form-firstName" type="text" placeholder="Full Name">
-                                            <div class="validation__firstName"></div>
-
-                                        </div>
-                                        <div class="input-container">
-                                            <i class="fas fa-user form-icon"></i>
-                                            <input class="sign__form-userName" type="text" placeholder="User Name">
-                                            <div class="validation__userName"></div>
-                                        </div>
-                                        <div class="input-container">
-                                            <i class="fas fa-envelope-open-text form-icon"></i>
-                                            <input class="sign__form-email" type="email" placeholder="Email">
-                                        </div>
-                                        <div class="input-container">
-                                            <i class="fas fa-key form-icon"></i>
-                                            <input class="sign__form-signPassword" type="password"
-                                                placeholder="Password">
-                                            <div class="validation__password"></div>
-                                        </div>
-
-                                        <div class="input-container">
-                                            <i class="fas fa-key form-icon"></i>
-                                            <input class="sign__form-confirmPassword " type="password"
-                                                placeholder="confirm password">                                            
-                                        </div>
-                                        <button data-backdrop = "static" href="" type="button" class="sign__up-button mt-5 btn btn-block btn-dark">Sign
-                                            up</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+    <div class="login-card text-center">
+        <img src="./assets/images/svg/pen.svg" class="mt-5" alt="">
+        <div class="login-wrapper mx-auto mt-5 w-75">
+            <!-- <h3 class="heading">ሰንኝ</h3> -->
+            <div class="col-lg-12 login-form">
+                <form>
+                    <div class="form-wrapper">
+                        <i class="fa fa-user icon"></i>
+                        <input type="email" class="form-control email" placeholder="Email">
                     </div>
+                    <div class="form-wrapper mt-4">
+                        <!-- <label class="form-control-label">PASSWORD</label> -->
+                        <i class="fa fa-lock icon"></i>
+                        <input type="password" class="form-control password" placeholder="Password">
+                    </div>
+                    <div class="mt-4">
 
-                </div>
-                <div>
-                    <form class="login__form">
-                        <div class="login__form-head">
-                            <h2>Complete Your Profile!</h2>
-                            <p class="login__form-info">
-                                For the purpose of industry regulation, your details are required.
-                            </p>
-                        </div>
-                        <input class="login__form-email mt-5" type="text" placeholder="Email or Phone number">
-                        <input class="login__form-password mb-5" type="text" placeholder="Password">
-                        <div class="validation__feedback"></div>
-                        <button type="submit" href="" class="mt-5 btn btn-block btn-primary">Sign in</button>
-                    </form>
-                </div>
+                        <a href="#" class="btn btn-block btn-dark font-change mx-auto">Login</a>
+                    </div>
+                    <div class="mt-4">
+                        <p class="font-change">Don't have an account? <a href="#" id="sign-up-modal"
+                                class="btn-link">Sign up</a></p>
+                    </div>
+                </form>
             </div>
         </div>
+
     </div>
 
 
-    <!-- min-version -->
-    <!-- <script src="https://unpkg.com/localbase/dist/localbase.min.js"></script>  -->
-    <script type="module" src="./assets/js/components/postCard.js"></script>
-    
-    <script src="https://unpkg.com/localbase/dist/localbase.dev.js"></script>
-    <script type="module" src="./assets/js/app.js"></script>
+    <div class="overlay d-none" id="overlay"></div>
+    <div class="modal-card d-none">
+        <p class="text-center w-100 sign-up-text">Sign Up</p>
+        <form class="d-flex d-flex flex-column h-100 w-100 form-signup">
+            <p class="sign-up-info-text w-100">
+                Please fill out this form to create an account
+            </p>
+            <form action="" class="w-100">
+            <input type="text" class="form-control name" placeholder="Name">
+            <input type="text" class="form-control name u-name" placeholder="Username">
+            <input type="text" class="form-control name e-mail" placeholder="Email">
+            <input type="text" class="form-control name p-word" placeholder="Password">
+            <input type="text" class="form-control name c-p-word" placeholder="confirm password">
+            <a href="#" type="submit" class="btn btn-block btn-dark sign-up-btn p-2" id="done-sign-up">Done</a>
+            </form>
+        </form>
+
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
