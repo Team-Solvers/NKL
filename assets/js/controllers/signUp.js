@@ -1,6 +1,7 @@
 export async function addUserToDB(etUserName,fullName,email,password){
     let db = new Localbase('Poetry');
-    let validUser = await db.collection('users').doc(etUserName).get();
+    let validUser = await db.collection('users').doc(etUserName).get();    
+
     if(validUser !== null){
         return "username taken";
     }    

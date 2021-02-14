@@ -25,16 +25,18 @@
                 <form>
                     <div class="form-wrapper">
                         <i class="fa fa-user icon"></i>
-                        <input type="email" class="form-control email" placeholder="Email">
+                        <input type="email" class="form-control login-form-email email" placeholder="Email">
                     </div>
                     <div class="form-wrapper mt-4">
                         <!-- <label class="form-control-label">PASSWORD</label> -->
                         <i class="fa fa-lock icon"></i>
-                        <input type="password" class="form-control password" placeholder="Password">
+                        <input type="password" class="form-control login-form-password password" placeholder="Password">
+                    </div>
+                    <div class="login-form-validation-feedback form-wrapper mt-4">                        
                     </div>
                     <div class="mt-4">
 
-                        <a href="#" class="btn btn-block btn-dark font-change mx-auto">Login</a>
+                        <a href="#" class="sign-in-button btn btn-block btn-dark font-change mx-auto">Login</a>
                     </div>
                     <div class="mt-4">
                         <p class="font-change">Don't have an account? <a href="#" id="sign-up-modal"
@@ -54,18 +56,33 @@
             <p class="sign-up-info-text w-100">
                 Please fill out this form to create an account
             </p>
-            <form action="" class="w-100">
-            <input type="text" class="form-control name" placeholder="Name">
-            <input type="text" class="form-control name u-name" placeholder="Username">
-            <input type="text" class="form-control name e-mail" placeholder="Email">
-            <input type="text" class="form-control name p-word" placeholder="Password">
-            <input type="text" class="form-control name c-p-word" placeholder="confirm password">
-            <a href="#" type="submit" class="btn btn-block btn-dark sign-up-btn p-2" id="done-sign-up">Done</a>
+            <form action="" class="sign-up-form w-100">
+                <input type="text" class="form-control name" placeholder="Full Name"> 
+                <div class="signup-form-fullname-validation-feedback signup-validation">                        
+                </div>               
+                <input type="text" class="form-control name u-name" placeholder="Username">
+                <div class="signup-form-username-validation-feedback signup-validation">                        
+                </div>
+                <input type="text" class="form-control name e-mail" placeholder="Email">
+                <div class="signup-form-email-validation-feedback signup-validation">                        
+                </div>
+                <input type="text" class="form-control name p-word" placeholder="Password">
+                <div class="signup-form-password-validation-feedback signup-validation">                       
+                </div>
+                <input type="text" class="form-control name c-p-word" placeholder="confirm password">
+                <div class="signup-form-confirm-validation-feedback signup-validation">                       
+                </div>
+                <a href="#" class="submit btn btn-block btn-dark sign-up-btn p-2" id="done-sign-up">Done</a>
             </form>
         </form>
 
     </div>
 
+    <!-- localbase cdn -->
+    <script src="https://unpkg.com/localbase/dist/localbase.min.js"></script>
+
+    <!-- signin and signup listener -->
+    <script type="module" src="./assets/js/eventListeners/home_page_form.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -73,9 +90,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
-
-    <script type="module" src="./assets/js/eventListeners/home_page_form.js"></script>
-    <script type="module" src="./assets/js/eventListeners/sign_up_form.js"></script>
+    
+    <!-- <script type="module" src="./assets/js/eventListeners/sign_up_form.js"></script> -->
     <script src="./assets/js/home.js"></script>
 
 </body>
