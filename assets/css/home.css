@@ -192,8 +192,13 @@ input {
 
 /* validation feedback */
 .login-form-validation-feedback{
+    color: red;    
+}
+
+.signup-validation{
     color: red;
-    /* display: none;    */
+    font-size: 15px;
+    /* display: none; */    
 }
 
 .validation__firstName, .validation__password, .validation__userName{
