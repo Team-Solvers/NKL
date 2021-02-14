@@ -18,4 +18,16 @@
     }
 
   }
+  @media screen and (max-width: 768px){
+    .right-sidebar{
+        display: none;
+    }
+    .main-content{
+        margin-left: 0;
+    }
+    .top-navigation{
+        margin-left: 57px;
+    }
+
+  }
   
