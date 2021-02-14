@@ -42,7 +42,7 @@ function likePostTODB(e){
     if(e.target.classList.contains("fa-heart")){
         let nodeType = e.target.classList[0];
         let postId = e.target.classList[2];    
-        let username = 'kidcore';          
+        let username = 'natyman12';          
         likePost(postId,username)
         .then(function(likeResult) {            
             if(likeResult == "firstLike"){

@@ -4,6 +4,7 @@ export async function likePost(postId, userId) {
     let usersWhoLiked;    
     if(firstLike != null){
         usersWhoLiked = firstLike.usersWhoLiked;
+        console.log(usersWhoLiked);
         if(!usersWhoLiked.has(userId)){
             usersWhoLiked.add(userId);
         }
