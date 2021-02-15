@@ -46,9 +46,7 @@ async function authenticateUser(e){
 
 
 
-//add user to db uncomment
 //change password input type to password
-//write hash function
 
 async function addNewUserToDB(e){    
     let fullName = signUpFullName.value;
