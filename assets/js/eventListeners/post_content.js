@@ -39,6 +39,7 @@ async function addLikeAndSaveFavEventListener() {
         addToFavButton.addEventListener('click',addPostTOFavouritedTODB);
     })
 
+    //add follow event-listner here
     let suggestions = await addSuggestionCards();
 
     let trendingAuthors= await addTrendingAvatars();
