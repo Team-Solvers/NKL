@@ -72,8 +72,7 @@ async function addPostTOFavouritedTODB(e){
         let starElement = parentDiv.children[0];
         if(!starElement.classList.contains("post_favourited")){
             starElement.classList.push("post_favourited");
-        }        
-        console.log(starElement);
+        }                
         addtoFavourites(username,postId);
     }  
 }
