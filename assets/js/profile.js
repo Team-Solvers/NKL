@@ -6,7 +6,6 @@ const arrowCollapse = document.querySelector(".arrow-collapse")
 const arrowCollapseSuggestion = document.querySelector(".arrow-collapse-suggestion")
 const pageWrapper = document.querySelector(".page-wrapper")
 const post = document.querySelector(".post")
-const postsWrapper = document.querySelector(".posts-wrapper")
 const sidebarAvatarName = document.querySelector(".sidebar-avatar-name")
 const sideBarAvatar = document.querySelector(".sidebar-avatar")
 const topNavigation = document.querySelector(".top-navigation")
@@ -118,21 +117,6 @@ arrowCollapseSuggestion.addEventListener("click", function (e) {
         }
     }
 })
-
-post.addEventListener("focus", function (e) {
-
-    contentCad.style.marginBottom = "25rem"
-    contentCad.style.transition = ".2s all"
-})
-
-post.addEventListener("focusout", (e) => {
-    contentCad.style.marginBottom = "5rem"
-
-})
-function we() {
-    postsWrapper.style.marginTop = "0"
-    postsWrapper.style.transition = ".2s all"
-}
 arrowCollapse.addEventListener("click", () => {
     if (!_sidebarEnlarged) {
         sidebar.style['width'] = "57px"
