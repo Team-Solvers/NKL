@@ -16,6 +16,7 @@ function htmlToElement(html) {
     return template.content.firstChild;
 }
 
+<<<<<<< HEAD
 function getPostCard(imgUrl, postTitle,name, postdate, postContent, likeCount,postID,isLiked,isInFavs) {    
     if(isLiked === true){
         isLiked = 'post_liked';        
@@ -52,5 +53,14 @@ function getPostCard(imgUrl, postTitle,name, postdate, postContent, likeCount,po
     </div>
 </div>`
     return newCard;
+=======
+function getPostCard(imgUrl, postTitle, name, postdate, postContent, likeCount, postID, isLiked) {
+    if (isLiked === true) {
+        isLiked = 'post_liked';
+    }
+    let newCard = `<div class='mt-5 p-3 content-card w-100'><div class='top-section  p-3 w-100 d-flex justify-content-between'><div class='avatar_post d-flex '><img src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' alt='' class='feed-profile d-inline-block'><p class='content_avatar_name my-auto ml-3 '>${name}</p></div><span class='d-inline-block align-items center card-favorites'><i class="fas fa-star"></i></span></div><div class='p-3 post-content-section'><div class='content-title'><p>${postTitle}</p></div><div class='content_body mt-3'><p>${postContent}</p></div></div><div class='content-bottom-section p-3 mb-2'><div class='like-count-section p-3'><i class='fas fa-heart ${postID} ${isLiked}'></i> <span class='ml-2 like-count'>${likeCount}</span></div></div></div>`
+    const html = $.parseHTML(newCard);
+    return html[0];
+>>>>>>> d85c19869297802ec439526e2a5d4ba1c2a1689c
 }
 

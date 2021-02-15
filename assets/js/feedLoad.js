@@ -23,8 +23,13 @@ export async function addCards(){
     let postsFromDB = await getPost(username);
     postsFromDB.forEach(post => {                
         let postTime = new Date(post.data.post_time * 1000);            
+<<<<<<< HEAD
         let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        
         postMainDiv.innerHTML += postCardFromDB;
+=======
+        let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked);        
+        postMainDiv.append( postCardFromDB);
+>>>>>>> d85c19869297802ec439526e2a5d4ba1c2a1689c
     })
     return postsFromDB;
 }
