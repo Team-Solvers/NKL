@@ -42,6 +42,13 @@ async function deletePostFromDB(e){
 
 async function updateStats(){
     let stats = await getUserStats(username);
+    let followerCountDiv = document.querySelector('.followersNumber');
+    let followingCountDiv = document.querySelector('.followingNumber');
+    let postCountDiv = document.querySelector('.postNumber');
+
+    followerCountDiv.innerText = stats.followerCount;
+    followingCountDiv.innerText = stats.followingCount;
+    postCountDiv.innerText = stats.postCount;
     console.log(stats);
 }
 
