@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: white;
+    background-color:#fcf0e7;
 }
 
 .top-navigation {
@@ -49,7 +49,6 @@ body {
     transform: translateY(-50%);
     left: 1rem;
     font-size: 1.2rem;
-    /* background-color: red; */
 }
 
 
@@ -89,17 +88,22 @@ body {
     border-bottom-right-radius: 5px;
     border-bottom: 1px solid black;
     transition: all .2s;
+    background-color: #fbf6f0;
 }
 .add-post-title {
     width: 100%;
     padding: 1rem;
-    /* border: none; */
+    /* border: none 1px solid black; */
+    /* background-color: transparent; */
+    background-color: #fbf6f0;
+    border: 1px solid black;
     /* padding-left: rem; */
 }
 
 .add-post-title:focus{
     /* border: none; */
     outline: none;
+    
 }
 
 .post:focus {
@@ -121,7 +125,6 @@ body {
 }
 
 .add-post-text:hover {
-    /* background-color: red; */
     font-size: 2.3rem;
     transition: all .2s;
 }
@@ -168,16 +171,14 @@ body {
     width: 3rem;
     border-radius: 50%;
 }
-/* 
-.suggestion-card {
-    height: auto;
-    width: 100%;
-    padding: 1rem;
-    margin-top: 2.4rem;
-    display: flex;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.123);
-    justify-content: space-between;
-} */
+.suggestion-icon {
+    font-size: 2rem;
+}
+.arrow-collapse-suggestion {
+    cursor: pointer;
+    transform: rotate(-180deg);
+    transition: all .5s;
+}
 
 .suggestion-name {
     font-size: .9rem;
@@ -192,26 +193,13 @@ body {
     background-color: rgb(84, 84, 212);
     color: white;
     text-decoration: none;
-    /* outline: none; */
     transition: .2s all;
-    /* text-decoration: none; */
 }
 
 .suggestion-btn a:hover {
     background-color: rgba(0, 0, 255, 0.692);
     transition: .2s all;
 }
-
-/* .suggestion-card:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transition: all.2s;
-}
-
-.suggestion-card-below {
-    margin: 0;
-    transition: all.2s;
-    border-top: 0;
-} */
 
 .catagorey-section {
     margin-top: 3rem;
@@ -246,7 +234,6 @@ body {
     background: #FFFFFA;
     border: 1px solid #2200ff67;
     box-sizing: border-box;
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
     position: relative;
     padding: 1rem 3.2rem 3rem 3.2rem;
     border-radius: 20px;
@@ -276,7 +263,12 @@ body {
     font-weight: 300;
     font-size: 1rem;
 }
-
+.feed-profile {
+    height: 3rem;
+    object-fit: cover;
+    width: 3rem;
+    border-radius: 50%;
+}
 .feed-profile-name {
     width: fit-content;
     font-style: normal;
@@ -312,7 +304,6 @@ body {
 }
 
 img {
-    /* height: 100px; */
     vertical-align: middle;
     width: 70px;
     height: 70px;
@@ -336,26 +327,22 @@ img {
 /* suggestion -box -area */
 
 .suggestion-img {
-    height: 3rem;
-    width: 3rem;
+
     border-radius: 50%;
     background-size: cover;
     object-fit: contain;
-    background-image: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+    transition: all .3s;
 }
 
 .suggestion-card {
     padding: 1rem;
-    /* width: 20rem; */
-    /* background: red; */
+    overflow:hidden ;
 }
 
 
 
 .d-flex {
     display: flex;
-    /* background: orange; */
-    /* width: 20rem; */
     align-items: center;
     vertical-align: middle;
 }
@@ -430,8 +417,7 @@ input[type="checkbox"]:checked+label svg {
 
 .content-card {
     border-radius: 1rem;
-    /* height: 20rem; */
-    background-color: white;
+    background-color: #fbf6f0;
     border: 1px solid rgb(188, 188, 255);
     box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.25);
 }
@@ -445,7 +431,6 @@ input[type="checkbox"]:checked+label svg {
 .card-favorites {
     font-size: 1.5rem;
     vertical-align: middle;
-    /* height: 100%; */
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -471,7 +456,9 @@ input[type="checkbox"]:checked+label svg {
     color: white;
     font-size: .8rem;
     border-radius: .3rem;
-    transition: .2s all;
+    transition: .3s all;
+    width: auto;
+    height: auto;
     border: 1px solid transparent;
 }
 .follow-btn:hover {
@@ -483,20 +470,13 @@ input[type="checkbox"]:checked+label svg {
     border: 1px solid rgb(185, 185, 185);
 
 }
+.btn-follow {
+    transition: all .3s;
+}
 /* search - bar  */
 
 /* Add Animation */
 
-@-webkit-keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0
-    }
-    to {
-        top: 0;
-        opacity: 1
-    }
-}
 
 @keyframes animatetop {
     from {
@@ -507,4 +487,16 @@ input[type="checkbox"]:checked+label svg {
         top: 0;
         opacity: 1
     }
+}
+
+.fa-heart{
+    color: silver;
+}
+
+.post_liked{
+    color: red;
+}
+.arrow-collapse {
+    transform: rotate(-180deg);
+    transition: all .3s;
 }

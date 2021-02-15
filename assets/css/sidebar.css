@@ -10,7 +10,8 @@
   transition: width 0.2s;
   z-index: 3;
   position: fixed;
-  background-color: #FFFFFA;
+  background-color: #3d4150;
+  color: white;
   /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25); */
 }
 
@@ -20,10 +21,16 @@
   position: fixed;
   top: 0;
   right: 0;
-  /* background-color: #00FFFFFA; */
+  color: white;
+  background-color: #383e56;
   border-left: 1px solid blue;
-}
+  transition: all .3s;
+  overflow: hidden;
+  z-index: 1;
+  text-overflow: clip;
+  white-space: nowrap;
 
+}
 .asd {
   transform: rotate(180deg);
   transition: all 0.2s;
