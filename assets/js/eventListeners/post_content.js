@@ -2,6 +2,7 @@ import {
     addPost
 } from "../controllers/addPost.js";
 import {addCards} from "../feedLoad.js";
+import {addSuggestionCards} from "../getSuggestionCards.js";
 import { likePost } from "../controllers/likePost.js";
 import { addtoFavourites } from "../controllers/saveFavourites.js";
 import { getFavouritePosts } from "../controllers/getFavourites.js";
@@ -36,6 +37,8 @@ async function addLikeAndSaveFavEventListener() {
     addToFavButtons.forEach((addToFavButton) => {
         addToFavButton.addEventListener('click',addPostTOFavouritedTODB);
     })
+
+    let suggestions = await addSuggestionCards();
 }
 
 async function addPostTODB() {
