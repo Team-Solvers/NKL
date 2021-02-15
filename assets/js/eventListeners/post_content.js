@@ -70,7 +70,9 @@ async function addPostTOFavouritedTODB(e){
         let postId = e.target.classList[2];    
         let parentDiv = e.target.parentElement;
         let starElement = parentDiv.children[0];
-        starElement.classList.toggle("post_favourited");
+        if(!starElement.classList.contains("post_favourited")){
+            starElement.classList.push("post_favourited");
+        }        
         console.log(starElement);
         addtoFavourites(username,postId);
     }  
