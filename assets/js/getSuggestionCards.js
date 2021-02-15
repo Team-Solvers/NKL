@@ -14,7 +14,6 @@ export async function addSuggestionCards(){
         let postCardFromDB = SuggestionCard(suggestion);         
         postMainDiv.innerHTML += postCardFromDB;
     });
-    console.log(postMainDiv);
     return suggestionsFromDB;
 }
 

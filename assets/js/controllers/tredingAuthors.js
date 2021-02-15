@@ -20,17 +20,17 @@ export async function getTrendingAuthors(){
 
     let likeSortArr = [];
     for(let user of usersMap.keys()){
-        likeSortArr.push([usersMap.get(user),user]);
+        likeSortArr.push(user);
     }
 
     likeSortArr.sort(function(a,b){
-        if(a[0] === b[0]){
+        if(usersMap.get(a) === usersMap.get(b)){
             return 0;
         }
         //sorted in descending with number of likes
-        return a[1] < b[1] ? -1 : 1;
+        return usersMap.get(a) > usersMap.get(b) ? -1 : 1;
     })    
     
-    //can be cut to include only k values
+    //can be cut to include only k values    
     return likeSortArr;
 }
