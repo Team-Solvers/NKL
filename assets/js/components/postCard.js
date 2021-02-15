@@ -16,10 +16,15 @@ function htmlToElement(html) {
     return template.content.firstChild;
 }
 
-function getPostCard(imgUrl, postTitle,name, postdate, postContent, likeCount,postID,isLiked) {    
+function getPostCard(imgUrl, postTitle,name, postdate, postContent, likeCount,postID,isLiked,isInFavs) {    
     if(isLiked === true){
-        isLiked = 'post_liked';
+        isLiked = 'post_liked';        
     }
+
+    if(isInFavs == true){
+        isInFavs = 'post_favourited';
+    }
+    
     let newCard = `
     <div class="mt-5 p-3 content-card w-100">
     <div class="top-section  p-3 w-100 d-flex justify-content-between">
@@ -28,8 +33,8 @@ function getPostCard(imgUrl, postTitle,name, postdate, postContent, likeCount,po
                 alt="" class="feed-profile d-inline-block">
             <p class="content_avatar_name my-auto ml-3 ">${name}</p>
         </div>
-        <span class="d-inline-block align-items center card-favorites">
-            <i class="fas fa-star"></i>
+        <span class="add-tofav-section d-inline-block align-items center card-favorites">
+            <i class="fas fa-star ${postID} ${isInFavs} star-i" ></i>
         </span>
     </div>
     <div class="p-3 post-content-section">

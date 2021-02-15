@@ -13,29 +13,37 @@ const postContent = document.querySelector('.content_textarea');
 const postTitle = document.querySelector('.add-post-title');
 
 
+const urlParams = new URLSearchParams(window.location.search);
+const username = urlParams.get('username');
+
 //add new post listner
 postIcon.addEventListener('click', addPostTODB);
 // postLikeButton.addEventListener('click',likePostTODB);
 
 //like a post listner
 //since the cards are loaded after async call 
-addLikeEventListener();
-async function addLikeEventListener() {    
+addLikeAndSaveFavEventListener();
+
+async function addLikeAndSaveFavEventListener() {    
     let posts = await addCards(); //adds the cards after getting the array         
     let postLikeButtons = document.querySelectorAll('.like-count-section'); 
+    let addToFavButtons = document.querySelectorAll('.add-tofav-section');    
+
     postLikeButtons.forEach((postLikeButton,index) => {                        
         postLikeButton.addEventListener('click',likePostTODB);
     })    
+
+    addToFavButtons.forEach((addToFavButton) => {
+        addToFavButton.addEventListener('click',addPostTOFavouritedTODB);
+    })
 }
-
-
 
 async function addPostTODB() {
     let postContentValue = postContent.value;
     let postTitleValue = postTitle.value;
     
     if (postContentValue.length > 7) {
-        await addPost("natyman12", postContentValue,postTitleValue);
+        await addPost(username, postContentValue,postTitleValue);
     }
 }
 
@@ -43,8 +51,7 @@ async function addPostTODB() {
 function likePostTODB(e){    
     if(e.target.classList.contains("fa-heart")){
         let nodeType = e.target.classList[0];
-        let postId = e.target.classList[2];    
-        let username = 'sima';          
+        let postId = e.target.classList[2];            
         likePost(postId,username)
         .then(function(likeResult) {            
             if(likeResult == "firstLike"){
@@ -55,6 +62,18 @@ function likePostTODB(e){
             }
         });
     }            
+}
+
+async function addPostTOFavouritedTODB(e){
+    console.log(e.target);
+    if(e.target.classList.contains("fa-star")){                
+        let postId = e.target.classList[2];    
+        let parentDiv = e.target.parentElement;
+        let starElement = parentDiv.children[0];
+        starElement.classList.toggle("post_favourited");
+        console.log(starElement);
+        addtoFavourites(username,postId);
+    }  
 }
 
 
@@ -79,5 +98,5 @@ async function getFavouritePostsTest(){
 
 // getTrendingAuthors();
 // AddtoFavouritesTest();
-getFavouritePostsTest();
+// getFavouritePostsTest();
 

@@ -495,3 +495,11 @@ input[type="checkbox"]:checked+label svg {
 .post_liked{
     color: red;
 }
+
+.star-i{
+    color:#bbb;
+}
+
+.post_favourited{
+    color: #383E56;
+}
