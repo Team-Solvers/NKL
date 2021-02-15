@@ -23,6 +23,20 @@ const suggestionHeader = document.querySelector(".suggestion-header")
 let Right_sidebarEnlarged = true
 const suggestionArrowCollapse = document.querySelector(".arrow-collapse-suggestion")
 
+
+$(function(){
+    $(".suggestion-name").each(function () {
+        len=$(this).text().length;
+        str= $(this).text().substr(0,10);
+        lastIndexOf = str.lastIndexOf(" "); 
+        if(len>10) {
+            $(this).text(str.substr(0, lastIndexOf) + '…');
+        }
+    });
+    });
+
+
+
 arrowCollapseSuggestion.addEventListener("click", function (e) {
     // Right_sidebarEnlarged = !(rightSidebar.clientWidth < "calc(30vh)")
     if(Right_sidebarEnlarged) {
