@@ -19,6 +19,12 @@
     left: -6.5rem;
 
 }
-#tab-2{
+.tab-content-cent{
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+.btn{
+    margin-left: 40%;
 }
