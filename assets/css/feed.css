@@ -176,7 +176,8 @@ body {
 }
 .arrow-collapse-suggestion {
     cursor: pointer;
-    transition: all .2s;
+    transform: rotate(-180deg);
+    transition: all .5s;
 }
 
 .suggestion-name {
@@ -494,4 +495,8 @@ input[type="checkbox"]:checked+label svg {
 
 .post_liked{
     color: red;
+}
+.arrow-collapse {
+    transform: rotate(-180deg);
+    transition: all .3s;
 }

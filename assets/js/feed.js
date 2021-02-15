@@ -21,52 +21,87 @@ const suggestionImage = document.querySelector(".suggestion-img")
 const followButtons = document.querySelectorAll(".btn-follow")
 const suggestionHeader = document.querySelector(".suggestion-header")
 let Right_sidebarEnlarged = true
-
-
 const suggestionArrowCollapse = document.querySelector(".arrow-collapse-suggestion")
 
 arrowCollapseSuggestion.addEventListener("click", function (e) {
+    // Right_sidebarEnlarged = !(rightSidebar.clientWidth < "calc(30vh)")
     if(Right_sidebarEnlarged) {
-        rightSidebar.style.width = "4.2rem"
-        rightSidebar.style.overflow = "hidden"
-        if(sidebar.style["width"] == "230px"){
-            topNavigation.style.marginLeft = "230px"
-            topNavigation.style.width = "calc(100% - 230px - 4.2rem)"
+        if(window.innerWidth <= 1490) {
+            rightSidebar.style.width = "4.2rem"
+            rightSidebar.style.overflow = "hidden"
+            // Right_sidebarEnlarged = false
+            
+          
             topNavigation.style["transition"]= ".2s all"
+            arrowCollapseSuggestion.style["transform"] = "rotate(0deg)"
+            arrowCollapseSuggestion.style["transition"] = ".5s all"
+            Right_sidebarEnlarged = false
+            suggestionHeader.style.fontSize = "0"
+            suggestionHeader.style.transition = ".2s all"
         }
-        else{
-            topNavigation.style.width = "calc(100% - 4.2rem)"
+        else {
+
+            rightSidebar.style.width = "4.2rem"
+            rightSidebar.style.overflow = "hidden"
+            if(sidebar.style["width"] == "230px"){
+                topNavigation.style.marginLeft = "230px"
+                topNavigation.style.width = "calc(100% - 230px - 4.2rem)"
+                topNavigation.style["transition"]= ".2s all"
+            }
+            else{
+                topNavigation.style.width = "calc(100% - 4.2rem)"
+                topNavigation.style["transition"]= ".2s all"
+            }
+            mainContent.style.marginLeft = "7%"
+            mainContent.style["transition"]= ".2s all"
             topNavigation.style["transition"]= ".2s all"
+            arrowCollapseSuggestion.style["transform"] = "rotate(0)"
+            arrowCollapseSuggestion.style["transition"] = ".2s all"
+            Right_sidebarEnlarged = false
+            suggestionHeader.style.fontSize = "0"
+            suggestionHeader.style.transition = ".2s all"
         }
-        mainContent.style.marginLeft = "7%"
-        mainContent.style["transition"]= ".2s all"
-        topNavigation.style["transition"]= ".2s all"
-        arrowCollapseSuggestion.style["transform"] = "rotate(0)"
-        arrowCollapseSuggestion.style["transition"] = ".2s all"
-        Right_sidebarEnlarged = false
-        suggestionHeader.style.fontSize = "0"
-        suggestionHeader.style.transition = ".2s all"
         
         
     }
     else  {
-        suggestionHeader.style.fontSize = "1.3rem"
-        mainContent.style.marginLeft = "0"
-        mainContent.style["transition"]= ".2s all"
-        if(sidebar.style["width"] == "230px"){
-            topNavigation.style.marginLeft = "230px"
-            topNavigation.style.width = "calc(100% - 30vh - 230px)"
-            topNavigation.style["transition"]= ".2s all"
+        if(window.innerWidth <= 1490) {
+            suggestionHeader.style.fontSize = "1.3rem"
+            mainContent.style.marginLeft = "0"
+            mainContent.style["transition"]= ".2s all"
+            if(sidebar.style["width"] == "230px"){
+                topNavigation.style.marginLeft = "230px"
+                topNavigation.style.width = "calc(100% - 30vh - 230px)"
+                topNavigation.style["transition"]= ".2s all"
+            }
+            else{
+                topNavigation.style.width = "calc(100% - 4.2rem - 57px)"
+                topNavigation.style["transition"]= ".2s all"
+            }
+            rightSidebar.style.width = "30vh"
+            arrowCollapseSuggestion.style["transform"] = "rotate(180deg)"
+            arrowCollapseSuggestion.style["transition"] = ".2s all"
+            rightSidebar.style.overflow = "hidden"
+            Right_sidebarEnlarged = true
+        } else {
+            suggestionHeader.style.fontSize = "1.3rem"
+            mainContent.style.marginLeft = "0"
+            mainContent.style["transition"]= ".2s all"
+            if(sidebar.style["width"] == "230px"){
+                topNavigation.style.marginLeft = "230px"
+                topNavigation.style.width = "calc(100% - 30vh - 230px)"
+                topNavigation.style["transition"]= ".2s all"
+            }
+            else{
+                topNavigation.style.width = "calc(100% - 30vh - 57px)"
+                topNavigation.style["transition"]= ".2s all"
+            }
+            rightSidebar.style.width = "30vh"
+            arrowCollapseSuggestion.style["transform"] = "rotate(180deg)"
+            arrowCollapseSuggestion.style["transition"] = ".2s all"
+            rightSidebar.style.overflow = "hidden"
+            Right_sidebarEnlarged = true
         }
-        else{
-            topNavigation.style.width = "calc(100% - 30vh - 57px)"
-            topNavigation.style["transition"]= ".2s all"
-        }
-        rightSidebar.style.width = "30vh"
-        arrowCollapseSuggestion.style["transform"] = "rotate(180deg)"
-        arrowCollapseSuggestion.style["transition"] = ".2s all"
-        rightSidebar.style.overflow = "hidden"
-        Right_sidebarEnlarged = true
     }
 })
 
