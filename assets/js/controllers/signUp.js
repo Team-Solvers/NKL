@@ -19,5 +19,13 @@ export async function addUserToDB(etUserName,fullName,email,password){
         follows : []
     },etUserName);
 
+    db.collection('favourites').add({                    
+        savedPosts: new Set()
+    },etUserName);
+
+    db.collection('likeActivity').add({
+        usersWhoLiked : []
+    },etUserName);
+
     return "user added";
 }

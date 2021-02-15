@@ -40,14 +40,13 @@ async function authenticateUser(e){
     else{
         validationFeedbackText.style.color = 'green';
         validationFeedbackText.innerText = validationFeedback;
+        window.location.href = `./feed.html?username=${logInFormUserNameInput.value}`;
     }
 }
 
 
 
-//add user to db uncomment
 //change password input type to password
-//write hash function
 
 async function addNewUserToDB(e){    
     let fullName = signUpFullName.value;
@@ -68,8 +67,8 @@ async function addNewUserToDB(e){
             usernameValidation.innerHTML = usernameTaken;
         }
         else{
-            usernameValidation.innerHTML = "";                
-            //pass to feed page with usernameParam here; 
+            usernameValidation.innerHTML = ""; 
+            window.location.href = `./feed.html?username=${username}`;                           
         }
     }
 }

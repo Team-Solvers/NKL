@@ -1,9 +1,7 @@
 import { followOtherUser } from "./follow.js";
 
-export async function getPost(){
-    let db = new Localbase('Poetry');
-    let user_id = 'natyman12';
-
+export async function getPost(user_id){
+    let db = new Localbase('Poetry');    
     //to be changed to following from db
     //create a user that follows everyone to add every post not seen on
     let friends = ['kidcore','natyman12']
@@ -34,9 +32,18 @@ export async function getPost(){
             if(usersWhoLikedAtFeed.has(user_id)){
                 isLiked = true;
             }
-        }
+        }        
+
+        let userFavObj = await db.collection('favourites').doc(user_id).get();
+        let userFavs = userFavObj.savedPosts;
+        let isInFavs = false;
+        if(userFavs.has(currPostToAddLike.key)){
+            isInFavs = true;
+        };    
+        
         feed[i].data.like_count = likeCount;
         feed[i].isLiked = isLiked;
+        feed[i].isInFavs = isInFavs;        
     }    
     
     feed.sort(function(a,b){
