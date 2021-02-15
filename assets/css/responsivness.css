@@ -1,0 +1,33 @@
+@media screen and (max-width: 1490px){
+    .right-sidebar{
+       width: 4.2rem;
+    }
+    .suggestion-header{
+        font-size: 0;
+    }
+    .main-content {
+        width: 100%;
+    }
+    .top-navigation{
+        width:90%;
+    }
+  } 
+  @media screen and (max-width: 1200px){
+    .name{
+        display: none;
+    }
+
+  }
+  @media screen and (max-width: 768px){
+    .right-sidebar{
+        display: none;
+    }
+    .main-content{
+        margin-left: 0;
+    }
+    .top-navigation{
+        margin-left: 57px;
+    }
+
+  }
+  
