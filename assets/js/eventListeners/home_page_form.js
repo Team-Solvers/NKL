@@ -40,6 +40,7 @@ async function authenticateUser(e){
     else{
         validationFeedbackText.style.color = 'green';
         validationFeedbackText.innerText = validationFeedback;
+        window.location.href = `./feed.html?username=${logInFormUserNameInput.value}`;
     }
 }
 
@@ -68,8 +69,7 @@ async function addNewUserToDB(e){
             usernameValidation.innerHTML = usernameTaken;
         }
         else{
-            usernameValidation.innerHTML = "";                
-            //pass to feed page with usernameParam here; 
+            usernameValidation.innerHTML = "";                            
         }
     }
 }
