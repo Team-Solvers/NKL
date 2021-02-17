@@ -10,5 +10,5 @@ export async function getFollowFeed(user_id){
             followFeed.push(user.key);
         }
     })
-    console.log(followFeed);
+    return followFeed;
 }

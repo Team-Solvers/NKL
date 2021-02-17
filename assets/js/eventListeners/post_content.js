@@ -2,9 +2,11 @@ import {
     addPost
 } from "../controllers/addPost.js";
 import {addCards} from "../feedLoad.js";
+import {addSuggestionCards} from "../getSuggestionCards.js";
 import { likePost } from "../controllers/likePost.js";
 import { addtoFavourites } from "../controllers/saveFavourites.js";
 import { getFavouritePosts } from "../controllers/getFavourites.js";
+import {addTrendingAvatars} from "../getTrendingCards.js"
 import {getUserSpecificPost} from "../controllers/userSpecificPost.js" //remove this as not gonna be used here
 import {getTrendingAuthors} from "../controllers/tredingAuthors.js"  //remove this as not gonna be used here
 
@@ -36,6 +38,16 @@ async function addLikeAndSaveFavEventListener() {
     addToFavButtons.forEach((addToFavButton) => {
         addToFavButton.addEventListener('click',addPostTOFavouritedTODB);
     })
+
+    //add follow event-listner here
+    let suggestions = await addSuggestionCards();
+
+    let trendingAuthors= await addTrendingAvatars();
+    let tredingAuthorAvatars = document.querySelectorAll('.top');
+    tredingAuthorAvatars.forEach((avatar) => {
+        avatar.addEventListener("click",goToPersonalPage);        
+    })
+
 }
 
 async function addPostTODB() {
@@ -77,8 +89,16 @@ async function addPostTOFavouritedTODB(e){
     }  
 }
 
+function goToPersonalPage(e){
+    let avatardiv = e.target;
+    let parentofAvatar = avatardiv.parentElement;
+    let avatarUserName = parentofAvatar.children[2].innerText;
+    //redirect to personal page based on this
+    console.log(avatarUserName);
+}
 
 async function customGetPostsTest(){
+    //function gets posts posted by single user
     let userPosts = await getUserSpecificPost();
     console.log(userPosts);
 }
