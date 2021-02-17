@@ -8,5 +8,5 @@ export async function addPost(userid, content,title) {
         post_time: Date.now(),
         post_title : title
     });
-    reloadCards(userid,content);
+    reloadCards(userid,content,title);
 }
