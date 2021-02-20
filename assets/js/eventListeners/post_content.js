@@ -9,6 +9,7 @@ import { getFavouritePosts } from "../controllers/getFavourites.js";
 import {addTrendingAvatars} from "../getTrendingCards.js"
 import {getUserSpecificPost} from "../controllers/userSpecificPost.js" //remove this as not gonna be used here
 import {getTrendingAuthors} from "../controllers/tredingAuthors.js"  //remove this as not gonna be used here
+import{goToPersonalPage} from "./profileCardEventListners.js"
 
 const postIcon = document.querySelector('.fa-paper-plane');
 const postContent = document.querySelector('.content_textarea');
@@ -25,7 +26,6 @@ postIcon.addEventListener('click', addPostTODB);
 //like a post listner
 //since the cards are loaded after async call 
 addLikeAndSaveFavEventListener();
-
 async function addLikeAndSaveFavEventListener() {    
     let posts = await addCards(); //adds the cards after getting the array         
     let postLikeButtons = document.querySelectorAll('.like-count-section'); 
@@ -41,13 +41,17 @@ async function addLikeAndSaveFavEventListener() {
 
     //add follow event-listner here
     let suggestions = await addSuggestionCards();
-
     let trendingAuthors= await addTrendingAvatars();
-    let tredingAuthorAvatars = document.querySelectorAll('.top');
-    tredingAuthorAvatars.forEach((avatar) => {
-        avatar.addEventListener("click",goToPersonalPage);        
-    })
+    
+    let images = document.querySelectorAll('.go-profile');    
+    let adding = await addImageToPersonalPageEventListner(images); //adding event listner to images; 
+}
 
+async function addImageToPersonalPageEventListner(images){   
+    console.log(images); 
+    images.forEach(image => {
+        image.addEventListener('click',goToPersonalPage);
+    })
 }
 
 async function addPostTODB() {
@@ -89,13 +93,6 @@ async function addPostTOFavouritedTODB(e){
     }  
 }
 
-function goToPersonalPage(e){
-    let avatardiv = e.target;
-    let parentofAvatar = avatardiv.parentElement;
-    let avatarUserName = parentofAvatar.children[2].innerText;
-    //redirect to personal page based on this
-    console.log(avatarUserName);
-}
 
 async function customGetPostsTest(){
     //function gets posts posted by single user
