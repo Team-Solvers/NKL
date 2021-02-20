@@ -10,6 +10,7 @@ import {addTrendingAvatars} from "../getTrendingCards.js"
 import {getUserSpecificPost} from "../controllers/userSpecificPost.js" //remove this as not gonna be used here
 import {getTrendingAuthors} from "../controllers/tredingAuthors.js"  //remove this as not gonna be used here
 import{goToPersonalPage} from "./profileCardEventListners.js"
+import{followOtherUser} from "../controllers/follow.js"
 
 const postIcon = document.querySelector('.fa-paper-plane');
 const postContent = document.querySelector('.content_textarea');
@@ -99,5 +100,6 @@ async function addPostTOFavouritedTODB(e){
 
 
 async function followUnfollow(e){
-    console.log(e.target);
-}
+    let userToFollow = e.target.classList[0];
+    followOtherUser(username,userToFollow);
+}   
