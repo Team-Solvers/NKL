@@ -27,14 +27,14 @@ postIcon.addEventListener('click', addPostTODB);
 //like a post listner
 //since the cards are loaded after async call 
 addLikeAndSaveFavEventListener();
+loadSuggestionTab();
+
 async function addLikeAndSaveFavEventListener() {    
-    let posts = await addCards(); //adds the cards after getting the array
-    let suggestions = await addSuggestionCards();    
+    let posts = await addCards(); //adds the cards after getting the array    
     let trendingAuthors= await addTrendingAvatars();      
 
     let postLikeButtons = document.querySelectorAll('.like-count-section'); 
-    let addToFavButtons = document.querySelectorAll('.add-tofav-section'); 
-    let followButtons = document.querySelectorAll('.follow-btn');
+    let addToFavButtons = document.querySelectorAll('.add-tofav-section');     
        
     postLikeButtons.forEach((postLikeButton,index) => {                        
         postLikeButton.addEventListener('click',likePostTODB);
@@ -43,14 +43,19 @@ async function addLikeAndSaveFavEventListener() {
     addToFavButtons.forEach((addToFavButton) => {
         addToFavButton.addEventListener('click',addPostTOFavouritedTODB);
     })
-
-    followButtons.forEach((followBtn) => {
-        followBtn.addEventListener('click',followUnfollow);
-    });
+   
     //add follow event-listner here
     
     let images = document.querySelectorAll('.go-profile');    
     let adding = await addImageToPersonalPageEventListner(images); //adding event listner to images; 
+}
+
+async function loadSuggestionTab(){
+    let suggestions = await addSuggestionCards();    
+    let followButtons = document.querySelectorAll('.follow-btn');
+    followButtons.forEach((followBtn) => {
+        followBtn.addEventListener('click',followUnfollow);
+    });
 }
 
 async function addImageToPersonalPageEventListner(images){       
@@ -102,4 +107,5 @@ async function addPostTOFavouritedTODB(e){
 async function followUnfollow(e){
     let userToFollow = e.target.classList[0];
     followOtherUser(username,userToFollow);
+    loadSuggestionTab();
 }   
