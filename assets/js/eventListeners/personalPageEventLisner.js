@@ -5,8 +5,10 @@ import {getUserStats} from "../controllers/userStats.js";
 import{goToPersonalPage} from "./profileCardEventListners.js";
 import { likePost } from "../controllers/likePost.js";
 import { addtoFavourites } from "../controllers/saveFavourites.js";
+import { getFullName } from "../controllers/getFullName.js";
 
 const postMainDiv = document.querySelector(".my-posts");
+const fullNameDiv = document.querySelector(".content_avatar_name_propic");
 
 const urlParams = new URLSearchParams(window.location.search);
 const profileUsername = urlParams.get('profileuser');
@@ -15,6 +17,8 @@ const username = urlParams.get('username');
 let imgLink = "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80";
 
 addProfilesCards();
+changeNameHolder();
+
 async function addProfilesCards(){
     let postsFromDB = await getUserSpecificPost(profileUsername);        
     postsFromDB.forEach(post => {                
@@ -38,6 +42,11 @@ async function addProfilesCards(){
     let adding = await addImageToPersonalPageEventListner(images)
 
     return postsFromDB;
+}
+
+async function changeNameHolder(){
+    let fullName = await getFullName(username);
+    fullNameDiv.innerHTML = fullName;
 }
 
 function likePostTODB(e){    
