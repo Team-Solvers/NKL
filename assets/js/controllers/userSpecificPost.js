@@ -9,7 +9,7 @@ export async function getUserSpecificPost(user_id){
     allPosts = await db.collection('posts').get({ keys: true });    
     
     allPosts.forEach(post => {
-        if(post.data.user_id === user_id){
+        if(post.data.user_id === user_id && post.data.visible != false){
             feed.push(post);
         }
     })

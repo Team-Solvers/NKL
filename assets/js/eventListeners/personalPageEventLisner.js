@@ -45,7 +45,7 @@ async function addProfilesCards(){
 }
 
 async function changeNameHolder(){
-    let fullName = await getFullName(username);
+    let fullName = await getFullName(profileUsername);
     fullNameDiv.innerHTML = fullName;
 }
 

@@ -8,7 +8,7 @@ export async function getUserStats(user_id){
     // console.log(allPosts);
 
     allPosts.forEach(post => {
-        if(post.data.user_id === user_id){
+        if(post.data.user_id === user_id && post.data.visible == false){
             postCount += 1;
         }
     })

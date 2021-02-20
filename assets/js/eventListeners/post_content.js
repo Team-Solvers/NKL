@@ -27,10 +27,14 @@ postIcon.addEventListener('click', addPostTODB);
 //since the cards are loaded after async call 
 addLikeAndSaveFavEventListener();
 async function addLikeAndSaveFavEventListener() {    
-    let posts = await addCards(); //adds the cards after getting the array         
-    let postLikeButtons = document.querySelectorAll('.like-count-section'); 
-    let addToFavButtons = document.querySelectorAll('.add-tofav-section');    
+    let posts = await addCards(); //adds the cards after getting the array
+    let suggestions = await addSuggestionCards();    
+    let trendingAuthors= await addTrendingAvatars();      
 
+    let postLikeButtons = document.querySelectorAll('.like-count-section'); 
+    let addToFavButtons = document.querySelectorAll('.add-tofav-section'); 
+    let followButtons = document.querySelectorAll('.follow-btn');
+       
     postLikeButtons.forEach((postLikeButton,index) => {                        
         postLikeButton.addEventListener('click',likePostTODB);
     })    
@@ -39,16 +43,16 @@ async function addLikeAndSaveFavEventListener() {
         addToFavButton.addEventListener('click',addPostTOFavouritedTODB);
     })
 
+    followButtons.forEach((followBtn) => {
+        followBtn.addEventListener('click',followUnfollow);
+    });
     //add follow event-listner here
-    let suggestions = await addSuggestionCards();
-    let trendingAuthors= await addTrendingAvatars();
     
     let images = document.querySelectorAll('.go-profile');    
     let adding = await addImageToPersonalPageEventListner(images); //adding event listner to images; 
 }
 
-async function addImageToPersonalPageEventListner(images){   
-    console.log(images); 
+async function addImageToPersonalPageEventListner(images){       
     images.forEach(image => {
         image.addEventListener('click',goToPersonalPage);
     })
@@ -94,27 +98,6 @@ async function addPostTOFavouritedTODB(e){
 }
 
 
-async function customGetPostsTest(){
-    //function gets posts posted by single user
-    let userPosts = await getUserSpecificPost();
-    console.log(userPosts);
+async function followUnfollow(e){
+    console.log(e.target);
 }
-
-async function getTrendingAuthorsTest(){
-    let trendingAuthors = await getTrendingAuthors();
-    console.log(trendingAuthors);
-}
-
-async function AddtoFavouritesTest(){
-    addtoFavourites("kidcore","11eb6a569c8892e092174b98892e7e4f");
-    addtoFavourites("kidcore","11eb6a582f07aab091d60958a7319f81");
-}
-
-async function getFavouritePostsTest(){
-    getFavouritePosts("natyman12");
-}
-
-// getTrendingAuthors();
-// AddtoFavouritesTest();
-// getFavouritePostsTest();
-

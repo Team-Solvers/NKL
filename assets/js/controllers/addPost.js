@@ -6,7 +6,8 @@ export async function addPost(userid, content,title) {
         content: content,
         user_id: userid,
         post_time: Date.now(),
-        post_title : title
+        post_title : title,
+        visible : true
     });
     reloadCards(userid,content,title);
 }
