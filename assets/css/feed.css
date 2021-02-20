@@ -85,21 +85,17 @@ body {
     outline: none;
     padding: 1rem;
     resize: none;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom: 1px solid black;
+   
     transition: all .2s;
-    background-color: #fbf6f0;
+    /* background-color: #fbf6f0; */
 }
 .add-post-title {
     width: 100%;
     padding: 1rem;
     /* border: none 1px solid black; */
     /* background-color: transparent; */
-    background-color: #fbf6f0;
-    border: 1px solid black;
+    /* background-color: #FFFFFA; */
+    /* border: 1px solid black; */
     /* padding-left: rem; */
 }
 
@@ -118,7 +114,7 @@ body {
     font-size: 2rem;
     position: absolute;
     right: 20px;
-    bottom: -60px;
+    bottom: -90px;
     text-align: center;
     width: 3rem;
     justify-content: center;
