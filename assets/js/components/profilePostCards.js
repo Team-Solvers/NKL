@@ -16,15 +16,15 @@ function htmlToElement(html) {
     return template.content.firstChild;
 }
 
-export function getProfilePostCard(imgUrl, postTitle,name, postdate, postContent, likeCount,postID,isLiked,isInFavs) {    
-    if(isLiked === true){
-        isLiked = 'post_liked';        
+export function getProfilePostCard(imgUrl, postTitle, name, postdate, postContent, likeCount, postID, isLiked, isInFavs) {
+    if (isLiked === true) {
+        isLiked = 'post_liked';
     }
 
-    if(isInFavs == true){
+    if (isInFavs == true) {
         isInFavs = 'post_favourited';
     }
-    
+
     let newCard = `
     <div class="mt-5 p-3 content-card w-100">
     <div class="top-section  p-3 w-100 d-flex justify-content-between">
@@ -34,7 +34,8 @@ export function getProfilePostCard(imgUrl, postTitle,name, postdate, postContent
             <p class="content_avatar_name my-auto ml-3 ">${name}</p>
         </div>        
         <span class="d-inline-block align-items center">
-                                    <i class="fas fa-trash ${postID} icon-trash"></i>
+                                    <i data-toggle="modal" data-target="#editModal" style = "cursor:pointer" class="far mr-4  fa-edit"></i>
+                                    <i style = "cursor:pointer" class="fas fa-trash ${postID} icon-trash"></i>
                                 </span>
     </div>
     <div class="p-3 post-content-section">

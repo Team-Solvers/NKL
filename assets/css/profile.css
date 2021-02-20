@@ -52,3 +52,8 @@
     font-weight: 200;
     font-size: 3rem;
 }
+
+.top-navigation {
+    width: calc(100%-57px);
+    margin-left: 57px;
+}

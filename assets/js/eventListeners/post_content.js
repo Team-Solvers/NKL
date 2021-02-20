@@ -18,10 +18,6 @@ const postTitle = document.querySelector('.add-post-title');
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
 
-/**
- *     const tinyData = tinymce.get("post").getContent();
-    console.log(tinyData);
- */
 
 
 //add new post listner
@@ -44,10 +40,10 @@ async function addLikeAndSaveFavEventListener() {
     addToFavButtons.forEach((addToFavButton) => {
         addToFavButton.addEventListener('click', addPostTOFavouritedTODB);
     })
-
+    
     //add follow event-listner here
     let suggestions = await addSuggestionCards();
-
+    
     let trendingAuthors = await addTrendingAvatars();
     let tredingAuthorAvatars = document.querySelectorAll('.top');
     tredingAuthorAvatars.forEach((avatar) => {
@@ -57,7 +53,8 @@ async function addLikeAndSaveFavEventListener() {
 }
 
 async function addPostTODB() {
-    let postContentValue = postContent.value;
+    const tinyData = tinymce.get("post").getContent();
+    let postContentValue = tinyData;
     let postTitleValue = postTitle.value;
 
     if (postContentValue.length > 7) {
