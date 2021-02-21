@@ -52,7 +52,7 @@ function getPostCard(imgUrl, postTitle, name, postdate, postContent, likeCount, 
     </div>
 </div>`
     // const   var div = document.createElement('div');
-    var div = document.createElement('div');
+    let div = document.createElement('div');
     div.innerHTML = newCard.trim();
 
     // Change this to div.childNodes to support multiple top-level nodes
