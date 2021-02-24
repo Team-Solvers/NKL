@@ -68,7 +68,7 @@ async function addNewUserToDB(e){
         }
         else{
             usernameValidation.innerHTML = ""; 
-            window.location.href = `./feed.html?username=${username}`;                           
+            window.location.href = `./profile.html?username=${username}`;
         }
     }
 }

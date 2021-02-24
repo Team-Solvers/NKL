@@ -1,3 +1,20 @@
 /* utils class */
 
 .v-none { visibility: hidden;}
+
+.bg-selected {
+    color: white;
+    background-color: rgb(39, 63, 52);
+}
+.bg-selected:hover {
+    color: white;
+}
+.bg-selected:focus {
+    color: white;
+    background-color: rgb(24, 27, 27);
+}
+
+.center-tab {
+    align-items: center;
+    margin: auto;
+}

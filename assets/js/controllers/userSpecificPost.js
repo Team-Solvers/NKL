@@ -1,42 +1,46 @@
 import { followOtherUser } from "./follow.js";
 
-//TODO: accept user id 
-export async function getUserSpecificPost(){
-    let db = new Localbase('Poetry');
-    let user_id = 'kidcore';
+export async function getUserSpecificPost(user_id){
+    let db = new Localbase('Poetry');        
 
-    //to be changed to following from db
-    //create a user that follows everyone to add every post not seen on    
-
-    let allUserPosts = [];
-    let userFeed = [];    
-
-    await db.collection('posts').get({ keys: true }).then(allPostsFromDB => {
-        allUserPosts = allPostsFromDB;
-      })
+    let allPosts = [];
+    let feed = [];        
     
-      allUserPosts.forEach(post => {                      
-        userFeed.push(post);    
-    })        
+    allPosts = await db.collection('posts').get({ keys: true });    
+    
+    allPosts.forEach(post => {
+        if(post.data.user_id === user_id && post.data.visible != false){
+            feed.push(post);
+        }
+    })
 
-    for(let i = 0; i < userFeed.length; i++){
-        let currPostToAddLike = userFeed[i];
+    for(let i = 0; i < feed.length; i++){
+        let currPostToAddLike = feed[i];
         let firstLike = await db.collection('likeActivity').doc(currPostToAddLike.key + "").get();
         let likeCount = 0;            
-        let isLiked = false;
+        let isLiked = false;        
         if(firstLike != null){
             likeCount = firstLike.usersWhoLiked.size;            
             let usersWhoLikedAtFeed = firstLike.usersWhoLiked;
             if(usersWhoLikedAtFeed.has(user_id)){
                 isLiked = true;
             }
-        }
-        userFeed[i].data.like_count = likeCount;
-        userFeed[i].isLiked = isLiked;
+        }        
+
+        let userFavObj = await db.collection('favourites').doc(user_id).get();
+        let userFavs = userFavObj.savedPosts;
+        let isInFavs = false;
+        if(userFavs.has(currPostToAddLike.key)){
+            isInFavs = true;
+        };    
+        
+        feed[i].data.like_count = likeCount;
+        feed[i].isLiked = isLiked;
+        feed[i].isInFavs = isInFavs;        
     }    
     
-    userFeed.sort(function(a,b){
+    feed.sort(function(a,b){
         return a.data.post_time > b.data.post_time ? -1 : 1;
     })
-    return userFeed
+    return feed
 }
