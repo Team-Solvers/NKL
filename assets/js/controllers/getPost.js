@@ -16,12 +16,14 @@ export async function getPost(user_id){
     await db.collection('posts').get({ keys: true }).then(allPostsFromDB => {
         allPosts = allPostsFromDB;
       })    
-
+    
+    // console.log(allPosts);
     allPosts.forEach(post => { 
+        // console.log(post,post.data.visible)
         if(post.data.visible != false){
             feed.push(post);    
         }                             
-    })        
+    })            
 
     for(let i = 0; i < feed.length; i++){
         let currPostToAddLike = feed[i];
@@ -47,7 +49,7 @@ export async function getPost(user_id){
         feed[i].isLiked = isLiked;
         feed[i].isInFavs = isInFavs;        
     }    
-    
+        
     feed.sort(function(a,b){
         return a.data.post_time > b.data.post_time ? -1 : 1;
     })

@@ -1,7 +1,7 @@
-function Post(title,content,author,date,like_count){
-    this.post_title = title    
+export function Post(content,user_id,post_time,post_title,visible){
+    this.post_title = post_title    
     this.content = content;
-    this.author = author;
-    this.date = date;
-    this.like_count = like_count;
+    this.user_id = user_id;
+    this.post_time = post_time;    
+    this.visible = visible;
 }

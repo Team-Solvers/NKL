@@ -15,7 +15,7 @@ function passToProfilePage(e){
 }
 
 function passToSavedPage(e){
-    // window.location.href = `./saved.html?username=${username}`;
+    window.location.href = `./savedPosts.html?username=${username}`;
 }
 
 function passToHomePage(e){

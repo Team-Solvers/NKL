@@ -115,11 +115,7 @@ async function addPostTOFavouritedTODB(e) {
 //     console.log(avatarUserName);
 // }
 
-async function customGetPostsTest() {
-    //function gets posts posted by single user
-    let userPosts = await getUserSpecificPost();
-    console.log(userPosts);
-}
+
 
 async function getTrendingAuthorsTest() {
     let trendingAuthors = await getTrendingAuthors();
@@ -135,12 +131,9 @@ async function getFavouritePostsTest() {
     getFavouritePosts("natyman12");
 }
 
-// getTrendingAuthors();
-// AddtoFavouritesTest();
-// getFavouritePostsTest();
 
 async function followUnfollow(e){
     let userToFollow = e.target.classList[0];
     followOtherUser(username,userToFollow);
-    loadSuggestionTab();
+    // loadSuggestionTab();
 }   

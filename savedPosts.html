@@ -27,32 +27,7 @@
         <div class=" ml-3 search-box-wrapper">
             <i class="fas fa-search search-icon"></i>
             <input type="text" placeholder="Search here" class="Search-input">
-        </div>
-        <div class="stories-wrapper w-25 h-100 d-flex text-right ">
-            <div class="story-avatar h-100 ">
-                <span class="add-story">
-                    <i class="fas fa-plus"></i>
-                </span>
-                <div class="top"></div>
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="" class="feed-profile story-avatar-img">
-                <p class="name text-center">Natnael Abay</p>
-            </div>
-            <div class="story-avatar h-100 ">
-                <div class="top"></div>
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="" class="feed-profile story-avatar-img">
-                <p class="name text-center">Natnael Abay</p>
-            </div>
-            <div class="story-avatar h-100 ">
-                <div class="top"></div>
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="" class="feed-profile story-avatar-img">
-                <p class="name text-center">Natnael Abay</p>
-            </div>
-
-        </div>
-
+        </div>        
 
     </div>
 
@@ -65,19 +40,19 @@
 
                     <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                         alt="" class=" sidebar-link-icon d-block mx-auto sidebar-avatar">
-
+                    <!-- signed in user name -->
                     <p class="text-center d-inline py-5 sidebar-avatar-name">Lingerew Getie</p>
                 </li>
-                <li>
+                <li class="home-btn">
                     <div class="d-block mx-auto">
                         <span class="fa fa-home fa-fw ml-n1 mr-3 text-white sidebar-link-icon"></span>
                         <span class="menu-collapsed sidebar-links">Home</span>
                     </div>
                 </li>
-                <li><i class="fas fa-fw fa-bookmark ml-n1 text-white sidebar-link-icon mr-3"></i>
+                <li class="saved-btn"><i class="fas fa-fw fa-bookmark ml-n1 text-white sidebar-link-icon mr-3"></i>
                     <span class="menu-collapsed text-white sidebar-links"> Saved Posts</span>
                 </li>
-                <li><i class="fas fa-fw fa-user text-white sidebar-link-icon ml-n1 mr-3"></i>
+                <li class="profile-btn"><i class="fas fa-fw fa-user text-white sidebar-link-icon ml-n1 mr-3"></i>
                     <span class="menu-collapsed text-white sidebar-links">Profile</span>
                 </li>
 
@@ -113,6 +88,7 @@
 
     </div>
     <script src="https://unpkg.com/localbase/dist/localbase.min.js"></script>
+    <script type="module" src="./assets/js/eventListeners/sideBarEventListner.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
