@@ -4,7 +4,8 @@ import {Post} from "../models/post.js"
 export async function addPost(userid, content,title) {
     let db = new Localbase('Poetry');
     let newPost = new Post(content,userid,Date.now(),title,true);
-    await db.collection('posts').add(newPost);
+    let key = await db.collection('posts').add(newPost);
+    console.log(key);
     //get id of the post just added from db
     reloadCards(userid,content,title);
 }

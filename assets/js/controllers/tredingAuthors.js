@@ -1,7 +1,7 @@
 export async function getTrendingAuthors() {
     let db = new Localbase('Poetry');
     let usersMap = new Map();
-    let weekInSecs = 604800;    
+    let weekInSecs = 604800;
 
     let allPosts = [];
 
@@ -11,18 +11,24 @@ export async function getTrendingAuthors() {
         allPosts = allPostsFromDB;
     })
 
-    allPosts.forEach(post => {
-        // console.log((Date.now() - post.data.post_time) / 1000);
+    for (let i = 0; i < allPosts.length; i++) {
+        let post = allPosts[i];
         if (((Date.now() - post.data.post_time) / 1000) <= weekInSecs) {
-
             let user_id = post.data.user_id;
-            if (usersMap.has(user_id)) {
-                usersMap.set(user_id, usersMap.get(user_id) + 1);
-            } else {
-                usersMap.set(user_id, 1);
+            let post_id = post.key;
+            try {
+                let likeCntObj = await db.collection('likeActivity').doc(post_id).get();
+                let likeCnt = likeCntObj.usersWhoLiked.size;                
+                if (usersMap.has(user_id)) {
+                    usersMap.set(user_id, usersMap.get(user_id) + likeCnt);
+                } else {
+                    usersMap.set(user_id, 1);
+                }
+            } catch (e) {
+                //post has not been liked yet;
             }
         }
-    })
+    }
 
     let likeSortArr = [];
     for (let user of usersMap.keys()) {
@@ -37,6 +43,6 @@ export async function getTrendingAuthors() {
         return usersMap.get(a) > usersMap.get(b) ? -1 : 1;
     })
 
-    //can be cut to include only k values    
+    likeSortArr = likeSortArr.slice(0,3);                
     return likeSortArr;
 }
