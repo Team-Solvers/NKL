@@ -107,16 +107,6 @@ async function addPostTOFavouritedTODB(e) {
     }
 }
 
-// function goToPersonalPage(e) {
-//     let avatardiv = e.target;
-//     let parentofAvatar = avatardiv.parentElement;
-//     let avatarUserName = parentofAvatar.children[2].innerText;
-//     //redirect to personal page based on this
-//     console.log(avatarUserName);
-// }
-
-
-
 async function getTrendingAuthorsTest() {
     let trendingAuthors = await getTrendingAuthors();
     console.log(trendingAuthors);

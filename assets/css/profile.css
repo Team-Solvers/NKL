@@ -1,3 +1,9 @@
+.delete{
+    display: none;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+}
+
 .profile-profile {
     height: 10rem;
     width: 10rem;

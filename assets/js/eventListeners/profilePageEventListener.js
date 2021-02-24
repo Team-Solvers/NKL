@@ -38,8 +38,7 @@ async function refreshSelfCards(){
 
 async function addUsersIfollow(){    
     followingTab.innerHTML = "";
-    let usersIfollow = await getUsersIFollow(username);
-    console.log(usersIfollow);
+    let usersIfollow = await getUsersIFollow(username);    
     usersIfollow.forEach((userIfollow) => {      
         followingTab.innerHTML += getFollowComponent(userIfollow);
     })    
@@ -53,7 +52,6 @@ async function addUsersIfollow(){
 
 async function loadSelfPostCards(){
     await refreshSelfCards();
-
     //delete event listners
     let cards = document.querySelectorAll(".icon-trash");
     cards.forEach(card => {
@@ -64,8 +62,11 @@ async function loadSelfPostCards(){
 async function deletePostFromDB(e){    
     let postIcon = e.target;
     let postId = postIcon.classList[2];
-    await deletePost(postId);
-    loadSelfPostCards();
+    let card = postIcon.parentElement.parentElement.parentElement;    
+    // card.classList.push("delete");
+    card.classList.toggle('delete');
+    // await deletePost(postId);
+    // loadSelfPostCards();
 }
 
 
