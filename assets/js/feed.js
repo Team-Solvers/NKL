@@ -25,6 +25,18 @@ const suggestionArrowCollapse = document.querySelector(".arrow-collapse-suggesti
 const btnGroup = document.querySelector(".btn-group")
 var PostType = "default"
 let currentSelected = 0
+
+$(function () {
+    $(".suggestion-name").each(function () {
+        len = $(this).text().length;
+        str = $(this).text().substr(0, 10);
+        lastIndexOf = str.lastIndexOf(" ");
+        if (len > 10) {
+            $(this).text(str.substr(0, lastIndexOf) + '…');
+        }
+    });
+});
+
 btnGroup.addEventListener("click", (e) => {
     let arr = Array.from(e.target.parentElement.children)
     const unique = arr.filter((value, index) => {
@@ -50,7 +62,7 @@ btnGroup.addEventListener("click", (e) => {
         e.target.classList.remove("bg-secondary")
         e.target.classList.add("bg-selected")
         e.target.classList.remove("text-white")
-        
+
     }
     else {
         PostType = "cat3"

@@ -54,12 +54,8 @@
 }
 
 .top-navigation {
-    width: calc(100% - 4.2rem);
+    width: 100%;
     margin-left: 57px;
     z-index: -1;
 }
 
-
-.following-card div {
-    width: 30%;
-}

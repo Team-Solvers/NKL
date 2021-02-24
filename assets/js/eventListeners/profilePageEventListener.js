@@ -10,7 +10,7 @@ import { unFollowAuser } from "../controllers/unfollow.js";
 
 const postMainDiv = document.querySelector(".my-posts");
 const fullNameDiv = document.querySelector(".content_avatar_name_propic");
-let followingTab = document.querySelector(".following-tab");
+let followingTab = document.querySelector("#tabs-2");
 
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');

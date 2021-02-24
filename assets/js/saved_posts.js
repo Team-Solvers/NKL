@@ -11,7 +11,6 @@ const sidebarAvatarName = document.querySelector(".sidebar-avatar-name")
 const sideBarAvatar = document.querySelector(".sidebar-avatar")
 const topNavigation = document.querySelector(".top-navigation")
 const contentCad = document.querySelector('.add-post')
-const rightSidebar = document.querySelector(".right-sidebar")
 const mainContent = document.querySelector(".main-content")
 const StoryAvatars = document.querySelectorAll('.story-avatar-img')
 const addStoryGradient = document.querySelectorAll(".top")
@@ -20,119 +19,30 @@ const storyName = document.querySelectorAll(".name")
 const suggestionImage = document.querySelector(".suggestion-img")
 const followButtons = document.querySelectorAll(".btn-follow")
 const suggestionHeader = document.querySelector(".suggestion-header")
-let Right_sidebarEnlarged = true
 const suggestionArrowCollapse = document.querySelector(".arrow-collapse-suggestion")
 
 
-$(function(){
+$(function () {
     $(".suggestion-name").each(function () {
-        len=$(this).text().length;
-        str= $(this).text().substr(0,10);
-        lastIndexOf = str.lastIndexOf(" "); 
-        if(len>10) {
+        len = $(this).text().length;
+        str = $(this).text().substr(0, 10);
+        lastIndexOf = str.lastIndexOf(" ");
+        if (len > 10) {
             $(this).text(str.substr(0, lastIndexOf) + '…');
         }
     });
-    });
+});
 
-
-
-arrowCollapseSuggestion.addEventListener("click", function (e) {
-    // Right_sidebarEnlarged = !(rightSidebar.clientWidth < "calc(30vh)")
-    if(Right_sidebarEnlarged) {
-        if(window.innerWidth <= 1490) {
-            rightSidebar.style.width = "4.2rem"
-            rightSidebar.style.overflow = "hidden"
-            // Right_sidebarEnlarged = false
-            
-          
-            topNavigation.style["transition"]= ".2s all"
-            arrowCollapseSuggestion.style["transform"] = "rotate(0deg)"
-            arrowCollapseSuggestion.style["transition"] = ".5s all"
-            Right_sidebarEnlarged = false
-            suggestionHeader.style.fontSize = "0"
-            suggestionHeader.style.transition = ".2s all"
-        }
-        else {
-
-            rightSidebar.style.width = "4.2rem"
-            rightSidebar.style.overflow = "hidden"
-            if(sidebar.style["width"] == "230px"){
-                topNavigation.style.marginLeft = "230px"
-                topNavigation.style.width = "calc(100% - 230px - 4.2rem)"
-                topNavigation.style["transition"]= ".2s all"
-            }
-            else{
-                topNavigation.style.width = "calc(100% - 4.2rem)"
-                topNavigation.style["transition"]= ".2s all"
-            }
-            mainContent.style.marginLeft = "7%"
-            mainContent.style["transition"]= ".2s all"
-            topNavigation.style["transition"]= ".2s all"
-            arrowCollapseSuggestion.style["transform"] = "rotate(0)"
-            arrowCollapseSuggestion.style["transition"] = ".2s all"
-            Right_sidebarEnlarged = false
-            suggestionHeader.style.fontSize = "0"
-            suggestionHeader.style.transition = ".2s all"
-        }
-        
-        
-    }
-    else  {
-        if(window.innerWidth <= 1490) {
-            suggestionHeader.style.fontSize = "1.3rem"
-            mainContent.style.marginLeft = "0"
-            mainContent.style["transition"]= ".2s all"
-            if(sidebar.style["width"] == "230px"){
-                topNavigation.style.marginLeft = "230px"
-                topNavigation.style.width = "calc(100% - 30vh - 230px)"
-                topNavigation.style["transition"]= ".2s all"
-            }
-            else{
-                topNavigation.style.width = "calc(100% - 4.2rem - 57px)"
-                topNavigation.style["transition"]= ".2s all"
-            }
-            rightSidebar.style.width = "30vh"
-            arrowCollapseSuggestion.style["transform"] = "rotate(180deg)"
-            arrowCollapseSuggestion.style["transition"] = ".2s all"
-            rightSidebar.style.overflow = "hidden"
-            Right_sidebarEnlarged = true
-        } else {
-            suggestionHeader.style.fontSize = "1.3rem"
-            mainContent.style.marginLeft = "0"
-            mainContent.style["transition"]= ".2s all"
-            if(sidebar.style["width"] == "230px"){
-                topNavigation.style.marginLeft = "230px"
-                topNavigation.style.width = "calc(100% - 30vh - 230px)"
-                topNavigation.style["transition"]= ".2s all"
-            }
-            else{
-                topNavigation.style.width = "calc(100% - 30vh - 57px)"
-                topNavigation.style["transition"]= ".2s all"
-            }
-            rightSidebar.style.width = "30vh"
-            arrowCollapseSuggestion.style["transform"] = "rotate(180deg)"
-            arrowCollapseSuggestion.style["transition"] = ".2s all"
-            rightSidebar.style.overflow = "hidden"
-            Right_sidebarEnlarged = true
-        }
-    }
-})
 
 arrowCollapse.addEventListener("click", () => {
     if (!_sidebarEnlarged) {
         sidebar.style['width'] = "57px"
         sidebar.style['overflow'] = "hidden"
-        topNavigation.style["transition"]= ".2s all"
-        if(rightSidebar.style["width"] == "30vh"){
-            topNavigation.style.marginLeft = "57px"
-            topNavigation.style.width = "calc(100% - 30vh - 57px)"
-            console.log("right side bat clicked")
-        }
-        else{
-            topNavigation.style.marginLeft = "57px"
-            topNavigation.style.width = "calc(100% - 4.2rem - 57px)"
-        }
+        topNavigation.style["transition"] = ".2s all"
+
+        topNavigation.style.marginLeft = "57px"
+        topNavigation.style.width = "calc(100% - 57px)"
+
         sideBarAvatar.style.height = "1.8rem"
         sidebarAvatarName.style.fontSize = "0"
         sidebarAvatarName.style.marginTop = "0"
@@ -169,26 +79,19 @@ arrowCollapse.addEventListener("click", () => {
             sideBarAvatar.style.transition = "all .2s "
         } else {
             sidebar.style['width'] = "230px"
-            sidebar.style["transition"]= ".2s all"
+            sidebar.style["transition"] = ".2s all"
             pageWrapper.style.marginLeft = "200px"
             pageWrapper.style["transition"] = ".2s all ease"
             sidebar.style['z-index'] = "1"
             arrowCollapse.style["transform"] = "rotate(0deg)"
             arrowCollapse.style["transtion"] = ".2s all ease"
-            
+
             $(".sidebar-links").show();
             sidebarLinks.forEach(e => e.style.transition = ".2s")
             topNavigation.style.transition = ".2s all"
             _sidebarEnlarged = false
-            if(rightSidebar.style["width"] = "30vh"){
-                topNavigation.style.marginLeft = "230px"
-                topNavigation.style.width = "calc(100% - 30vh - 230px)"
-                topNavigation.style["transition"]= ".2s all"
-
-            }
-            else{
-                topNavigation.style.width = "calc(100% - 4.2rem - 230px)"
-            }
+            topNavigation.style.width = "calc(100% - 230px)"
+            topNavigation.style.marginLeft = "230px"
             sidebarAvatarName.style.fontSize = "1.5rem"
             sidebarAvatarName.style.marginTop = "1rem"
             sidebarAvatarName.style.transition = ".2s all"
