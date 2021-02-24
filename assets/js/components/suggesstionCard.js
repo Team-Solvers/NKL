@@ -6,6 +6,6 @@ export function SuggestionCard(userInfo) {
         <div class="suggestion-name" style="margin-left: .4rem;">${userInfo}</div>
         </div>
 
-        <a href="#" class="follow-btn btn-follow ml-1 d-inline-block">Follow</a>
+        <a href="#" class="${userInfo} follow-btn btn-follow ml-1 d-inline-block">Follow</a>
     </div>`
 }

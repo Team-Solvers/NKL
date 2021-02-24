@@ -18,12 +18,13 @@ const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
 
 const loader = document.querySelector(".loader")
-console.log(loader);
+// console.log(loader);
 let imgLink = "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80";
 
 export async function addCards(){
     let postsFromDB = await getPost(username);
     loader.style.display = "none"
+    // console.log(postsFromDB);
     postsFromDB.forEach(post => {                
         let postTime = new Date(post.data.post_time * 1000);            
         let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        

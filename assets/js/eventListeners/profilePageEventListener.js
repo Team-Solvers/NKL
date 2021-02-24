@@ -1,9 +1,16 @@
 import {getUserSpecificPost} from "../controllers/userSpecificPost.js";
 import {getProfilePostCard} from "../components/profilePostCards.js";
+import {getFollowComponent} from "../components/followingProfileComponent.js";
 import {deletePost} from "../controllers/deletePost.js";
 import {getUserStats} from "../controllers/userStats.js";
+import { getFullName } from "../controllers/getFullName.js";
+import { getUsersIFollow } from "../controllers/getUsersIFollow.js";
+import { unFollowAuser } from "../controllers/unfollow.js";
+
 
 const postMainDiv = document.querySelector(".my-posts");
+const fullNameDiv = document.querySelector(".content_avatar_name_propic");
+let followingTab = document.querySelector(".following-tab");
 
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
@@ -11,9 +18,15 @@ const username = urlParams.get('username');
 let imgLink = "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80";
 
 loadSelfPostCards();
+changeNameHolder();
+addUsersIfollow();
 
-async function refreshSelfCards(){
-    console.log("refreshing");
+async function changeNameHolder(){
+    let fullName = await getFullName(username);
+    fullNameDiv.innerHTML = fullName;
+}
+
+async function refreshSelfCards(){    
     postMainDiv.innerHTML = "";
     let userPosts = await getUserSpecificPost(username);    
     userPosts.forEach(post => {
@@ -22,6 +35,21 @@ async function refreshSelfCards(){
         postMainDiv.innerHTML += postCardFromDB;
     })
 }
+
+async function addUsersIfollow(){    
+    followingTab.innerHTML = "";
+    let usersIfollow = await getUsersIFollow(username);
+    console.log(usersIfollow);
+    usersIfollow.forEach((userIfollow) => {      
+        followingTab.innerHTML += getFollowComponent(userIfollow);
+    })    
+
+    let unfollowBtns = document.querySelectorAll('.unfollow-btn');
+    unfollowBtns.forEach((unfollowBtn) => {
+        unfollowBtn.addEventListener('click',unfollowAuserFun);
+    })  
+}
+
 
 async function loadSelfPostCards(){
     await refreshSelfCards();
@@ -40,6 +68,7 @@ async function deletePostFromDB(e){
     loadSelfPostCards();
 }
 
+
 async function updateStats(){
     let stats = await getUserStats(username);
     let followerCountDiv = document.querySelector('.followersNumber');
@@ -48,8 +77,13 @@ async function updateStats(){
 
     followerCountDiv.innerText = stats.followerCount;
     followingCountDiv.innerText = stats.followingCount;
-    postCountDiv.innerText = stats.postCount;
-    console.log(stats);
+    postCountDiv.innerText = stats.postCount;    
+}
+
+async function unfollowAuserFun(e){    
+    await unFollowAuser(username,e.target.classList[0]);           
+    // followingTab.innerHTML = "";
+    // setTimeout(addUsersIfollow,0.001);
 }
 
 updateStats()

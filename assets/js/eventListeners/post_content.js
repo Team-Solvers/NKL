@@ -6,9 +6,11 @@ import { addSuggestionCards } from "../getSuggestionCards.js";
 import { likePost } from "../controllers/likePost.js";
 import { addtoFavourites } from "../controllers/saveFavourites.js";
 import { getFavouritePosts } from "../controllers/getFavourites.js";
-import { addTrendingAvatars } from "../getTrendingCards.js"
-import { getUserSpecificPost } from "../controllers/userSpecificPost.js" //remove this as not gonna be used here
-import { getTrendingAuthors } from "../controllers/tredingAuthors.js"  //remove this as not gonna be used here
+import {addTrendingAvatars} from "../getTrendingCards.js"
+import {getUserSpecificPost} from "../controllers/userSpecificPost.js" //remove this as not gonna be used here
+import {getTrendingAuthors} from "../controllers/tredingAuthors.js"  //remove this as not gonna be used here
+import{goToPersonalPage} from "./profileCardEventListners.js"
+import{followOtherUser} from "../controllers/follow.js"
 
 const postIcon = document.querySelector('.fa-paper-plane');
 const postContent = document.querySelector('.content_textarea');
@@ -27,29 +29,41 @@ postIcon.addEventListener('click', addPostTODB);
 //like a post listner
 //since the cards are loaded after async call 
 addLikeAndSaveFavEventListener();
+loadSuggestionTab();
 
-async function addLikeAndSaveFavEventListener() {
-    let posts = await addCards(); //adds the cards after getting the array         
-    let postLikeButtons = document.querySelectorAll('.like-count-section');
-    let addToFavButtons = document.querySelectorAll('.add-tofav-section');
+async function addLikeAndSaveFavEventListener() {    
+    let posts = await addCards(); //adds the cards after getting the array    
+    let trendingAuthors= await addTrendingAvatars();      
 
-    postLikeButtons.forEach((postLikeButton, index) => {
-        postLikeButton.addEventListener('click', likePostTODB);
-    })
+    let postLikeButtons = document.querySelectorAll('.like-count-section'); 
+    let addToFavButtons = document.querySelectorAll('.add-tofav-section');     
+       
+    postLikeButtons.forEach((postLikeButton,index) => {                        
+        postLikeButton.addEventListener('click',likePostTODB);
+    })    
 
     addToFavButtons.forEach((addToFavButton) => {
         addToFavButton.addEventListener('click', addPostTOFavouritedTODB);
     })
-    
+   
     //add follow event-listner here
-    let suggestions = await addSuggestionCards();
     
-    let trendingAuthors = await addTrendingAvatars();
-    let tredingAuthorAvatars = document.querySelectorAll('.top');
-    tredingAuthorAvatars.forEach((avatar) => {
-        avatar.addEventListener("click", goToPersonalPage);
-    })
+    let images = document.querySelectorAll('.go-profile');    
+    let adding = await addImageToPersonalPageEventListner(images); //adding event listner to images; 
+}
 
+async function loadSuggestionTab(){
+    let suggestions = await addSuggestionCards();    
+    let followButtons = document.querySelectorAll('.follow-btn');
+    followButtons.forEach((followBtn) => {
+        followBtn.addEventListener('click',followUnfollow);
+    });
+}
+
+async function addImageToPersonalPageEventListner(images){       
+    images.forEach(image => {
+        image.addEventListener('click',goToPersonalPage);
+    })
 }
 
 async function addPostTODB() {
@@ -93,13 +107,13 @@ async function addPostTOFavouritedTODB(e) {
     }
 }
 
-function goToPersonalPage(e) {
-    let avatardiv = e.target;
-    let parentofAvatar = avatardiv.parentElement;
-    let avatarUserName = parentofAvatar.children[2].innerText;
-    //redirect to personal page based on this
-    console.log(avatarUserName);
-}
+// function goToPersonalPage(e) {
+//     let avatardiv = e.target;
+//     let parentofAvatar = avatardiv.parentElement;
+//     let avatarUserName = parentofAvatar.children[2].innerText;
+//     //redirect to personal page based on this
+//     console.log(avatarUserName);
+// }
 
 async function customGetPostsTest() {
     //function gets posts posted by single user
@@ -125,3 +139,8 @@ async function getFavouritePostsTest() {
 // AddtoFavouritesTest();
 // getFavouritePostsTest();
 
+async function followUnfollow(e){
+    let userToFollow = e.target.classList[0];
+    followOtherUser(username,userToFollow);
+    loadSuggestionTab();
+}   

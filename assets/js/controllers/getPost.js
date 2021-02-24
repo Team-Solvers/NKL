@@ -15,10 +15,12 @@ export async function getPost(user_id){
 
     await db.collection('posts').get({ keys: true }).then(allPostsFromDB => {
         allPosts = allPostsFromDB;
-      })
-    
-    allPosts.forEach(post => {                      
-        feed.push(post);    
+      })    
+
+    allPosts.forEach(post => { 
+        if(post.data.visible != false){
+            feed.push(post);    
+        }                             
     })        
 
     for(let i = 0; i < feed.length; i++){
