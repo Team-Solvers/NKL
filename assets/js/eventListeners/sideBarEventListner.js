@@ -2,10 +2,13 @@ const homeButton = document.querySelector(".home-btn");
 const profileButton = document.querySelector(".profile-btn");
 const savedButton = document.querySelector(".saved-btn");
 const logoutButton = document.querySelector(".logout-btn");
+const sidebarName = document.querySelector(".sidebar-avatar-name");
 
 
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
+
+sidebarName.innerText = username;
 
 profileButton.addEventListener('click',passToProfilePage);
 savedButton.addEventListener('click',passToSavedPage);
