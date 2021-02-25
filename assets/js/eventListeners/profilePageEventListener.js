@@ -40,12 +40,18 @@ const fullNameDiv = document.querySelector(".content_avatar_name_propic");
 const editModalBtn = document.querySelector(".edit-modal-done");
 let postBeingChangedID = 0;
 
+let username = Cookies.get('_poet');
+if(!username){
+    window.location.href = `./index.html`;
+}
+console.log(username);
+
 editModalBtn.addEventListener('click', editPostToDB);
 
 let followingTab = document.querySelector("#tabs-2");
 
 const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username');
+// const username = urlParams.get('username');
 
 let imgLink = "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80";
 

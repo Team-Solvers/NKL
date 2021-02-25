@@ -1,7 +1,6 @@
 import {logIn} from "../controllers/authenticate.js";
 import {addUserToDB} from "../controllers/signUp.js";
 import {encrypter} from "../controllers/encryptString.js";
-import {decrypter} from "../controllers/decryptString.js";
 
 
 const logInForm = document.querySelector(".login-form");
@@ -27,6 +26,11 @@ const usernameValidation = document.querySelector(".signup-form-username-validat
 signInBtn.addEventListener('click',authenticateUser);
 signUpFormSubmitBtn.addEventListener('click',addNewUserToDB);
 
+let loggedIn = Cookies.get('_poet');
+if(loggedIn){
+    window.location.href = `./feed.html`;
+}
+
 async function authenticateUser(e){
     e.preventDefault();        
     let invalidValidationText = "Invalid username or password";
@@ -40,7 +44,10 @@ async function authenticateUser(e){
     else{
         validationFeedbackText.style.color = 'green';
         validationFeedbackText.innerText = validationFeedback;
-        window.location.href = `./feed.html?username=${logInFormUserNameInput.value}`;
+        Cookies.set("_poet", logInFormUserNameInput.value,{
+            expires: 3,
+          });
+        window.location.href = `./feed.html`;
     }
 }
 
@@ -72,7 +79,7 @@ async function addNewUserToDB(e){
         }
         else{
             usernameValidation.innerHTML = ""; 
-            window.location.href = `./profile.html?username=${username}`;
+            window.location.href = `./profile.html`;
         }
     }
 }

@@ -37,8 +37,13 @@ const postContent = document.querySelector('.content_textarea');
 const postTitle = document.querySelector('.add-post-title');
 const categoryButtons = document.querySelectorAll('.cat-btn');
 
+let username = Cookies.get('_poet');
+if(!username){
+    window.location.href = `./index.html`;
+}
+console.log(username);
 const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username');
+// const username = urlParams.get('username');
 
 let currentPostCategory = "Blank verse";
 

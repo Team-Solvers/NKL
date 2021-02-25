@@ -14,8 +14,10 @@ import {getFollowFeed} from "./controllers/getFollowFeed.js";
 // getFollowFeed("natyman12");
 
 let postMainDiv = document.querySelector(".post-card");
-const urlParams = new URLSearchParams(window.location.search);
-const username = urlParams.get('username');
+let username = Cookies.get('_poet');
+if(!username){
+    window.location.href = `./index.html`;
+}
 
 const loader = document.querySelector(".loader")
 // console.log(loader);
