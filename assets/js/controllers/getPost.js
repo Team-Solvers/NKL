@@ -5,10 +5,7 @@ export async function getPost(user_id){
     let allPosts = [];
     let feed = [];    
 
-    await db.collection('posts').get({ keys: true }).then(allPostsFromDB => {
-        allPosts = allPostsFromDB;
-      })    
-    
+    allPosts =  await db.collection('posts').get({ keys: true });
     // console.log(allPosts);
     allPosts.forEach(post => { 
         // console.log(post,post.data.visible)

@@ -21,11 +21,10 @@ export async function getFollowFeed(user_id){
             }               
         }
     }    
-    
-    console.log(followFeed);
-    // followFeed.sort((a,b) => {
-       
-    // })
+        
+    followFeed.sort((a,b) => {
+       return getScore()
+    })
 
     return followFeed;
 }
