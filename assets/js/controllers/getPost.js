@@ -39,6 +39,7 @@ export async function getPost(user_id){
         }        
 
         let userFavObj = await db.collection('favourites').doc(user_id).get();
+        // console.log(userFavObj);
         let userFavs = userFavObj.savedPosts;
         let isInFavs = false;
         if(userFavs.has(currPostToAddLike.key)){
@@ -49,9 +50,33 @@ export async function getPost(user_id){
         feed[i].isLiked = isLiked;
         feed[i].isInFavs = isInFavs;        
     }    
+    
+    let row = await db.collection('userPreferences').doc(user_id).get();
+    let likePrefsRow = row.userPrefs.likes;
         
     feed.sort(function(a,b){
-        return a.data.post_time > b.data.post_time ? -1 : 1;
+        let ascore = likePrefsRow[a.data.category];
+        let bscore = likePrefsRow[b.data.category];
+
+        let aposttime = a.data.post_time;
+        let bposttime = b.data.post_time;
+        if(!outOfWeek(aposttime) & outOfWeek(bposttime)){
+            return -1;
+        }
+        else if(outOfWeek(aposttime) & !outOfWeek(bposttime)){
+            return 1;
+        }
+        return ascore > bscore ? -1 : 1;
     })
+    
     return feed
+}
+
+
+function outOfWeek(post_time){
+    let weekInSecs = 604800;
+    if((Date.now() - post_time) / 1000 <= weekInSecs){
+        return false
+    }
+    return true;
 }

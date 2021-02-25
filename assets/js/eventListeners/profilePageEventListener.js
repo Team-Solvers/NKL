@@ -65,7 +65,7 @@ async function deletePostFromDB(e){
     let card = postIcon.parentElement.parentElement.parentElement;    
     // card.classList.push("delete");
     card.classList.toggle('delete');
-    // await deletePost(postId);
+    await deletePost(postId);
     // loadSelfPostCards();
 }
 
@@ -82,7 +82,10 @@ async function updateStats(){
 }
 
 async function unfollowAuserFun(e){    
-    await unFollowAuser(username,e.target.classList[0]);           
+    let unfollowComp = e.target.parentElement;    
+    unfollowComp.classList.toggle('delete');
+    unfollowComp.style.display = 'none';
+    await unFollowAuser(username,e.target.classList[0]);               
     // followingTab.innerHTML = "";
     // setTimeout(addUsersIfollow,0.001);
 }

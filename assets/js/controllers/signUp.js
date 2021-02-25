@@ -23,6 +23,23 @@ export async function addUserToDB(etUserName,fullName,email,password){
         savedPosts: new Set()
     },etUserName);
 
-    console.log('ending');
+    await db.collection('userPreferences').add({                    
+        userPrefs : {
+            likes :{
+                "Blank verse" : 0,
+                "Rhymed poetry" : 0,
+                "Free verse" : 0,
+                "Narrative poetry" : 0,
+                "Other" : 0,
+            },
+            posts : {
+                "Blank verse" : 0,
+                "Rhymed poetry" : 0,
+                "Free verse" : 0,
+                "Narrative poetry" : 0,
+                "Other" : 0,
+            }
+        }
+    },etUserName);    
     return "user added";
 }

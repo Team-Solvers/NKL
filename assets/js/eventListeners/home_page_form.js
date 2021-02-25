@@ -61,6 +61,7 @@ async function addNewUserToDB(e){
     let ec = isEmailValid();
     
     if(pc && cc && fc && ec){        
+        username = username.toLowerCase();
         let encryptedPassword = encrypter(password);
         let usernameTaken = await addUserToDB(username,fullName,userEmail,encryptedPassword);
         if(usernameTaken === "username taken"){

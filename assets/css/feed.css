@@ -512,3 +512,9 @@ input[type="checkbox"]:checked+label svg {
     transform: rotate(-180deg);
     transition: all .3s;
 }
+
+.feed-delete{
+    display: none;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+}
