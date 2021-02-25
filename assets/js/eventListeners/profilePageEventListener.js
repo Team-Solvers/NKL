@@ -44,7 +44,7 @@ let username = Cookies.get('_poet');
 if(!username){
     window.location.href = `./index.html`;
 }
-console.log(username);
+
 
 editModalBtn.addEventListener('click', editPostToDB);
 

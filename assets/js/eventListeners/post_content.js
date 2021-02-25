@@ -38,7 +38,7 @@ const postTitle = document.querySelector('.add-post-title');
 const categoryButtons = document.querySelectorAll('.cat-btn');
 
 let username = Cookies.get('_poet');
-if(!username){
+if (!username) {
     window.location.href = `./index.html`;
 }
 console.log(username);
@@ -105,38 +105,52 @@ async function addPostTODB() {
     let postContentValue = tinyData;
     let postTitleValue = postTitle.value;
 
-    //check two sinign here
-    if (postContentValue.length > 7) {
-        let postid = await addPost(username, postContentValue, postTitleValue, currentPostCategory);
-        let postLikeButtons = document.querySelectorAll('.like-count-section');
-        let addToFavButtons = document.querySelectorAll('.add-tofav-section');
+    if (validatePost(postContentValue, postTitleValue)) {
+        postIcon.style.color = 'black';
+        if (postContentValue.length > 7) {
+            let postid = await addPost(username, postContentValue, postTitleValue, currentPostCategory);
+            let postLikeButtons = document.querySelectorAll('.like-count-section');
+            let addToFavButtons = document.querySelectorAll('.add-tofav-section');
 
-        postLikeButtons.forEach((postLikeButton, index) => {
-            postLikeButton.addEventListener('click', likePostTODB);
-        })
+            postLikeButtons.forEach((postLikeButton, index) => {
+                postLikeButton.addEventListener('click', likePostTODB);
+            })
 
-        addToFavButtons.forEach((addToFavButton) => {
-            addToFavButton.addEventListener('click', addPostTOFavouritedTODB);
-        })
+            addToFavButtons.forEach((addToFavButton) => {
+                addToFavButton.addEventListener('click', addPostTOFavouritedTODB);
+            })
+        }
+
+    }
+    else{
+        postIcon.style.color = 'red';
     }
 
+
+}
+
+function validatePost(content, title) {
+    let lineLength = content.split("<p>").length - 1
+    if (title.length > 0 && lineLength >= 2) {
+        return true;
+    }
+    return false;
 }
 
 //change to async
 function likePostTODB(e) {
     console.log(e.target.classList)
-     if (e.target.classList.contains("fa-heart")) {
+    if (e.target.classList.contains("fa-heart")) {
         let nodeType = e.target.classList[0];
         let postId = e.target.classList[2];
         likePost(postId, username)
             .then(function (likeResult) {
                 let parentDiv = e.target.parentElement;
                 let likeCountDiv = parentDiv.children[1];
-                if (likeResult == "firstLike") {                    
+                if (likeResult == "firstLike") {
                     likeCountDiv.innerText = parseInt(likeCountDiv.innerText) + 1;
                     e.target.classList.toggle('post_liked');
-                }
-                else if(likeResult == "postUnliked") {
+                } else if (likeResult == "postUnliked") {
                     e.target.classList.toggle('post_liked');
                     likeCountDiv.innerText = parseInt(likeCountDiv.innerText) - 1;
                 }
@@ -144,11 +158,11 @@ function likePostTODB(e) {
     }
 }
 
-async function addPostTOFavouritedTODB(e) {    
+async function addPostTOFavouritedTODB(e) {
     if (e.target.classList.contains("fa-star")) {
         let postId = e.target.classList[2];
         let parentDiv = e.target.parentElement;
-        let starElement = parentDiv.children[0];  
+        let starElement = parentDiv.children[0];
         let favResult = addtoFavourites(username, postId);
         starElement.classList.toggle("post_favourited");
     }
