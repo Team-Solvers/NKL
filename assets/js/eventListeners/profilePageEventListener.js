@@ -6,6 +6,8 @@ import {getUserStats} from "../controllers/userStats.js";
 import { getFullName } from "../controllers/getFullName.js";
 import { getUsersIFollow } from "../controllers/getUsersIFollow.js";
 import { unFollowAuser } from "../controllers/unfollow.js";
+import { likePost } from "../controllers/likePost.js";
+import { addtoFavourites } from "../controllers/saveFavourites.js";
 
 
 const postMainDiv = document.querySelector(".my-posts");
@@ -34,6 +36,19 @@ async function refreshSelfCards(){
         let postCardFromDB = getProfilePostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);                
         postMainDiv.innerHTML += postCardFromDB;
     })
+
+    let postLikeButtons = document.querySelectorAll('.like-count-section'); 
+    let addToFavButtons = document.querySelectorAll('.add-tofav-section');  
+
+    postLikeButtons.forEach((postLikeButton,index) => {                        
+        postLikeButton.addEventListener('click',likePostTODB);
+    })    
+
+    addToFavButtons.forEach((addToFavButton) => {
+        addToFavButton.addEventListener('click',addPostTOFavouritedTODB);
+    })
+
+
 }
 
 async function addUsersIfollow(){    
@@ -67,6 +82,42 @@ async function deletePostFromDB(e){
     card.classList.toggle('delete');
     await deletePost(postId);
     // loadSelfPostCards();
+}
+
+function likePostTODB(e) {
+    console.log(e.target.classList)
+     if (e.target.classList.contains("fa-heart")) {
+        let nodeType = e.target.classList[0];
+        let postId = e.target.classList[2];
+        likePost(postId, username)
+            .then(function (likeResult) {
+                let parentDiv = e.target.parentElement;
+                let likeCountDiv = parentDiv.children[1];
+                if (likeResult == "firstLike") {                    
+                    likeCountDiv.innerText = parseInt(likeCountDiv.innerText) + 1;
+                    e.target.classList.toggle('post_liked');
+                }
+                else if(likeResult == "postUnliked") {
+                    e.target.classList.toggle('post_liked');
+                    likeCountDiv.innerText = parseInt(likeCountDiv.innerText) - 1;
+                }
+            });
+    }
+}
+
+
+
+async function addPostTOFavouritedTODB(e){
+    console.log(e.target);
+    if(e.target.classList.contains("fa-star")){                
+        let postId = e.target.classList[2];    
+        let parentDiv = e.target.parentElement;
+        let starElement = parentDiv.children[0];
+        if(!starElement.classList.contains("post_favourited")){
+            starElement.classList.toggle("post_favourited");
+        }                
+        addtoFavourites(username,postId);
+    }  
 }
 
 

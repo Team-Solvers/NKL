@@ -42,25 +42,32 @@ async function addProfilesCards(){
     
     let images = document.querySelectorAll('.go-profile');    
     let adding = await addImageToPersonalPageEventListner(images)
-    
+   
 }
 
 
-function likePostTODB(e){    
-    if(e.target.classList.contains("fa-heart")){
+function likePostTODB(e) {
+    console.log(e.target.classList)
+     if (e.target.classList.contains("fa-heart")) {
         let nodeType = e.target.classList[0];
-        let postId = e.target.classList[2];            
-        likePost(postId,username)
-        .then(function(likeResult) {            
-            if(likeResult == "firstLike"){
+        let postId = e.target.classList[2];
+        likePost(postId, username)
+            .then(function (likeResult) {
                 let parentDiv = e.target.parentElement;
                 let likeCountDiv = parentDiv.children[1];
-                likeCountDiv.innerText = parseInt(likeCountDiv.innerText) + 1;
-                e.target.classList.toggle('post_liked');
-            }
-        });
-    }            
+                if (likeResult == "firstLike") {                    
+                    likeCountDiv.innerText = parseInt(likeCountDiv.innerText) + 1;
+                    e.target.classList.toggle('post_liked');
+                }
+                else if(likeResult == "postUnliked") {
+                    e.target.classList.toggle('post_liked');
+                    likeCountDiv.innerText = parseInt(likeCountDiv.innerText) - 1;
+                }
+            });
+    }
 }
+
+
 
 async function addPostTOFavouritedTODB(e){
     console.log(e.target);

@@ -11,8 +11,12 @@ export async function likePost(postId, userId) {
             usersWhoLiked.add(userId);            
             updatePreferences(userId,category);
 
-        } else {
-            return "alreadyLiked";
+        } else {            
+            usersWhoLiked.delete(userId); 
+            db.collection('likeActivity').doc(postId).update({
+                usersWhoLiked: usersWhoLiked
+            });            
+            return "postUnliked";
         }
         db.collection('likeActivity').doc(postId).update({
             usersWhoLiked: usersWhoLiked

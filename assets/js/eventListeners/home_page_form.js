@@ -47,6 +47,8 @@ async function authenticateUser(e){
 
 
 //change password input type to password
+const capitalizeFirstLetter = ([ first, ...rest ], locale = navigator.language) =>
+  first.toLocaleUpperCase(locale) + rest.join('')
 
 async function addNewUserToDB(e){    
     let fullName = signUpFullName.value;
@@ -62,6 +64,7 @@ async function addNewUserToDB(e){
     
     if(pc && cc && fc && ec){        
         username = username.toLowerCase();
+        fullName = capitalizeFirstLetter(fullName);
         let encryptedPassword = encrypter(password);
         let usernameTaken = await addUserToDB(username,fullName,userEmail,encryptedPassword);
         if(usernameTaken === "username taken"){

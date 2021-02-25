@@ -119,16 +119,21 @@ async function addPostTODB() {
 
 //change to async
 function likePostTODB(e) {
-    if (e.target.classList.contains("fa-heart")) {
+    console.log(e.target.classList)
+     if (e.target.classList.contains("fa-heart")) {
         let nodeType = e.target.classList[0];
         let postId = e.target.classList[2];
         likePost(postId, username)
             .then(function (likeResult) {
-                if (likeResult == "firstLike") {
-                    let parentDiv = e.target.parentElement;
-                    let likeCountDiv = parentDiv.children[1];
+                let parentDiv = e.target.parentElement;
+                let likeCountDiv = parentDiv.children[1];
+                if (likeResult == "firstLike") {                    
                     likeCountDiv.innerText = parseInt(likeCountDiv.innerText) + 1;
                     e.target.classList.toggle('post_liked');
+                }
+                else if(likeResult == "postUnliked") {
+                    e.target.classList.toggle('post_liked');
+                    likeCountDiv.innerText = parseInt(likeCountDiv.innerText) - 1;
                 }
             });
     }
