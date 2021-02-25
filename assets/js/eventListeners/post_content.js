@@ -120,7 +120,6 @@ async function addPostTODB() {
                 addToFavButton.addEventListener('click', addPostTOFavouritedTODB);
             })
         }
-
     }
     else{
         postIcon.style.color = 'red';
