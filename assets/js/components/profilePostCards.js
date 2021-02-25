@@ -34,7 +34,7 @@ export function getProfilePostCard(imgUrl, postTitle, name, postdate, postConten
             <p class="content_avatar_name my-auto ml-3 ">${name}</p>
         </div>        
         <span class="d-inline-block align-items center">
-                                    <i data-toggle="modal" data-target="#editModal" style = "cursor:pointer" class="far mr-4  fa-edit"></i>
+                                    <i data-toggle="modal" data-target="#editModal" style = "cursor:pointer" class="${postID} edit-btn far mr-4 fa-edit"></i>
                                     <i style = "cursor:pointer" class="fas fa-trash ${postID} icon-trash"></i>
                                 </span>
     </div>

@@ -7,6 +7,7 @@ import { likePost } from "../controllers/likePost.js";
 import { addtoFavourites } from "../controllers/saveFavourites.js";
 import { getFullName } from "../controllers/getFullName.js";
 
+
 const postMainDiv = document.querySelector(".my-posts");
 const fullNameDiv = document.querySelector(".content_avatar_name_propic");
 
