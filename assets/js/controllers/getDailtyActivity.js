@@ -15,11 +15,10 @@ export async function getDailtyActivity(user_id){
             dateMap.set(readable_time,1);            
         }
     })
-
-    console.log(dateMap);
+    
     let activityHistory = [];
     for(let date of dateMap.keys()){        
-        activityHistory.push(date,dateMap.get(date));
+        activityHistory.push([date,dateMap.get(date)]);
     }
     
     console.log(activityHistory);

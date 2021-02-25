@@ -4,8 +4,17 @@ export async function addtoFavourites(userId, postId) {
 
     if(existsInDB != null){
         let savedPostsDB = existsInDB.savedPosts;
-        savedPostsDB.add(postId);
-        db.collection('favourites').doc(userId).update({savedPosts : savedPostsDB});
+        if(!savedPostsDB.has(postId)){
+            savedPostsDB.add(postId);
+            db.collection('favourites').doc(userId).update({savedPosts : savedPostsDB});
+            return "added to fav"
+        }         
+        else{
+            savedPostsDB.delete(postId);
+            db.collection('favourites').doc(userId).update({savedPosts : savedPostsDB});
+            return "deleted from fav"
+        }       
+
     }
     else{
         let savedPosts = new Set();

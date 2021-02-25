@@ -119,10 +119,14 @@ function isFullnameValid(){
     return true;
 }
 
-function isEmailValid(){
+function isEmailValid(){    
     let email = signUpEmail.value;
     let emailValidationText = "Invalid email";
-    if(email.indexOf("@") == -1){
+
+    var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var validEmail = regEx.test(email);
+
+    if(!validEmail){
         emailValidation.innerHTML = emailValidationText;
         return false
     }

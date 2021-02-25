@@ -143,18 +143,16 @@ function likePostTODB(e) {
 
 
 
-async function addPostTOFavouritedTODB(e) {
-    console.log(e.target);
+async function addPostTOFavouritedTODB(e) {    
     if (e.target.classList.contains("fa-star")) {
         let postId = e.target.classList[2];
         let parentDiv = e.target.parentElement;
-        let starElement = parentDiv.children[0];
-        if (!starElement.classList.contains("post_favourited")) {
-            starElement.classList.toggle("post_favourited");
-        }
-        addtoFavourites(username, postId);
+        let starElement = parentDiv.children[0];  
+        let favResult = addtoFavourites(username, postId);
+        starElement.classList.toggle("post_favourited");
     }
 }
+
 
 
 async function updateStats() {
