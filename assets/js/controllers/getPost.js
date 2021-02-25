@@ -1,15 +1,7 @@
 import { followOtherUser } from "./follow.js";
 
 export async function getPost(user_id){
-    let db = new Localbase('Poetry');    
-    //to be changed to following from db
-    //create a user that follows everyone to add every post not seen on
-    let friends = ['kidcore','natyman12']
-
-    let usersBeingFollowed = new Set();
-    usersBeingFollowed.add('kidcore');
-    usersBeingFollowed.add('natyman12');
-
+    let db = new Localbase('Poetry');        
     let allPosts = [];
     let feed = [];    
 
@@ -53,22 +45,19 @@ export async function getPost(user_id){
     
     let row = await db.collection('userPreferences').doc(user_id).get();
     let likePrefsRow = row.userPrefs.likes;
+    let scoreArr = [];    
+
         
     feed.sort(function(a,b){
-        let ascore = likePrefsRow[a.data.category];
-        let bscore = likePrefsRow[b.data.category];
-
-        let aposttime = a.data.post_time;
-        let bposttime = b.data.post_time;
-        if(!outOfWeek(aposttime) & outOfWeek(bposttime)){
-            return -1;
-        }
-        else if(outOfWeek(aposttime) & !outOfWeek(bposttime)){
-            return 1;
-        }
+        let ascore = getScore(likePrefsRow,a);
+        let bscore = getScore(likePrefsRow,b);
         return ascore > bscore ? -1 : 1;
     })
     
+    // console.log(row);    
+    // feed.forEach(f => {
+    //     console.log(f,getScore(likePrefsRow,f));
+    // })
     return feed
 }
 
@@ -79,4 +68,13 @@ function outOfWeek(post_time){
         return false
     }
     return true;
+}
+
+function getScore(likePrefsRow,post){
+    let ascore = likePrefsRow[post.data.category];
+    let aposttime = post.data.post_time;
+    if(outOfWeek(aposttime)){
+        return -1;
+    }
+    return ascore;
 }

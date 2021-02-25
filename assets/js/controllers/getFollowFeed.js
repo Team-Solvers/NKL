@@ -15,11 +15,14 @@ export async function getFollowFeed(user_id){
             let rowa = await db.collection('userPreferences').doc(user.key).get(); 
             let writePrefsRowa = rowa.userPrefs.posts;
             let userScore = getScore(likePrefsRow,writePrefsRowa);
-            console.log(userScore);
-            followFeed.push(user.key);
+            console.log(user.key,userScore);
+            if(userScore != 0){
+                followFeed.push(user.key);
+            }               
         }
     }    
     
+    console.log(followFeed);
     // followFeed.sort((a,b) => {
        
     // })
@@ -27,11 +30,11 @@ export async function getFollowFeed(user_id){
     return followFeed;
 }
 
-function getScore(like,posts){
-    console.log(like,posts)
+function getScore(like,posts){      
     let score = 0;
     for(let category in like){
-        if(like[category] != 0 && posts[category]){
+        console.log(like[category],posts[category])
+        if(like[category] != 0 && posts[category] != 0){
             score += 1;
         }
     }

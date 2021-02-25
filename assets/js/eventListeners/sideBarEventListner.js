@@ -1,3 +1,5 @@
+import {getFullName} from "../controllers/getFullName.js"
+
 const homeButton = document.querySelector(".home-btn");
 const profileButton = document.querySelector(".profile-btn");
 const savedButton = document.querySelector(".saved-btn");
@@ -8,7 +10,9 @@ const sidebarName = document.querySelector(".sidebar-avatar-name");
 const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
 
-sidebarName.innerText = username;
+getFullName(username).then(fullName =>{
+    sidebarName.innerText = fullName;
+});
 
 profileButton.addEventListener('click',passToProfilePage);
 savedButton.addEventListener('click',passToSavedPage);
