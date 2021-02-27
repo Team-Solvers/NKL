@@ -12,19 +12,20 @@
 
 .content_avatar_name_propic {
     font-size: 2rem;
+
 }
 
 .followers {
     position: relative;
     top: 3rem;
-    left: -14rem;
+    left: -8rem;
 }
 
 #followers {
     position: relative;
     top: 1.5rem;
     font-size: 0.8rem;
-    left: -6.5rem;
+    left: -30.5rem;
 }
 
 .tab-content-cent {
@@ -60,12 +61,19 @@
 }
 
 .top-navigation {
-    width: calc(100% - 4.2rem);
+    width: calc(100% - 57px) !important;
     margin-left: 57px;
-    z-index: -1;
+    z-index: 1;
 }
-
 
 .following-card div {
     width: 30%;
+}
+
+.page-wrapper{
+    z-index: -3;
+}
+
+.user-img img {
+    position: static;
 }

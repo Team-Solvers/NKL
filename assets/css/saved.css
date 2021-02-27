@@ -54,8 +54,12 @@
 }
 
 .top-navigation {
-    width: 100%;
+    width: calc(100% - 57px);
     margin-left: 57px;
     z-index: -1;
+}
+
+.posts-wrapper {
+    margin-top: 3rem;
 }
 

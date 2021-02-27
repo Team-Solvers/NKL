@@ -107,21 +107,20 @@ async function addPostTODB() {
 
     if (validatePost(postContentValue, postTitleValue)) {
         postIcon.style.color = 'black';
-        if (postContentValue.length > 7) {
-            let postid = await addPost(username, postContentValue, postTitleValue, currentPostCategory);
-            let postLikeButtons = document.querySelectorAll('.like-count-section');
-            let addToFavButtons = document.querySelectorAll('.add-tofav-section');
+        let postid = await addPost(username, postContentValue, postTitleValue, currentPostCategory);
+        let postLikeButtons = document.querySelectorAll('.like-count-section');
+        let addToFavButtons = document.querySelectorAll('.add-tofav-section');
 
-            postLikeButtons.forEach((postLikeButton, index) => {
-                postLikeButton.addEventListener('click', likePostTODB);
-            })
+        postLikeButtons.forEach((postLikeButton, index) => {
+            postLikeButton.addEventListener('click', likePostTODB);
+        })
 
-            addToFavButtons.forEach((addToFavButton) => {
-                addToFavButton.addEventListener('click', addPostTOFavouritedTODB);
-            })
-        }
+        addToFavButtons.forEach((addToFavButton) => {
+            addToFavButton.addEventListener('click', addPostTOFavouritedTODB);
+        })
+
     }
-    else{
+    else {
         postIcon.style.color = 'red';
     }
 
@@ -129,7 +128,7 @@ async function addPostTODB() {
 }
 
 function validatePost(content, title) {
-    let lineLength = content.split("<p>").length - 1
+    let lineLength = Math.max(content.split("<div>").length - 1,content.split("<p>").length - 1  )    
     if (title.length > 0 && lineLength >= 2) {
         return true;
     }
