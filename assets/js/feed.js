@@ -97,7 +97,6 @@ arrowCollapseSuggestion.addEventListener("click", function (e) {
             rightSidebar.style.overflow = "hidden"
             // Right_sidebarEnlarged = false
 
-
             topNavigation.style["transition"] = ".2s all"
             arrowCollapseSuggestion.style["transform"] = "rotate(0deg)"
             arrowCollapseSuggestion.style["transition"] = ".5s all"
@@ -109,15 +108,15 @@ arrowCollapseSuggestion.addEventListener("click", function (e) {
 
             rightSidebar.style.width = "4.2rem"
             rightSidebar.style.overflow = "hidden"
-            if (sidebar.style["width"] == "230px") {
-                topNavigation.style.marginLeft = "230px"
-                topNavigation.style.width = "calc(100% - 230px - 4.2rem)"
-                topNavigation.style["transition"] = ".2s all"
-            }
-            else {
-                topNavigation.style.width = "calc(100% - 4.2rem)"
-                topNavigation.style["transition"] = ".2s all"
-            }
+            // if (sidebar.style["width"] == "230px") {
+            //     topNavigation.style.marginLeft = "230px"
+            //     topNavigation.style.width = "calc(100% - 230px - 4.2rem)"
+            //     topNavigation.style["transition"] = ".2s all"
+            // }
+            // else {
+            //     topNavigation.style.width = "calc(100% - 4.2rem)"
+            //     topNavigation.style["transition"] = ".2s all"
+            // }
             mainContent.style.marginLeft = "7%"
             mainContent.style["transition"] = ".2s all"
             topNavigation.style["transition"] = ".2s all"
@@ -135,15 +134,15 @@ arrowCollapseSuggestion.addEventListener("click", function (e) {
             suggestionHeader.style.fontSize = "1.3rem"
             mainContent.style.marginLeft = "0"
             mainContent.style["transition"] = ".2s all"
-            if (sidebar.style["width"] == "230px") {
-                topNavigation.style.marginLeft = "230px"
-                topNavigation.style.width = "calc(100% - 30vh - 230px)"
-                topNavigation.style["transition"] = ".2s all"
-            }
-            else {
-                topNavigation.style.width = "calc(100% - 4.2rem - 57px)"
-                topNavigation.style["transition"] = ".2s all"
-            }
+            // if (sidebar.style["width"] == "230px") {
+            //     topNavigation.style.marginLeft = "230px"
+            //     topNavigation.style.width = "calc(100% - 30vh - 230px)"
+            //     topNavigation.style["transition"] = ".2s all"
+            // }
+            // else {
+            //     topNavigation.style.width = "calc(100% - 4.2rem - 57px)"
+            //     topNavigation.style["transition"] = ".2s all"
+            // }
             rightSidebar.style.width = "30vh"
             arrowCollapseSuggestion.style["transform"] = "rotate(180deg)"
             arrowCollapseSuggestion.style["transition"] = ".2s all"
@@ -153,15 +152,15 @@ arrowCollapseSuggestion.addEventListener("click", function (e) {
             suggestionHeader.style.fontSize = "1.3rem"
             mainContent.style.marginLeft = "0"
             mainContent.style["transition"] = ".2s all"
-            if (sidebar.style["width"] == "230px") {
-                topNavigation.style.marginLeft = "230px"
-                topNavigation.style.width = "calc(100% - 30vh - 230px)"
-                topNavigation.style["transition"] = ".2s all"
-            }
-            else {
-                topNavigation.style.width = "calc(100% - 30vh - 57px)"
-                topNavigation.style["transition"] = ".2s all"
-            }
+            // if (sidebar.style["width"] == "230px") {
+            //     topNavigation.style.marginLeft = "230px"
+            //     topNavigation.style.width = "calc(100% - 30vh - 230px)"
+            //     topNavigation.style["transition"] = ".2s all"
+            // }
+            // else {
+            //     topNavigation.style.width = "calc(100% - 30vh - 57px)"
+            //     topNavigation.style["transition"] = ".2s all"
+            // }
             rightSidebar.style.width = "30vh"
             arrowCollapseSuggestion.style["transform"] = "rotate(180deg)"
             arrowCollapseSuggestion.style["transition"] = ".2s all"
