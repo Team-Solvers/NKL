@@ -37,7 +37,10 @@ import {getDailtyActivity} from "../controllers/getDailtyActivity.js"
 
 const postMainDiv = document.querySelector(".my-posts");
 const fullNameDiv = document.querySelector(".content_avatar_name_propic");
-const editModalBtn = document.querySelector(".edit-modal-done");
+const editDone = document.querySelector(".editpro-modal-done");
+let editNameInput = document.querySelector(".edit-name");
+let editBioInput = document.querySelector(".edit-bio");
+
 let postBeingChangedID = 0;
 
 let username = Cookies.get('_poet');
@@ -45,8 +48,6 @@ if(!username){
     window.location.href = `./index.html`;
 }
 
-
-editModalBtn.addEventListener('click', editPostToDB);
 
 let followingTab = document.querySelector("#tabs-2");
 
@@ -59,6 +60,12 @@ loadSelfPostCards();
 changeNameHolder();
 addUsersIfollow();
 getDailtyActivity(username);
+
+editDone.addEventListener('click',changeBio);
+
+function changeBio(){
+    console.log('clicked');
+}
 
 async function changeNameHolder() {
     let fullName = await getFullName(username);

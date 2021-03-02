@@ -8,7 +8,8 @@ export async function addUserToDB(etUserName,fullName,email,password){
 
     await db.collection('users').add({                    
         full_name : fullName,      
-        email : email
+        email : email,
+        bio : "Nothing"
     },etUserName);
 
     await db.collection('credentials').add({                            
