@@ -170,34 +170,11 @@ arrowCollapseSuggestion.addEventListener("click", function (e) {
     }
 })
 
-// post.addEventListener("focus", function (e) {
-
-//     contentCad.style.marginBottom = "25rem"
-//     contentCad.style.transition = ".2s all"
-// })
-
-// post.addEventListener("focusout", (e) => {
-//     contentCad.style.marginBottom = "5rem"
-
-// })
-// function we() {
-//     postsWrapper.style.marginTop = "0"
-//     postsWrapper.style.transition = ".2s all"
-// }
 arrowCollapse.addEventListener("click", () => {
     if (!_sidebarEnlarged) {
         sidebar.style['width'] = "57px"
         sidebar.style['overflow'] = "hidden"
         topNavigation.style["transition"] = ".2s all"
-        // if (rightSidebar.style["width"] == "30vh") {
-        //     topNavigation.style.marginLeft = "57px"
-        //     topNavigation.style.width = "calc(100% - 30vh - 57px)"
-        //     console.log("right side bat clicked")
-        // }
-        // else {
-        //     topNavigation.style.marginLeft = "57px"
-        //     topNavigation.style.width = "calc(100% - 4.2rem - 57px)"
-        // }
         sideBarAvatar.style.height = "1.8rem"
         sidebarAvatarName.style.fontSize = "0"
         sidebarAvatarName.style.marginTop = "0"
@@ -244,15 +221,6 @@ arrowCollapse.addEventListener("click", () => {
             sidebarLinks.forEach(e => e.style.transition = ".2s")
             topNavigation.style.transition = ".2s all"
             _sidebarEnlarged = false
-            // if (rightSidebar.style["width"] = "30vh") {
-            //     topNavigation.style.marginLeft = "230px"
-            //     topNavigation.style.width = "calc(100% - 30vh - 230px)"
-            //     topNavigation.style["transition"] = ".2s all"
-
-            // }
-            // else {
-            //     topNavigation.style.width = "calc(100% - 4.2rem - 230px)"
-            // }
             sidebarAvatarName.style.fontSize = "1.5rem"
             sidebarAvatarName.style.marginTop = "1rem"
             sidebarAvatarName.style.transition = ".2s all"
