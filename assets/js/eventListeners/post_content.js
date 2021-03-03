@@ -74,7 +74,7 @@ loadSuggestionTab();
 async function getSearchResults(e){
     let query = e.target.value;
     if(query.length > 0){
-        console.log(query);
+        // console.log(query);
         addSearchCards(query,username);
     }
     else{

@@ -14,10 +14,11 @@ export async function getSearchPost(titleQuery,user_id){
     })     
 
     livePosts.forEach(post => {
+        let author = post.data.user_id;
         let title = post.data.post_title.toLowerCase();        
         titleQuery = titleQuery.toLowerCase();
         // console.log(`${title},${titleQuery},${title.indexOf(titleQuery)}`);
-        if(title.indexOf(titleQuery) != -1){
+        if(title.indexOf(titleQuery) != -1 || author.indexOf(titleQuery) != -1){
             feed.push(post);
         }
     })
