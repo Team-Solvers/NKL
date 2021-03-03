@@ -93,9 +93,9 @@ editDone.addEventListener('click', changeBio);
 editPostDone.addEventListener('click', editPostToDB);
 
 async function getActivityfromDB() {
-    // let history = await getDailtyActivity(username);
-    // console.log(history)
-    let history = await [["Mar 5th, 2021", 2], ["Mar 5th, 2021", 1],["Mar 4th, 2021", 5]]
+    let history = await getDailtyActivity(username);
+    console.log(history)
+    // let history = await [["Mar 5th, 2021", 2], ["Mar 5th, 2021", 1],["Mar 4th, 2021", 5]]
     let data = []
     let lables = []
     for (const item of history) {

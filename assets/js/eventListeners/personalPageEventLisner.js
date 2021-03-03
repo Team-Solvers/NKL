@@ -11,6 +11,7 @@ import { getFullName } from "../controllers/getFullName.js";
 const postMainDiv = document.querySelector(".my-posts");
 const fullNameDiv = document.querySelector(".content_avatar_name_propic");
 const searchInput = document.querySelector('.Search-input');
+const bioSpan = document.querySelector(".bio-out");
 
 searchInput.addEventListener('keyup',getSearchResults);
 
@@ -67,9 +68,12 @@ async function addProfilesCards(query){
     return postsFromDB;
 }
 
-async function changeNameHolder(){
-    let fullName = await getFullName(profileUsername);
-    fullNameDiv.innerHTML = fullName;
+async function changeNameHolder() {
+    let userinfo = await getFullName(username);    
+    fullNameDiv.innerHTML = userinfo.full_name;
+    if (userinfo.bio) {
+        bioSpan.textContent = userinfo.bio;
+    }
 }
 
 function likePostTODB(e) {
