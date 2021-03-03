@@ -2,7 +2,7 @@ import {
     addPost
 } from "../controllers/addPost.js";
 import {
-    addCards
+    addCards, addSearchCards
 } from "../feedLoad.js";
 import {
     addSuggestionCards
@@ -32,10 +32,13 @@ import {
     followOtherUser
 } from "../controllers/follow.js"
 
+
+
 const postIcon = document.querySelector('.fa-paper-plane');
 const postContent = document.querySelector('.content_textarea');
 const postTitle = document.querySelector('.add-post-title');
 const categoryButtons = document.querySelectorAll('.cat-btn');
+const searchInput = document.querySelector('.Search-input');
 
 let username = Cookies.get('_poet');
 if (!username) {
@@ -46,6 +49,8 @@ const urlParams = new URLSearchParams(window.location.search);
 // const username = urlParams.get('username');
 
 let currentPostCategory = "Blank verse";
+
+searchInput.addEventListener('keyup',getSearchResults);
 
 categoryButtons.forEach(catButton => {
     catButton.addEventListener('click', changeCategoryType)
@@ -62,12 +67,27 @@ postIcon.addEventListener('click', addPostTODB);
 
 //like a post listner
 //since the cards are loaded after async call 
-addLikeAndSaveFavEventListener();
+addLikeAndSaveFavEventListener(true);
 loadSuggestionTab();
 
-async function addLikeAndSaveFavEventListener() {
+
+async function getSearchResults(e){
+    let query = e.target.value;
+    if(query.length > 0){
+        console.log(query);
+        addSearchCards(query,username);
+    }
+    else{
+        addLikeAndSaveFavEventListener(false);
+    }
+}
+
+async function addLikeAndSaveFavEventListener(firstTime) {
     let posts = await addCards(); //adds the cards after getting the array    
-    let trendingAuthors = await addTrendingAvatars();
+
+    if(firstTime){
+        let trendingAuthors = await addTrendingAvatars();
+    }    
 
     let postLikeButtons = document.querySelectorAll('.like-count-section');
     let addToFavButtons = document.querySelectorAll('.add-tofav-section');

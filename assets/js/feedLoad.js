@@ -1,10 +1,8 @@
 import {addSomeUsers} from "./controllers/dummyData.js";
 import {loadDB} from "./controllers/loadDatabase.js";
 import {getPost} from "./controllers/getPost.js";
-import {followOtherUser} from "./controllers/follow.js";
-import {addPost} from "./controllers/addPost.js";
-import {likePost} from "./controllers/likePost.js";
-import {getFollowFeed} from "./controllers/getFollowFeed.js";
+import {getSearchPost} from "./controllers/getSearchResults.js"
+
 
 // loadDB();
 // addPost("natyman12","this is a post dummy");
@@ -25,6 +23,20 @@ let imgLink = "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?ixid
 
 export async function addCards(){
     let postsFromDB = await getPost(username);
+    loader.style.display = "none"
+    // console.log(postsFromDB);
+    postsFromDB.forEach(post => {                        
+        let postTime = new Date(post.data.post_time * 1000);            
+        let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        
+        postMainDiv.append( postCardFromDB);
+    })
+
+    return postsFromDB;
+}
+
+export async function addSearchCards(query){
+    postMainDiv.innerHTML = "";    
+    let postsFromDB = await getSearchPost(query,username);    
     loader.style.display = "none"
     // console.log(postsFromDB);
     postsFromDB.forEach(post => {                
