@@ -25,6 +25,7 @@ export async function getUserStats(user_id){
             followerCount += 1;
         }
     })
+
     
     let userstatObj = {postCount,followingCount,followerCount};    
     return userstatObj;

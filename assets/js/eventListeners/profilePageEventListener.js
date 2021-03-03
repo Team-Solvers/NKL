@@ -29,10 +29,14 @@ import {
     addtoFavourites
 } from "../controllers/saveFavourites.js";
 import {
+    editProfile
+} from "../controllers/editPost.js"
+import {
     editPost
 } from "../controllers/editPost.js"
 
 import {getDailtyActivity} from "../controllers/getDailtyActivity.js"
+import {getPostFromPostId} from "../controllers/getPostFromId.js"
 
 
 const postMainDiv = document.querySelector(".my-posts");
@@ -41,9 +45,15 @@ const editDone = document.querySelector(".editpro-modal-done");
 const deleteModalBtn = document.querySelector("#delete");
 const searchInput = document.querySelector('.Search-input');
 
+
+
 let bioSpan = document.querySelector(".bio-out");
-let editNameInput = document.querySelector(".edit-name");
+let editFullNameInput = document.querySelector(".edit-name");
 let editBioInput = document.querySelector(".edit-bio");
+let editProfileBtn = document.querySelector(".close");
+
+let editPostDone = document.querySelector(".edit-modal-done");
+let editPostTitle = document.querySelector(".edit-post-title")
 let followingTab = document.querySelector("#tabs-2");
 
 searchInput.addEventListener('keyup',getSearchResults);
@@ -79,9 +89,13 @@ addUsersIfollow();
 getDailtyActivity(username);
 
 editDone.addEventListener('click',changeBio);
+editPostDone.addEventListener('click',editPostToDB);
 
-function changeBio(){
-    console.log('clicked');
+async function changeBio(){
+    let newName = editFullNameInput.value;
+    let newBio = editBioInput.value;
+    await editProfile(username,newName,newBio);
+    changeNameHolder();
 }
 
 async function deleteWithModal(){
@@ -90,8 +104,13 @@ async function deleteWithModal(){
 }
 
 async function changeNameHolder() {
-    let fullName = await getFullName(username);
-    fullNameDiv.innerHTML = fullName;
+    let userinfo = await getFullName(username);    
+    editFullNameInput.value = userinfo.full_name;
+    editBioInput.value = userinfo.bio;
+    fullNameDiv.innerHTML = userinfo.full_name;
+    if(userinfo.bio){        
+        bioSpan.textContent = userinfo.bio;
+    }    
 }
 
 async function refreshSelfCards(query) {
@@ -102,9 +121,9 @@ async function refreshSelfCards(query) {
         let author = post.data.user_id.toLowerCase();           
         
         if(post.data.visible && (title.indexOf(query) != -1 || author.indexOf(query) != -1 || query === "")){
-            let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        
+            let postCardFromDB = getProfilePostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        
             // let postCardFromDB = getPostCard(imgLink,post.post_title,post.user_id,'moment(postTime).format("dd hA ")',post.content,post.like_count,post.key,post.isLiked,post.isInFavs);                    
-            postMainDiv.append( postCardFromDB);        
+            postMainDiv.innerHTML +=  postCardFromDB;        
         };
     })
 
@@ -212,15 +231,19 @@ async function updateStats() {
     postCountDiv.innerText = stats.postCount;
 }
 
-function setPostIdtoChange(e) {
+async function setPostIdtoChange(e) {
     let editClasses = e.target.classList;
     postBeingChangedID = editClasses[0];
-    // console.log(postBeingChangedID);
+    let currentPost = await getPostFromPostId(postBeingChangedID);
+    tinymce.get("post").setContent(currentPost.content);
+    editPostTitle.value = currentPost.post_title;
 }
 
-async function editPostToDB(e) {
-    await editPost(postBeingChangedID,"updated title 4","updated content");
-    refreshSelfCards();
+async function editPostToDB(e) {    
+    let editedPostData = tinymce.get("post").getContent();
+    let editedPostTitleData = editPostTitle.value;    
+    await editPost(postBeingChangedID,editedPostTitleData,editedPostData);
+    refreshSelfCards("");
 }
 
 async function unfollowAuserFun(e) {

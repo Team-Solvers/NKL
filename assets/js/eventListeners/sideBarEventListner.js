@@ -14,8 +14,8 @@ if(!username){
 const urlParams = new URLSearchParams(window.location.search);
 // const username = urlParams.get('username');
 
-getFullName(username).then(fullName =>{
-    sidebarName.innerText = fullName;
+getFullName(username).then(user =>{
+    sidebarName.innerText = user.full_name;    
 });
 
 profileButton.addEventListener('click',passToProfilePage);
