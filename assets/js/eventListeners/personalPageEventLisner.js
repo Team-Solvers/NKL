@@ -10,6 +10,10 @@ import { getFullName } from "../controllers/getFullName.js";
 
 const postMainDiv = document.querySelector(".my-posts");
 const fullNameDiv = document.querySelector(".content_avatar_name_propic");
+const searchInput = document.querySelector('.Search-input');
+let query = ""
+
+searchInput.addEventListener('keyup',getSearchResults);
 
 const urlParams = new URLSearchParams(window.location.search);
 const profileUsername = urlParams.get('profileuser');
@@ -20,15 +24,31 @@ if(!username){
 
 let imgLink = "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80";
 
-addProfilesCards();
+addProfilesCards("");
 changeNameHolder();
 
-async function addProfilesCards(){
-    let postsFromDB = await getUserSpecificPost(profileUsername);        
-    postsFromDB.forEach(post => {                
-        let postTime = new Date(post.data.post_time * 1000);            
-        let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        
-        postMainDiv.append( postCardFromDB);
+function getSearchResults(e){
+    let query = e.target.value;    
+    if(query.length > 0){                     
+        addProfilesCards(query.toLowerCase())
+    }
+    else{
+        addProfilesCards("")
+    }
+}
+
+async function addProfilesCards(query){
+    let postsFromDB = await getUserSpecificPost(profileUsername);    
+    postMainDiv.innerHTML = "";              
+    postsFromDB.forEach(post => {    
+        let title = post.data.post_title.toLowerCase();
+        let author = post.data.user_id.toLowerCase();           
+
+        if(post.data.visible && (title.indexOf(query) != -1 || author.indexOf(query) != -1 || query === "")){
+            let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        
+            // let postCardFromDB = getPostCard(imgLink,post.post_title,post.user_id,'moment(postTime).format("dd hA ")',post.content,post.like_count,post.key,post.isLiked,post.isInFavs);                    
+            postMainDiv.append( postCardFromDB);        
+        };
     })
 
     let postLikeButtons = document.querySelectorAll('.like-count-section'); 
@@ -54,7 +74,7 @@ async function changeNameHolder(){
 }
 
 function likePostTODB(e) {
-    console.log(e.target.classList)
+    // console.log(e.target.classList)
      if (e.target.classList.contains("fa-heart")) {
         let nodeType = e.target.classList[0];
         let postId = e.target.classList[2];
@@ -86,7 +106,7 @@ async function addPostTOFavouritedTODB(e) {
 
 
 function addImageToPersonalPageEventListner(images){   
-    console.log(images); 
+    // console.log(images); 
     images.forEach(image => {
         image.addEventListener('click',goToPersonalPage);
     })
@@ -101,8 +121,7 @@ async function updateStats(){
 
     followerCountDiv.innerText = stats.followerCount;
     followingCountDiv.innerText = stats.followingCount;
-    postCountDiv.innerText = stats.postCount;
-    console.log(stats);
+    postCountDiv.innerText = stats.postCount;    
 }
 
 

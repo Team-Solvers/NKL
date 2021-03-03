@@ -66,7 +66,7 @@ async function addProfilesCards(query){
 
 
 function likePostTODB(e) {
-    console.log(e.target.classList)
+    // console.log(e.target.classList)
      if (e.target.classList.contains("fa-heart")) {
         let nodeType = e.target.classList[0];
         let postId = e.target.classList[2];
