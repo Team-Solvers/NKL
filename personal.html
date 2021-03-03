@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Personal Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -15,8 +15,10 @@
     <link rel="stylesheet" href="./assets/css/sidebar.css" />
     <link rel="stylesheet" href="./assets/css/responsivness.css">
     <link rel="stylesheet" href="./assets/css/profile.css">
-    
-    <link rel="shortcut icon" href="https://images.unsplash.com/photo-1597605953084-526402cea0ab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=617&q=80" type="image/x-icon">
+
+    <link rel="shortcut icon"
+        href="https://images.unsplash.com/photo-1597605953084-526402cea0ab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=617&q=80"
+        type="image/x-icon">
     <style>
         .top-navigation {
             width: calc(100% - 27px);
@@ -92,7 +94,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Posts</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Activity Graph</a>
+                    </li>
 
                 </ul>
 
@@ -101,8 +105,16 @@
                     <div class="my-posts tab-pane active" id="tabs-1" role="tabpanel">
 
                     </div>
+
+                    <div class="tab-pane tab-content-center" id="tabs-3">
+                        <div class="chart-container p-5">
+                            <p class="activity-graph-text">Activity Graph</p>
+                            <canvas width="600" height="250" id="myChart"></canvas>
+                        </div>
+                    </div>
                 </div>
 
+              
             </div>
 
         </div>
@@ -114,7 +126,9 @@
     <script src="./assets/js/modules/cookiesCDN.js"></script>
     <script src="https://unpkg.com/localbase/dist/localbase.min.js"></script>
     <script src="./assets/js/modules/cookiesCDN.js"></script>
+    <script src="./assets/js/chart/activityChart.js"></script>
 
+    <!-- <script src="./assets/js/"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
