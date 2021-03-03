@@ -429,6 +429,7 @@ input[type="checkbox"]:checked+label svg {
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .card-favorites {

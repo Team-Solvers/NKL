@@ -26,6 +26,7 @@ export async function addCards(){
     let postsFromDB = await getPost(username);
     loader.style.display = "none"
     // console.log(postsFromDB);
+    
     postsFromDB.forEach(post => {
         // console.log(post.data.content);                        
         let postTime = new Date(post.data.post_time * 1000);            

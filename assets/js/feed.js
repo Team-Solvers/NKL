@@ -189,15 +189,15 @@ arrowCollapse.addEventListener("click", () => {
         sidebar.style['width'] = "57px"
         sidebar.style['overflow'] = "hidden"
         topNavigation.style["transition"] = ".2s all"
-        if (rightSidebar.style["width"] == "30vh") {
-            topNavigation.style.marginLeft = "57px"
-            topNavigation.style.width = "calc(100% - 30vh - 57px)"
-            console.log("right side bat clicked")
-        }
-        else {
-            topNavigation.style.marginLeft = "57px"
-            topNavigation.style.width = "calc(100% - 4.2rem - 57px)"
-        }
+        // if (rightSidebar.style["width"] == "30vh") {
+        //     topNavigation.style.marginLeft = "57px"
+        //     topNavigation.style.width = "calc(100% - 30vh - 57px)"
+        //     console.log("right side bat clicked")
+        // }
+        // else {
+        //     topNavigation.style.marginLeft = "57px"
+        //     topNavigation.style.width = "calc(100% - 4.2rem - 57px)"
+        // }
         sideBarAvatar.style.height = "1.8rem"
         sidebarAvatarName.style.fontSize = "0"
         sidebarAvatarName.style.marginTop = "0"
@@ -237,7 +237,6 @@ arrowCollapse.addEventListener("click", () => {
             sidebar.style["transition"] = ".2s all"
             pageWrapper.style.marginLeft = "200px"
             pageWrapper.style["transition"] = ".2s all ease"
-            sidebar.style['z-index'] = "1"
             arrowCollapse.style["transform"] = "rotate(0deg)"
             arrowCollapse.style["transtion"] = ".2s all ease"
 
@@ -245,15 +244,15 @@ arrowCollapse.addEventListener("click", () => {
             sidebarLinks.forEach(e => e.style.transition = ".2s")
             topNavigation.style.transition = ".2s all"
             _sidebarEnlarged = false
-            if (rightSidebar.style["width"] = "30vh") {
-                topNavigation.style.marginLeft = "230px"
-                topNavigation.style.width = "calc(100% - 30vh - 230px)"
-                topNavigation.style["transition"] = ".2s all"
+            // if (rightSidebar.style["width"] = "30vh") {
+            //     topNavigation.style.marginLeft = "230px"
+            //     topNavigation.style.width = "calc(100% - 30vh - 230px)"
+            //     topNavigation.style["transition"] = ".2s all"
 
-            }
-            else {
-                topNavigation.style.width = "calc(100% - 4.2rem - 230px)"
-            }
+            // }
+            // else {
+            //     topNavigation.style.width = "calc(100% - 4.2rem - 230px)"
+            // }
             sidebarAvatarName.style.fontSize = "1.5rem"
             sidebarAvatarName.style.marginTop = "1rem"
             sidebarAvatarName.style.transition = ".2s all"
