@@ -29,7 +29,7 @@ function getPostCard(imgUrl, postTitle, name, postdate, postContent, likeCount, 
     <div class="mt-5 p-3 content-card w-100">
     <div class="top-section  p-3 w-100 d-flex justify-content-between">
         <div class="avatar_post d-flex ">
-            <img class = "${name} go-profile" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            <img class = "${name} go-profile" src="https://images.unsplash.com/photo-1614558097757-bf9aa8fb830e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                 alt="" class="feed-profile d-inline-block">
             <p class="content_avatar_name my-auto ml-3 ">${name}</p>
         </div>
