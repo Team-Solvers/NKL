@@ -10,7 +10,7 @@ body {
 }
 
 .top-navigation {
-    z-index: ;
+    z-index: -1;
     height: 5rem;
     margin-left: 57px;
     width: calc(100% - 57px - 30vh);
