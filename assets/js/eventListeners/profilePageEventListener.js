@@ -38,16 +38,24 @@ import {getDailtyActivity} from "../controllers/getDailtyActivity.js"
 const postMainDiv = document.querySelector(".my-posts");
 const fullNameDiv = document.querySelector(".content_avatar_name_propic");
 const editDone = document.querySelector(".editpro-modal-done");
+const deleteModalBtn = document.querySelector("#delete");
+
+let bioSpan = document.querySelector(".bio-out");
 let editNameInput = document.querySelector(".edit-name");
 let editBioInput = document.querySelector(".edit-bio");
 
 let postBeingChangedID = 0;
+let postBeingDeletedID = 0;
+let postBeingDeletedCard = '';
+
+let shouldDelete = false;
 
 let username = Cookies.get('_poet');
 if(!username){
     window.location.href = `./index.html`;
 }
 
+deleteModalBtn.addEventListener('click',deleteWithModal);
 
 let followingTab = document.querySelector("#tabs-2");
 
@@ -65,6 +73,11 @@ editDone.addEventListener('click',changeBio);
 
 function changeBio(){
     console.log('clicked');
+}
+
+async function deleteWithModal(){
+    postBeingDeletedCard.classList.toggle('delete');
+    await deletePost(postBeingDeletedID);    
 }
 
 async function changeNameHolder() {
@@ -123,11 +136,17 @@ async function loadSelfPostCards() {
     })
 }
 
-async function deletePostFromDB(e) {
+async function deletePostFromDB(e) {    
+    //setting global post to delete id
     let postIcon = e.target;
-    let postId = postIcon.classList[2];
+    let postId = postIcon.classList[2];    
     let card = postIcon.parentElement.parentElement.parentElement;
-    // card.classList.push("delete");
+
+    postBeingDeletedID = postId;
+    postBeingDeletedCard = card;
+    
+    $("#confirm-delete").modal();
+    return
     card.classList.toggle('delete');
     await deletePost(postId);
     // loadSelfPostCards();

@@ -79,13 +79,16 @@ async function addNewUserToDB(e){
         }
         else{
             usernameValidation.innerHTML = ""; 
+            Cookies.set("_poet", username,{
+                expires: 3,
+              });
             window.location.href = `./profile.html`;
         }
     }
 }
 
 function passwordLength(){
-    let length = 3;
+    let length = 6;
     let password = signUpPassword.value;    
     let passwordLengthValidationText = `Password length should be greater than ${length}`;
 

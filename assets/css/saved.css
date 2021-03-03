@@ -56,7 +56,7 @@
 .top-navigation {
     width: calc(100% - 57px);
     margin-left: 57px;
-    z-index: -1;
+    z-index: 0;
 }
 
 .posts-wrapper {

@@ -121,7 +121,7 @@
                                 data-toggle="modal" data-target="#editProfile"><i data-toggle="modal"
                                     data-target="#editModal" style="cursor:pointer" class="edit-btn far fa-edit"></i>
                                 Edit Profile</a></span>
-                        <span class="followers d-block" style="margin-left: 6.5rem;">Bio : Nothing</span>
+                        <span class="followers d-block" style="margin-left: 6.5rem;">Bio : <span class="bio-out">Nothing</span></span>
                     </div>
                 </div>
                 <ul class="nav nav-tabs mt-5" role="tablist">
@@ -142,12 +142,12 @@
                 <div class="tab-content">
                     <button class="btn btn-default" data-href="/delete.php?id=54" data-toggle="modal"
                         data-target="#confirm-delete">
-                        Delete record #54
+                        
                     </button>
                     <div class="my-posts tab-pane my-3 active" id="tabs-1" role="tabpanel">
 
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                            Open modal
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal" style="visibility: hidden;">
+                            
                         </button>
 
                     </div>
@@ -256,7 +256,7 @@
                             <div class="col-1"></div>
                             <div class="col-5">
                                 <button type="button" data-dismiss="modal"
-                                    class="btn btn-outline-danger d-inline-block">Delete</button>
+                                    class="btn btn-outline-danger d-inline-block" id="delete">Delete</button>
                             </div>
                             <div class="col-5">
                                 <button type="button" data-dismiss="modal"

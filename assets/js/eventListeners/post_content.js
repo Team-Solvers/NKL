@@ -44,7 +44,7 @@ let username = Cookies.get('_poet');
 if (!username) {
     window.location.href = `./index.html`;
 }
-console.log(username);
+// console.log(username);
 const urlParams = new URLSearchParams(window.location.search);
 // const username = urlParams.get('username');
 
@@ -138,6 +138,8 @@ async function addPostTODB() {
         addToFavButtons.forEach((addToFavButton) => {
             addToFavButton.addEventListener('click', addPostTOFavouritedTODB);
         })
+        tinymce.get("post").setContent("")
+        postTitle.value = "";
 
     }
     else {
@@ -148,7 +150,9 @@ async function addPostTODB() {
 }
 
 function validatePost(content, title) {
-    let lineLength = Math.max(content.split("<div>").length - 1,content.split("<p>").length - 1  )    
+    let lineLength = Math.max(content.split("<br />").length - 1,content.split("<div>").length - 1,content.split("<p>").length - 1  )    
+    // console.log(content)
+    // console.log(lineLength);
     if (title.length > 0 && lineLength >= 2) {
         return true;
     }
@@ -157,7 +161,7 @@ function validatePost(content, title) {
 
 //change to async
 function likePostTODB(e) {
-    console.log(e.target.classList)
+    // console.log(e.target.classList)
     if (e.target.classList.contains("fa-heart")) {
         let nodeType = e.target.classList[0];
         let postId = e.target.classList[2];
@@ -188,7 +192,7 @@ async function addPostTOFavouritedTODB(e) {
 
 async function getTrendingAuthorsTest() {
     let trendingAuthors = await getTrendingAuthors();
-    console.log(trendingAuthors);
+    // console.log(trendingAuthors);
 }
 
 async function AddtoFavouritesTest() {

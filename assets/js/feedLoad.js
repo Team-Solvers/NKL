@@ -26,7 +26,8 @@ export async function addCards(){
     let postsFromDB = await getPost(username);
     loader.style.display = "none"
     // console.log(postsFromDB);
-    postsFromDB.forEach(post => {                        
+    postsFromDB.forEach(post => {
+        // console.log(post.data.content);                        
         let postTime = new Date(post.data.post_time * 1000);            
         let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        
         postMainDiv.append( postCardFromDB);

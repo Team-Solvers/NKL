@@ -6,7 +6,7 @@ export async function likePost(postId, userId) {
     let usersWhoLiked;
     if (firstLike != null) {
         usersWhoLiked = firstLike.usersWhoLiked;
-        console.log(usersWhoLiked);
+        // console.log(usersWhoLiked);
         if (!usersWhoLiked.has(userId)) {
             usersWhoLiked.add(userId);            
             updatePreferences(userId,category);
@@ -35,7 +35,7 @@ export async function likePost(postId, userId) {
 async function updatePreferences(userId,category) {    
     let row = await db.collection('userPreferences').doc(userId).get();
     let contentRow = row.userPrefs.likes;
-    console.log(contentRow,category);
+    // console.log(contentRow,category);
     contentRow[category] += 1;
     db.collection('userPreferences').doc(userId).update({
         userPrefs: row.userPrefs
@@ -44,6 +44,6 @@ async function updatePreferences(userId,category) {
 
 async function getPostCategory(postId){
     let post = await db.collection('posts').doc(postId).get();
-    console.log(post.category);
+    // console.log(post.category);
     return post.category;
 }
