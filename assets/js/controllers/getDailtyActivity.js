@@ -21,7 +21,7 @@ export async function getDailtyActivity(user_id){
         activityHistory.push([date,dateMap.get(date)]);
     }
     
-    console.log(activityHistory);
+    // console.log(activityHistory);
     return activityHistory;
 }
 
