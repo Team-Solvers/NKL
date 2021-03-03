@@ -11,7 +11,6 @@ import { getFullName } from "../controllers/getFullName.js";
 const postMainDiv = document.querySelector(".my-posts");
 const fullNameDiv = document.querySelector(".content_avatar_name_propic");
 const searchInput = document.querySelector('.Search-input');
-let query = ""
 
 searchInput.addEventListener('keyup',getSearchResults);
 

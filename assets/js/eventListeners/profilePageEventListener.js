@@ -39,10 +39,15 @@ const postMainDiv = document.querySelector(".my-posts");
 const fullNameDiv = document.querySelector(".content_avatar_name_propic");
 const editDone = document.querySelector(".editpro-modal-done");
 const deleteModalBtn = document.querySelector("#delete");
+const searchInput = document.querySelector('.Search-input');
 
 let bioSpan = document.querySelector(".bio-out");
 let editNameInput = document.querySelector(".edit-name");
 let editBioInput = document.querySelector(".edit-bio");
+let followingTab = document.querySelector("#tabs-2");
+
+searchInput.addEventListener('keyup',getSearchResults);
+deleteModalBtn.addEventListener('click',deleteWithModal);
 
 let postBeingChangedID = 0;
 let postBeingDeletedID = 0;
@@ -55,16 +60,20 @@ if(!username){
     window.location.href = `./index.html`;
 }
 
-deleteModalBtn.addEventListener('click',deleteWithModal);
+function getSearchResults(e){
+    let query = e.target.value;    
+    if(query.length > 0){                            
+        loadSelfPostCards(query.toLowerCase())
+    }
+    else{
+        loadSelfPostCards("")
+    }
+}
 
-let followingTab = document.querySelector("#tabs-2");
-
-const urlParams = new URLSearchParams(window.location.search);
-// const username = urlParams.get('username');
 
 let imgLink = "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80";
 
-loadSelfPostCards();
+loadSelfPostCards("");
 changeNameHolder();
 addUsersIfollow();
 getDailtyActivity(username);
@@ -85,13 +94,18 @@ async function changeNameHolder() {
     fullNameDiv.innerHTML = fullName;
 }
 
-async function refreshSelfCards() {
+async function refreshSelfCards(query) {
     postMainDiv.innerHTML = "";
     let userPosts = await getUserSpecificPost(username);
     userPosts.forEach(post => {
-        let postTime = new Date(post.data.post_time * 1000);
-        let postCardFromDB = getProfilePostCard(imgLink, post.data.post_title, post.data.user_id, 'moment(postTime).format("dd hA ")', post.data.content, post.data.like_count, post.key, post.isLiked, post.isInFavs);
-        postMainDiv.innerHTML += postCardFromDB;
+        let title = post.data.post_title.toLowerCase();
+        let author = post.data.user_id.toLowerCase();           
+        
+        if(post.data.visible && (title.indexOf(query) != -1 || author.indexOf(query) != -1 || query === "")){
+            let postCardFromDB = getPostCard(imgLink,post.data.post_title,post.data.user_id,'moment(postTime).format("dd hA ")',post.data.content,post.data.like_count,post.key,post.isLiked,post.isInFavs);        
+            // let postCardFromDB = getPostCard(imgLink,post.post_title,post.user_id,'moment(postTime).format("dd hA ")',post.content,post.like_count,post.key,post.isLiked,post.isInFavs);                    
+            postMainDiv.append( postCardFromDB);        
+        };
     })
 
     let postLikeButtons = document.querySelectorAll('.like-count-section');
@@ -127,8 +141,8 @@ async function addUsersIfollow() {
 }
 
 
-async function loadSelfPostCards() {
-    await refreshSelfCards();
+async function loadSelfPostCards(query) {
+    await refreshSelfCards(query);
     //delete event listners
     let cards = document.querySelectorAll(".icon-trash");
     cards.forEach(card => {
