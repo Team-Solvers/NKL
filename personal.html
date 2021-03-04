@@ -84,9 +84,10 @@
 
                         <div class="d-flex">
                             <div class="content_avatar_name_propic  ">---</div>
-                            <div class="followers">Followers: <span class="followersNumber">0</span> </div>
-                            <div class="followers">Following: <span class="followingNumber">0</span></div>
-                            <div class="followers">Posts : <span class="postNumber">0</span></div>
+                            <div class="followers ml-2">Followers: <span class="followersNumber">0</span> </div>
+                            <div class="followers ml-2">Following: <span class="followingNumber">0</span></div>
+                            <div class="followers ml-2">Posts : <span class="postNumber">0</span></div>
+                            <div class="followers ml-2">Bio : <span class="bio-out">0</span></div>
                         </div>
                     </div>
                 </div>
@@ -94,7 +95,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Posts</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Activity Graph</a>
+                    </li>
 
                 </ul>
 
@@ -104,7 +107,12 @@
 
                     </div>
 
-                   
+                    <div class="tab-pane tab-content-center" id="tabs-3">
+                        <div class="chart-container p-5">
+                            <p class="activity-graph-text">Activity Graph</p>
+                            <canvas width="600" height="250" id="myChart"></canvas>
+                        </div>
+                    </div>
                 </div>
 
               
