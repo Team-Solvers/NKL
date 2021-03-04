@@ -103,6 +103,7 @@ async function addLikeAndSaveFavEventListener(firstTime) {
     //add follow event-listner here
 
     let images = document.querySelectorAll('.go-profile');
+    // console.log(images);
     let adding = await addImageToPersonalPageEventListner(images); //adding event listner to images; 
 }
 
